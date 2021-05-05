@@ -18,6 +18,38 @@ a {
   text-decoration: none;
 }
 
+input {
+  padding: 10px;
+  background-color: $light-color;
+  border: 1px solid $secondary-color;
+  border-radius: 12px;
+  outline: none;
+  font-family: $ff-primary;
+  color: $secondary-color;
+
+  @include breakpoint-up(smPhone) {
+    padding: 12px;
+  }
+
+  &::placeholder {
+    color: $secondary-color;
+  }
+}
+
+button {
+  padding: 10px;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  font-family: $ff-primary;
+  color: $light-color;
+
+  @include breakpoint-up(smPhone) {
+    padding: 12px;
+  }
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;
