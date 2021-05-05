@@ -29,12 +29,15 @@
     />
   </head>
   <body>
-    <main class="dashboard container container--px">
-      <div class="content">
-        <section class="dashboard__search">
-          <h1>tracing dokumen</h1>
+    <main class="dashboard flex">
+      <div class="dashboard__header container--px">
+        <h1>tracing dokumen</h1>
+      </div>
+
+      <div class="dashboard__content">
+        <section class="dashboard__content-search">
           <form autocomplete="off" action="#" method="GET">
-            <div class="dashboard__search-find flex">
+            <div class="find flex">
               <input autocomplete="off" type="text" name="soa" id="soa" placeholder="SOA" required />
               <button type="submit">
                 <i class="fas fa-search"></i>
@@ -42,12 +45,11 @@
             </div>
           </form>
         </section>
-
-        <section class="dashboard__table">
+        <section class="dashboard__content-table">
           <div class="table-responsive">
             <table class="table">
-              <thead class="thead-dark">
-                <tr>
+              <thead>
+                <tr class="table-secondary">
                   <th scope="col">SOA</th>
                   <th scope="col">Departemen</th>
                   <th scope="col">Tanggal Masuk</th>

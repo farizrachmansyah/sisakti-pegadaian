@@ -1,72 +1,79 @@
 .dashboard {
-  padding: 0 1rem;
   height: 100vh;
+  flex-direction: column;
   background-color: $light-color;
 
-  .content {
-    height: 100%;
-    padding: 2rem 0;
-  }
-
-  &__search {
-    margin-bottom: 1.5rem;
+  &__header {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    background-color: $primary-color;
 
     h1 {
-      max-width: 50%;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      color: $primary-color;
-      font-size: 2rem;
-      font-weight: weight(bold);
-
-      @include breakpoint-up(smPhone) {
-        font-size: 2.5rem;
-      }
+      color: $light-color;
+      font-size: 1.5rem;
+      text-transform: capitalize;
     }
+  }
 
-    &-find {
-      width: 100%;
-      position: relative;
+  &__content {
+    flex-grow: 1;
+    padding: 1rem;
 
-      input {
-        flex: 1;
-        padding: 8px 14px;
-        background-color: $dark-color;
-        color: #ffffff;
-        border: none;
-        font-size: 0.75rem;
-      }
+    &-search {
+      margin-bottom: 1rem;
 
-      button {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        padding: 8px 14px;
-        background: none;
-        font-size: 0.75rem;
-        color: #ffffff;
-        transition: all 0.2s ease;
+      .find {
+        width: 100%;
+        position: relative;
 
-        &:hover,
-        &:focus,
-        &:active {
-          background-color: $primary-color;
+        input {
+          flex: 1;
+          padding: 8px 12px;
+          background-color: $light-color;
+          color: $secondary-color;
+          border: none;
+          box-shadow: 0px 3px 10px #d6d8db;
+          font-size: 0.75rem;
+
+          &::placeholder {
+            color: #d6d8db;
+          }
+        }
+
+        button {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          padding: 8px 12px;
+          background: none;
+          border: 1px solid transparent;
+          font-size: 0.75rem;
+          color: $primary-color;
+          transition: all 0.2s ease;
+
+          &:hover,
+          &:focus,
+          &:active {
+            border: 1px solid $primary-color;
+          }
         }
       }
     }
-  }
 
-  &__table {
-    thead th {
-      vertical-align: middle;
-      text-align: center;
-      font-size: 0.625rem;
-      font-weight: weight(medium);
-    }
+    &-table {
+      thead {
+        th {
+          vertical-align: middle;
+          text-align: center;
+          font-size: 0.75rem;
+          font-weight: weight(medium);
+        }
+      }
 
-    tbody td {
-      font-size: 0.625rem;
+      tbody td {
+        font-size: 0.75rem;
+      }
     }
   }
 }
