@@ -1,0 +1,78 @@
+.login {
+  height: 100vh;
+  background-color: $primary-color;
+
+  .wrapper {
+    flex-direction: column;
+    height: 100%;
+    padding: 3rem 0;
+  }
+
+  &__greetings {
+    color: $light-color;
+
+    .title {
+      margin-bottom: 0.5rem;
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 2.25rem;
+        line-height: 1.3;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: weight(medium);
+        line-height: 1.3;
+      }
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 0.875rem;
+      text-transform: capitalize;
+    }
+  }
+
+  &__form {
+    flex-grow: 1;
+
+    form {
+      height: 100%;
+      flex-direction: column;
+    }
+
+    &-input {
+      margin-top: 2rem;
+      flex-direction: column;
+
+      input {
+        padding: 10px;
+        background-color: $primary-color;
+        border: 1px solid $light-color;
+        border-radius: 12px;
+        outline: none;
+        font-family: $ff-primary;
+        color: $light-color;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+
+        &::placeholder {
+          color: $light-color;
+        }
+      }
+    }
+
+    &-button {
+      padding: 10px;
+      background-color: $dark-color;
+      border: none;
+      border-radius: 12px;
+      outline: none;
+      font-family: $ff-primary;
+      color: $light-color;
+    }
+  }
+}
