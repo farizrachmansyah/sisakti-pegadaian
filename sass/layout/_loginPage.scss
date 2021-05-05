@@ -1,78 +1,111 @@
 .login {
   height: 100vh;
-  background-color: $primary-color;
+  background-color: $light-color;
 
-  .wrapper {
-    flex-direction: column;
-    height: 100%;
-    padding: 3rem 0;
-  }
+  &__header {
+    height: 30vh;
+    position: relative;
 
-  &__greetings {
-    color: $light-color;
-
-    .title {
-      margin-bottom: 0.5rem;
-
-      h1 {
-        text-transform: uppercase;
-        font-size: 2.25rem;
-        line-height: 1.3;
-      }
-
-      h2 {
-        font-size: 1.25rem;
-        font-weight: weight(medium);
-        line-height: 1.3;
-      }
-    }
-
-    p {
-      color: $secondary-color;
-      font-size: 0.875rem;
-      text-transform: capitalize;
-    }
-  }
-
-  &__form {
-    flex-grow: 1;
-
-    form {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
-      flex-direction: column;
+      background: url("../../dist/assets/bg-login.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: brightness(40%) opacity(0.3);
     }
 
-    &-input {
-      margin-top: 2rem;
-      flex-direction: column;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../../dist/assets/logo-login.png");
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
 
-      input {
+  &__content {
+    flex-direction: column;
+    height: 70vh;
+
+    &-greetings {
+      color: $primary-color;
+
+      .title {
+        margin-bottom: 0.5rem;
+
+        h1 {
+          text-transform: uppercase;
+          font-size: 2.25rem;
+          line-height: 1.3;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+          font-weight: weight(medium);
+          line-height: 1.3;
+        }
+      }
+
+      p {
+        color: $secondary-color;
+        font-size: 0.875rem;
+        text-transform: capitalize;
+      }
+    }
+
+    &-form {
+      flex-grow: 1;
+      margin-top: 3rem;
+
+      form {
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+      }
+
+      &-input {
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+
+        input {
+          padding: 10px;
+          background-color: $light-color;
+          border: 1px solid $secondary-color;
+          border-radius: 12px;
+          outline: none;
+          font-family: $ff-primary;
+          color: $light-color;
+
+          &:not(:last-child) {
+            margin-bottom: 0.5rem;
+          }
+
+          &::placeholder {
+            color: $secondary-color;
+          }
+        }
+      }
+
+      &-button {
         padding: 10px;
         background-color: $primary-color;
-        border: 1px solid $light-color;
+        border: none;
         border-radius: 12px;
         outline: none;
         font-family: $ff-primary;
         color: $light-color;
-
-        &:not(:last-child) {
-          margin-bottom: 0.5rem;
-        }
-
-        &::placeholder {
-          color: $light-color;
-        }
       }
-    }
-
-    &-button {
-      padding: 10px;
-      background-color: $dark-color;
-      border: none;
-      border-radius: 12px;
-      outline: none;
-      font-family: $ff-primary;
-      color: $light-color;
     }
   }
 }

@@ -12,10 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <main class="login container container--px">
-      <div class="wrapper flex flex-jc-sb">
+    <main class="login container">
+      <header class="login__header"></header>
+      <div class="login__content container--p flex flex-jc-sb">
         <!-- Teks di halaman login -->
-        <section class="login__greetings">
+        <section class="login__content-greetings">
           <div class="title">
             <h1>welcome</h1>
             <h2>to SiSAKTI Pegadaian</h2>
@@ -24,13 +25,13 @@
         </section>
 
         <!-- Form di halaman login -->
-        <section class="login__form">
-          <form action="#" method="POST" class="flex flex-jc-sb">
-            <div class="login__form-input flex">
+        <section class="login__content-form">
+          <form action="#" method="POST" class="flex">
+            <div class="login__content-form-input flex">
               <input type="username" name="username" id="username" placeholder="Username" required />
               <input type="password" name="password" id="password" placeholder="Password" required />
             </div>
-            <button class="login__form-button" type="submit">Login</button>
+            <button class="login__content-form-button" type="submit">Login</button>
           </form>
         </section>
       </div>
