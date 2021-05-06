@@ -24,7 +24,7 @@ input {
   border: none;
   border-radius: 4px;
   outline: none;
-  box-shadow: 0px 3px 5px #c6c8cb;
+  box-shadow: 0px 3px 5px #d6d8db;
   font-family: $ff-primary;
   color: $secondary-color;
 
@@ -33,7 +33,7 @@ input {
   }
 
   &::placeholder {
-    color: $secondary-color;
+    color: #c6c8cb;
   }
 }
 
