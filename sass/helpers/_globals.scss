@@ -21,9 +21,10 @@ a {
 input {
   padding: 10px;
   background-color: $light-color;
-  border: 1px solid $secondary-color;
+  border: none;
   border-radius: 4px;
   outline: none;
+  box-shadow: 0px 3px 5px #c6c8cb;
   font-family: $ff-primary;
   color: $secondary-color;
 
