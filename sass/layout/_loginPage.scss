@@ -61,8 +61,12 @@
 
       p {
         color: $secondary-color;
-        font-size: 0.875rem;
+        font-size: 0.8rem;
         text-transform: capitalize;
+
+        @include breakpoint-up(smPhone) {
+          font-size: 0.9rem;
+        }
       }
     }
 
@@ -78,10 +82,10 @@
 
       &-input {
         flex-direction: column;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
 
         @include breakpoint-up(smPhone) {
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
         }
 
         .item {
@@ -100,7 +104,11 @@
           }
 
           &:not(:last-child) {
-            margin-bottom: 14px;
+            margin-bottom: 0.5rem;
+
+            @include breakpoint-up(smPhone) {
+              margin-bottom: 0.75rem;
+            }
           }
         }
       }
