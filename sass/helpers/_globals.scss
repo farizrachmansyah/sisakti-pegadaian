@@ -126,3 +126,27 @@ button {
     }
   }
 }
+
+.sweetalert-btn-primary {
+  background-color: $primary-color !important;
+}
+
+.register-form {
+  margin: 1rem 0;
+
+  & > * {
+    width: 100%;
+    font-size: 14px;
+    color: $dark-color;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__soa {
+    &::placeholder {
+      color: $dark-color;
+    }
+  }
+}
