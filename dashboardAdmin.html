@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiSAKTI &MediumSpace;-&MediumSpace; Dashboard</title>
+    <title>SiSAKTI &MediumSpace;-&MediumSpace; Admin</title>
 
     <!-- Bootstrap -->
     <link
@@ -29,37 +29,28 @@
     />
   </head>
   <body>
-    <main class="dashboard flex">
-      <div class="dashboard__header container--px">
-        <h1>tracing dokumen</h1>
+    <main class="dashboard">
+      <div class="header-container">
+        <div class="header-container-content container--px">
+          <h1 class="title">daftar dokumen</h1>
+        </div>
       </div>
 
       <div class="dashboard__content">
-        <section class="dashboard__content-search">
-          <form autocomplete="off" action="#" method="GET">
-            <div class="find flex">
-              <input autocomplete="off" type="text" name="soa" id="soa" placeholder="SOA" required />
-              <button type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </form>
-        </section>
         <section class="dashboard__content-table">
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr class="table-secondary">
+                  <th scope="col">No</th>
                   <th scope="col">SOA</th>
                   <th scope="col">Departemen</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
-                  <th scope="col">Mata Anggaran</th>
-                  <th scope="col">Jumlah Permintaan</th>
-                  <th scope="col">Pemegang Anggaran</th>
-                  <th scope="col">Perihal</th>
-                  <th scope="col">Lokasi</th>
+                  <th scope="col">Nama Pemegang Anggaran</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Lokasi</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,42 +59,52 @@
                   <td>Fariz</td>
                   <td>Ganteng</td>
                   <td>Banget</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>Banget</td>
+                  <td>Banget</td>
+                  <td>Banget</td>
+                  <td>Banget</td>
+                  <td>
+                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                  </td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Alin</td>
                   <td>Bocah</td>
                   <td>Pro</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>Pro</td>
+                  <td>Pro</td>
+                  <td>Pro</td>
+                  <td>Pro</td>
+                  <td>
+                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                  </td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Rara</td>
                   <td>Bocah</td>
                   <td>Kurang</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>Kurang</td>
+                  <td>Kurang</td>
+                  <td>Kurang</td>
+                  <td>Kurang</td>
+                  <td>
+                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
+
+        <section class="dashboard__content-footer">
+          <button type="submit" class="btn-terima">terima dokumen</button>
+        </section>
       </div>
     </main>
+
+    <script src="./dist/js/admin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </body>
 </html>

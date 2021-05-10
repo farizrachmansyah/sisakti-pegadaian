@@ -83,3 +83,46 @@ button {
     justify-content: space-between;
   }
 }
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__content {
+    flex-grow: 1;
+    padding: 1rem;
+
+    &-table {
+      thead {
+        th {
+          vertical-align: middle;
+          text-align: center;
+          font-size: 0.75rem;
+          font-weight: weight(medium);
+        }
+      }
+
+      tbody td {
+        font-size: 0.75rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.header-container {
+  background-color: $light-color;
+
+  &-content {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    background-color: $primary-color;
+
+    .title {
+      color: $light-color;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+    }
+  }
+}

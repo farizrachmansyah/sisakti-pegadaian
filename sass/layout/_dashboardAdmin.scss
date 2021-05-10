@@ -1,0 +1,22 @@
+.dashboard {
+  &__content {
+    &-table {
+      .btn-edit {
+        padding: 0;
+        background: none;
+        color: $primary-color;
+        font-size: 1rem;
+      }
+    }
+
+    &-footer {
+      text-align: right;
+
+      .btn-terima {
+        margin: 1rem 0;
+        text-transform: capitalize;
+        font-size: 1rem;
+      }
+    }
+  }
+}

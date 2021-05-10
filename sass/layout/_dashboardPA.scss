@@ -1,24 +1,5 @@
 .dashboard {
-  height: 100vh;
-  flex-direction: column;
-  background-color: $light-color;
-
-  &__header {
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    background-color: $primary-color;
-
-    h1 {
-      color: $light-color;
-      font-size: 1.5rem;
-      text-transform: capitalize;
-    }
-  }
-
   &__content {
-    flex-grow: 1;
-    padding: 1rem;
-
     &-search {
       margin-bottom: 1rem;
 
@@ -50,21 +31,6 @@
             border: 1px solid $primary-color;
           }
         }
-      }
-    }
-
-    &-table {
-      thead {
-        th {
-          vertical-align: middle;
-          text-align: center;
-          font-size: 0.75rem;
-          font-weight: weight(medium);
-        }
-      }
-
-      tbody td {
-        font-size: 0.75rem;
       }
     }
   }
