@@ -53,6 +53,10 @@ button {
     padding: 12px;
     font-size: 1rem;
   }
+
+  &:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2));
+  }
 }
 
 .container {
@@ -106,6 +110,7 @@ button {
       tbody td {
         font-size: 0.75rem;
         text-align: center;
+        text-transform: capitalize;
       }
     }
   }

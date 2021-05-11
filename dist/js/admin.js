@@ -1,9 +1,25 @@
-class SetButton {
+class UI {
   constructor() {
     this.tableRow = document.querySelectorAll('tbody tr');
   }
 
-  setDataset() {
+  buttonAndStatusColor() {
+    this.tableRow.forEach(row => {
+      const rowCol = Array.from(row.children);
+      const statusInfo = rowCol[6];
+      const editBtn = rowCol[8].firstElementChild;
+
+      if (statusInfo.innerHTML.toLowerCase() == 'register') {
+        statusInfo.style.color = '#00ab4e';
+        editBtn.style.color = '#00ab4e';
+      } else if (statusInfo.innerHTML.toLowerCase() == 'kembali') {
+        statusInfo.style.color = '#e74c3c';
+        editBtn.style.color = '#e74c3c';
+      }
+    })
+  }
+
+  setDatasetButton() {
     this.tableRow.forEach(row => {
       // get every column values from each row
       const rowCol = Array.from(row.children);
@@ -18,7 +34,7 @@ class SetButton {
         if (index == 1) {
           noSOA = col.innerHTML;
         } else if (index == 6) {
-          status = col.innerHTML;
+          status = col.innerHTML.toLowerCase();
         }
       })
 
@@ -100,9 +116,10 @@ class EventListener {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const setData = new SetButton();
+  const ui = new UI();
   const events = new EventListener();
 
-  setData.setDataset();
+  ui.buttonAndStatusColor();
+  ui.setDatasetButton();
   events.showModal();
 });
