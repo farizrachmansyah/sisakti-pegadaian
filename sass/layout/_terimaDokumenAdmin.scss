@@ -1,0 +1,59 @@
+.main {
+  &__content {
+    &-desc {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      background-color: $secondary-color;
+      border-radius: 4px;
+
+      .icon {
+        margin-right: 0.75rem;
+        color: $accent-color;
+      }
+
+      p {
+        margin: 0;
+        color: #ccc;
+        font-size: 0.75rem;
+        align-self: center;
+      }
+    }
+
+    &-input {
+      form {
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      input {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .datetime {
+        margin-bottom: 1rem;
+
+        input {
+          margin: 0;
+
+          &:first-child {
+            margin-right: 0.5rem;
+          }
+          &:last-child {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      button {
+        margin: 1rem 0;
+        text-transform: uppercase;
+        font-weight: weight(medium);
+      }
+    }
+  }
+}
