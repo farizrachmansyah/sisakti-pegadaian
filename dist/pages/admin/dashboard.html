@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="./dist/css/main.min.css" />
+    <link rel="stylesheet" href="../../css/main.min.css" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -30,6 +30,7 @@
   </head>
   <body>
     <main class="dashboard">
+      <!-- Header -->
       <div class="header-container">
         <div class="header-container-content container--px">
           <h1 class="title">daftar dokumen</h1>
@@ -37,7 +38,9 @@
       </div>
 
       <div class="dashboard__content">
+        <!-- Table -->
         <section class="dashboard__content-table">
+          <!-- Bootstrap Table -->
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -98,13 +101,15 @@
           </div>
         </section>
 
+        <!-- Button Submit -->
         <section class="dashboard__content-footer">
-          <button type="submit" class="btn-terima"><i class="fas fa-plus"></i> &MediumSpace; terima dokumen</button>
+          <a href="./terima-dokumen.html" type="submit" class="btn btn-terima"><i class="fas fa-plus"></i> &MediumSpace; terima dokumen</a>
         </section>
       </div>
     </main>
 
     <script src="./dist/js/admin.js"></script>
+    <!-- Library SweetAlert2 buat modal/popup -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </body>
 </html>

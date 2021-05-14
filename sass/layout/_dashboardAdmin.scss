@@ -4,18 +4,17 @@
       .btn-edit {
         padding: 0;
         background: none;
-        // color: $secondary-color;
         font-size: 1rem;
       }
     }
 
     &-footer {
       text-align: right;
+      color: $light-color;
 
       .btn-terima {
         margin: 1rem 0;
         text-transform: uppercase;
-        font-size: 0.75rem;
         font-weight: weight(medium);
       }
     }

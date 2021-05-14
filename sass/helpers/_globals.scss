@@ -1,3 +1,4 @@
+// RESET
 *,
 *::before,
 *::after {
@@ -10,6 +11,7 @@ html {
   font-size: 16px;
 }
 
+// GLOBAL
 body {
   font-family: $ff-primary;
 }
@@ -39,7 +41,8 @@ input {
   }
 }
 
-button {
+button,
+.btn {
   padding: 10px;
   background-color: $primary-color;
   border: none;
@@ -88,6 +91,7 @@ button {
   }
 }
 
+// COMPONENTS
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -132,10 +136,12 @@ button {
   }
 }
 
+// WARNAIN BUTTON DI MODAL/POPUP
 .sweetalert-btn-primary {
   background-color: $primary-color !important;
 }
 
+// BUTTON ACTION DI TABLE ADMIN
 .admin-action-form {
   margin: 1rem 0;
 
