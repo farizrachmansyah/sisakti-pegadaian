@@ -18,6 +18,10 @@ body {
 
 a {
   text-decoration: none;
+
+  &:hover {
+    color: inherit;
+  }
 }
 
 input {
@@ -99,7 +103,7 @@ button,
 
   &__content {
     flex-grow: 1;
-    padding: 1rem;
+    padding: 0.75rem;
 
     &-table {
       thead {
