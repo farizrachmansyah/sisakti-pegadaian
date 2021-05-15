@@ -2,5 +2,15 @@
   &__content {
     &-table {
     }
+
+    &-footer {
+      text-align: right;
+
+      a {
+        margin: 1rem 0;
+        text-transform: uppercase;
+        font-weight: weight(medium);
+      }
+    }
   }
 }
