@@ -8,5 +8,15 @@
   </head>
   <body>
     <h1>Hai</h1>
+
+    <script>
+      const url_string = window.location.href;
+      const url = new URL(url_string);
+      const soa = url.searchParams.get("soa");
+      console.log(soa);
+
+      const h1 = document.querySelector("h1");
+      h1.innerText = soa;
+    </script>
   </body>
 </html>
