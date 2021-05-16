@@ -1,0 +1,19 @@
+.report {
+  &__content {
+    &-box {
+      flex-direction: column;
+      height: 100%;
+
+      .item {
+        padding: 1rem;
+        background-color: #c6c8cb;
+        border-radius: 4px;
+
+        a {
+          color: $dark-color;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
