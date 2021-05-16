@@ -1,0 +1,96 @@
+.konfirmasi {
+  &__content {
+    &-form {
+      form {
+        flex-direction: column;
+
+        .part {
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        .profile {
+          input {
+            font-size: 1rem;
+          }
+
+          #soafield {
+            box-shadow: none;
+            padding: 0.75rem 10px;
+
+            &::placeholder {
+              color: $secondary-color;
+            }
+          }
+        }
+
+        .info {
+          p {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #c6c8cb;
+          }
+
+          &-choice {
+            border-bottom: 1px solid #c6c8cb;
+            padding: 2rem 0;
+
+            &.sopp {
+              padding-top: 0;
+            }
+
+            &.foto {
+              border-bottom: none;
+              padding-bottom: 0;
+            }
+
+            label {
+              margin-bottom: 1rem;
+              font-weight: weight(bold);
+            }
+
+            &-options {
+              justify-content: space-evenly;
+
+              .option {
+                font-weight: weight(light);
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+
+        .buttons {
+          margin-top: 1rem;
+
+          button {
+            flex: 1;
+            border: 2px solid $primary-color;
+            text-transform: uppercase;
+            font-weight: weight(medium);
+
+            &:first-child {
+              border-radius: 4px 0 0 4px;
+              background-color: $light-color;
+              color: $primary-color;
+            }
+            &:last-child {
+              border-radius: 0 4px 4px 0;
+            }
+          }
+        }
+      }
+
+      input {
+        &:not(input[type="radio"]) {
+          width: 100%;
+
+          &:not(:last-child) {
+            margin-bottom: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
