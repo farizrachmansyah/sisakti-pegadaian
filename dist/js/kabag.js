@@ -23,14 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
     soaField.placeholder = `SOA : ${soaData}`;
 
     const radioBtnLainnya = document.querySelectorAll('.option-lainnya');
-    console.log(radioBtnLainnya);
 
     radioBtnLainnya.forEach(radio => {
       radio.addEventListener('click', () => {
         if (radio.checked == true) {
-          let anotherOption = prompt('Masukkan pilihan lainnya');
+          radio.checked = false;
 
-          radio.nextSibling.textContent = `\n${anotherOption}`;
+          let anotherOption = null;
+
+          do {
+            anotherOption = prompt('Masukkan pilihan lainnya');
+          } while (anotherOption === '')
+
+          if (anotherOption !== null) {
+            radio.checked = true;
+            radio.nextSibling.textContent = `\n${anotherOption}`;
+          } else {
+            radio.checked = false;
+            radio.nextSibling.textContent = '\nlainnya';
+          }
         }
       });
     });
