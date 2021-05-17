@@ -4,15 +4,12 @@
       flex-direction: column;
       height: 100%;
 
-      .item {
+      a {
         padding: 1rem;
-        background-color: #c6c8cb;
         border-radius: 4px;
-
-        a {
-          color: $dark-color;
-          text-transform: capitalize;
-        }
+        background-color: #c6c8cb;
+        color: $dark-color;
+        text-transform: capitalize;
       }
     }
   }
