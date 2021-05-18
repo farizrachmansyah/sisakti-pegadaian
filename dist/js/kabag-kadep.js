@@ -2,16 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // get the string of current url page
   const URL_STRING = window.location.href;
 
-  // conditional statements for each page
+  // conditional statements for different pages
   if (URL_STRING.includes('dashboard')) {
     const tableRows = document.querySelectorAll('tbody tr');
 
     tableRows.forEach(row => {
       row.addEventListener('click', el => {
         const thisRowData = el.target.parentElement;
-        const theSOA = thisRowData.firstElementChild.innerText;
 
-        window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
+        if (URL_STRING.includes('kadep')) {
+          const theSOA = thisRowData.children[1].innerText;
+          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
+        } else {
+          const theSOA = thisRowData.firstElementChild.innerText;
+          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
+        }
       })
     })
   } else if (URL_STRING.includes('konfirmasi-dokumen')) {
@@ -46,5 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   };
-
 });
