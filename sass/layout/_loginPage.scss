@@ -82,6 +82,9 @@
           @include breakpoint-up(mdDesktop) {
             font-size: 1.25rem;
           }
+          @include breakpoint-up(lgDesktop) {
+            font-size: 1.5rem;
+          }
 
           span {
             // text-transform: none;
@@ -99,6 +102,9 @@
             }
             @include breakpoint-up(mdDesktop) {
               font-size: 6rem;
+            }
+            @include breakpoint-up(lgDesktop) {
+              font-size: 8rem;
             }
           }
         }
@@ -123,6 +129,9 @@
         }
         @include breakpoint-up(mdDesktop) {
           font-size: 1.25rem;
+        }
+        @include breakpoint-up(mdDesktop) {
+          font-size: 1.5rem;
         }
       }
     }
@@ -154,6 +163,9 @@
         @include breakpoint-up(smDesktop) {
           margin-bottom: 2.5rem;
         }
+        @include breakpoint-up(lgDesktop) {
+          margin-bottom: 3rem;
+        }
 
         .item {
           color: $primary-color;
@@ -171,6 +183,10 @@
             @include breakpoint-up(mdDesktop) {
               padding: 0 1rem;
               font-size: 1rem;
+            }
+            @include breakpoint-up(lgDesktop) {
+              padding: 2rem;
+              font-size: 1.5rem;
             }
           }
 
@@ -191,6 +207,10 @@
             @include breakpoint-up(mdDesktop) {
               font-size: 1rem;
             }
+            @include breakpoint-up(lgDesktop) {
+              font-size: 1.75rem;
+              padding: 0 2rem 0 0;
+            }
           }
 
           &:not(:last-child) {
@@ -204,6 +224,9 @@
             }
             @include breakpoint-up(mdDesktop) {
               margin-bottom: 0.75rem;
+            }
+            @include breakpoint-up(lgDesktop) {
+              margin-bottom: 1rem;
             }
           }
         }
@@ -221,6 +244,10 @@
         }
         @include breakpoint-up(mdDesktop) {
           font-size: 1rem;
+        }
+        @include breakpoint-up(lgDesktop) {
+          font-size: 1.75rem;
+          padding: 1rem 2rem;
         }
       }
     }
