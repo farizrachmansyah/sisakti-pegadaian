@@ -2,9 +2,21 @@
   height: 100vh;
   background-color: $light-color;
 
+  @include breakpoint-up(mdDesktop) {
+    display: flex;
+  }
+
   &__header {
     height: 30vh;
     position: relative;
+
+    @include breakpoint-up(tablet) {
+      height: 40vh;
+    }
+    @include breakpoint-up(mdDesktop) {
+      height: 100%;
+      flex: 1;
+    }
 
     &::before {
       content: "";
@@ -38,6 +50,16 @@
     flex-direction: column;
     height: 70vh;
 
+    @include breakpoint-up(tablet) {
+      height: 60vh;
+      justify-content: space-evenly;
+      margin: 0 3rem;
+    }
+    @include breakpoint-up(mdDesktop) {
+      height: 100%;
+      flex: 1;
+    }
+
     &-greetings {
       color: $primary-color;
 
@@ -51,10 +73,33 @@
           text-transform: uppercase;
           color: $primary-color;
 
+          @include breakpoint-up(lgPhone) {
+            font-size: 1.125rem;
+          }
+          @include breakpoint-up(tablet) {
+            font-size: 2rem;
+          }
+          @include breakpoint-up(mdDesktop) {
+            font-size: 1.25rem;
+          }
+
           span {
             // text-transform: none;
             font-size: 3.5rem;
             color: $accent-color;
+
+            @include breakpoint-up(lgPhone) {
+              font-size: 4rem;
+            }
+            @include breakpoint-up(tablet) {
+              font-size: 6rem;
+            }
+            @include breakpoint-up(smDesktop) {
+              font-size: 8rem;
+            }
+            @include breakpoint-up(mdDesktop) {
+              font-size: 6rem;
+            }
           }
         }
       }
@@ -67,12 +112,31 @@
         @include breakpoint-up(smPhone) {
           font-size: 0.9rem;
         }
+        @include breakpoint-up(lgPhone) {
+          font-size: 1rem;
+        }
+        @include breakpoint-up(tablet) {
+          font-size: 1.5rem;
+        }
+        @include breakpoint-up(smDesktop) {
+          font-size: 2rem;
+        }
+        @include breakpoint-up(mdDesktop) {
+          font-size: 1.25rem;
+        }
       }
     }
 
     &-form {
       flex-grow: 1;
       margin-top: 3rem;
+
+      @include breakpoint-up(tablet) {
+        flex-grow: unset;
+      }
+      @include breakpoint-up(mdDesktop) {
+        margin: 0 8rem;
+      }
 
       form {
         flex-direction: column;
@@ -87,6 +151,9 @@
         @include breakpoint-up(smPhone) {
           margin-bottom: 2rem;
         }
+        @include breakpoint-up(smDesktop) {
+          margin-bottom: 2.5rem;
+        }
 
         .item {
           color: $primary-color;
@@ -94,12 +161,36 @@
 
           i {
             padding: 0 15px;
+
+            @include breakpoint-up(lgPhone) {
+              font-size: 1.25rem;
+            }
+            @include breakpoint-up(tablet) {
+              padding: 0 1.5rem;
+            }
+            @include breakpoint-up(mdDesktop) {
+              padding: 0 1rem;
+              font-size: 1rem;
+            }
           }
 
           input {
             width: 100%;
             box-shadow: none;
             padding-left: 0;
+
+            @include breakpoint-up(lgPhone) {
+              font-size: 1.25rem;
+            }
+            @include breakpoint-up(tablet) {
+              font-size: 1.5rem;
+            }
+            @include breakpoint-up(smDesktop) {
+              font-size: 2rem;
+            }
+            @include breakpoint-up(mdDesktop) {
+              font-size: 1rem;
+            }
           }
 
           &:not(:last-child) {
@@ -108,7 +199,28 @@
             @include breakpoint-up(smPhone) {
               margin-bottom: 0.75rem;
             }
+            @include breakpoint-up(smDesktop) {
+              margin-bottom: 1.5rem;
+            }
+            @include breakpoint-up(mdDesktop) {
+              margin-bottom: 0.75rem;
+            }
           }
+        }
+      }
+
+      &-button {
+        @include breakpoint-up(lgPhone) {
+          font-size: 1.25rem;
+        }
+        @include breakpoint-up(tablet) {
+          font-size: 1.5rem;
+        }
+        @include breakpoint-up(smDesktop) {
+          font-size: 2rem;
+        }
+        @include breakpoint-up(mdDesktop) {
+          font-size: 1rem;
         }
       }
     }
