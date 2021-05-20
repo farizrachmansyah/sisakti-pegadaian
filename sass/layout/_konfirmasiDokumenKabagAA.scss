@@ -26,10 +26,21 @@
         }
 
         .info {
+          @include breakpoint-up(mdDesktop) {
+            width: 40%;
+            margin: 0 auto;
+          }
+
           p {
             margin-bottom: 2rem;
             text-align: center;
-            color: #c6c8cb;
+            color: $dark-color;
+            text-transform: uppercase;
+            font-weight: weight(bold);
+
+            @include breakpoint-up(tablet) {
+              font-size: 1.5rem;
+            }
           }
 
           &-choice {
@@ -64,11 +75,22 @@
         .buttons {
           margin-top: 1rem;
 
+          @include breakpoint-up(mdDesktop) {
+            width: 40%;
+            margin-top: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
           button {
             flex: 1;
             border: 2px solid $primary-color;
             text-transform: uppercase;
             font-weight: weight(medium);
+
+            @include breakpoint-up(mdDesktop) {
+              padding: 0.5rem;
+            }
 
             &:first-child {
               border-radius: 4px 0 0 4px;
