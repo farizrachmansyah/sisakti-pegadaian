@@ -68,6 +68,30 @@
         }
       }
 
+      .permintaan {
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        box-shadow: 0px 3px 5px #d6d8db;
+        background-color: $light-color;
+
+        span {
+          padding: 10px;
+          font-size: 0.75rem;
+          font-weight: weight(semiBold);
+
+          @include breakpoint-up(smPhone) {
+            padding: 12px;
+            font-size: 1rem;
+          }
+        }
+
+        input {
+          box-shadow: none;
+          background: none;
+          padding-left: 0;
+        }
+      }
+
       button {
         margin: 1rem 0;
         text-transform: uppercase;
