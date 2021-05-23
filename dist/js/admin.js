@@ -72,7 +72,10 @@ class EventListener {
           <input type="date" />
           <input type="time" />
           <input type="text" placeholder="Nomor Register" />
-          <input type="text" placeholder="Jumlah Permintaan" />
+          <div class="admin-action-form__permintaan flex flex-ai-c">
+            <span>Rp. </span>
+            <input type="number" placeholder="Jumlah Permintaan"/>
+          </div>
         </div>
       `,
       confirmButtonText: 'Submit',
