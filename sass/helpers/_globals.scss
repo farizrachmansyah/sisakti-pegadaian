@@ -141,21 +141,37 @@ button,
 }
 
 .header-container {
-  background-color: $light-color;
+  background-color: $primary-color;
+  padding: 2rem 2rem 1rem 2rem;
+
+  @include breakpoint-up(tablet) {
+    padding: 3rem 3rem 1rem 3rem;
+  }
 
   &-content {
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    background-color: $primary-color;
+    flex-direction: column;
 
     @include breakpoint-up(tablet) {
-      padding: 6rem 3rem 1rem 3rem;
+      height: 100%;
+    }
+
+    .logo {
+      width: 150px;
+
+      @include breakpoint-up(tablet) {
+        width: 175px;
+      }
+      @include breakpoint-up(smDesktop) {
+        width: 200px;
+      }
     }
 
     .title {
+      margin-top: 4rem;
       color: $light-color;
       font-size: 1.5rem;
       text-transform: capitalize;
+      text-align: right;
 
       @include breakpoint-up(tablet) {
         font-size: 2rem;
