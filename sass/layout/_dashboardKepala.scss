@@ -1,13 +1,17 @@
 .kepala {
   &__content {
-    &-footer {
-      text-align: right;
+    .dropdown {
+      margin-bottom: 1rem;
 
-      a {
-        color: $light-color;
-        margin: 1rem 0;
-        text-transform: uppercase;
-        font-weight: weight(medium);
+      &-toggle {
+        @include breakpoint-down(phone) {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+
+      @include breakpoint-up(tablet) {
+        margin-bottom: 1.5rem;
       }
     }
   }

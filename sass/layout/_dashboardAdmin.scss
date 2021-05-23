@@ -9,11 +9,11 @@
     }
 
     &-footer {
+      margin: 1.25rem 0;
       text-align: right;
       color: $light-color;
 
       .btn-terima {
-        margin: 1rem 0;
         text-transform: uppercase;
         font-weight: weight(medium);
       }
