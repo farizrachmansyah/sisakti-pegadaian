@@ -9,16 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     tableRows.forEach(row => {
       row.addEventListener('click', el => {
         const thisRowData = el.target.parentElement;
+        let theSOA;
+        let thePerihal;
 
         if (URL_STRING.includes('kadep')) {
-          const theSOA = thisRowData.children[1].innerText;
-          // GAADA KOLOM PERIHAL DI TABLE HALAMAN KADEP
-          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
+          theSOA = thisRowData.children[1].innerText;
+          thePerihal = thisRowData.children[6].innerText;
         } else {
-          const theSOA = thisRowData.firstElementChild.innerText;
-          const thePerihal = thisRowData.children[7].innerText;
-          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}`;
+          theSOA = thisRowData.firstElementChild.innerText;
+          thePerihal = thisRowData.children[7].innerText;
         }
+
+        window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}`;
       })
     })
   } else if (URL_STRING.includes('konfirmasi-dokumen')) {

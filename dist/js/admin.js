@@ -3,6 +3,17 @@ class UI {
     this.tableRow = document.querySelectorAll('tbody tr');
   }
 
+  formatFixedSoa() {
+    this.tableRow.forEach(row => {
+      const rowCol = Array.from(row.children);
+      let soaData = rowCol[1];
+
+      soaData.innerText = `${soaData.innerText}/SOA-00108/2021`;
+
+      console.log(soaData);
+    });
+  }
+
   buttonAndStatusColor() {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
@@ -102,7 +113,16 @@ class EventListener {
           <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
           <input type="date" />
           <input type="time" />
-          <input type="text" placeholder="Departemen" />
+          <select class="input" name="dept" id="">
+            <option value="0">Departemen</option>
+            <option value="02.01">Keuangan</option>
+            <option value="03.01">SDM</option>
+            <option value="04.01">Logistik</option>
+            <option value="05.01">Legal Officer</option>
+            <option value="06.01">Humas</option>
+            <option value="07.01">Bussiness Support</option>
+            <option value="08.01">Manajemen Risiko</option>
+          </select>
           <input type="text" placeholder="Penerima" />
         </div>
       `,
@@ -122,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
   const events = new EventListener();
 
+  ui.formatFixedSoa();
   ui.buttonAndStatusColor();
   ui.setDatasetButton();
   events.showModal();
