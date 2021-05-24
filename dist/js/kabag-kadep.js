@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (URL_STRING.includes('kadep')) {
           const theSOA = thisRowData.children[1].innerText;
+          // GAADA KOLOM PERIHAL DI TABLE HALAMAN KADEP
           window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
         } else {
           const theSOA = thisRowData.firstElementChild.innerText;
-          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}`;
+          const thePerihal = thisRowData.children[7].innerText;
+          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}`;
         }
       })
     })
@@ -23,9 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // set soa number to appear in top of content page
     const CURRENT_URL = new URL(URL_STRING);
     const soaData = CURRENT_URL.searchParams.get('soa');
+    const perihalData = CURRENT_URL.searchParams.get('perihal');
+
     const soaField = document.querySelector('#soafield');
+    const perihalField = document.querySelector('#perihalfield');
 
     soaField.placeholder = `SOA : ${soaData}`;
+    perihalField.value = `${perihalData}`;
 
     const radioBtnLainnya = document.querySelectorAll('.option-lainnya');
 

@@ -24,11 +24,7 @@
         input {
           flex: 1;
           padding: 8px 12px;
-          font-size: 0.75rem;
-
-          @include breakpoint-up(tablet) {
-            font-size: 1rem;
-          }
+          font-size: 1rem;
         }
 
         button {
@@ -39,7 +35,7 @@
           padding: 8px 12px;
           background: none;
           border: 1px solid transparent;
-          font-size: 0.75rem;
+          font-size: 1rem;
           color: $primary-color;
           transition: all 0.2s ease;
 
