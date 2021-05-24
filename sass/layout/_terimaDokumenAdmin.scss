@@ -41,7 +41,8 @@
         }
       }
 
-      input {
+      input,
+      .input {
         width: 100%;
 
         &:not(:last-child) {
