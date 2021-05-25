@@ -43,11 +43,12 @@
 
       <div class="main__content konfirmasi__content">
         <section class="main__content-form konfirmasi__content-form">
-          <form class="flex" action="" method="POST">
+          <form class="flex" action="" method="">
             <div class="part profile">
               <input id="soafield" type="text" placeholder="soa" disabled />
-              <input id="perihalfield" type="text" placeholder="Perihal" required />
+              <input id="perihalfield" type="text" placeholder="Perihal" />
             </div>
+
             <div class="part info">
               <p>Keterangan</p>
               <div class="info-choice sopp">
@@ -255,9 +256,10 @@
                 </div>
               </div>
             </div>
+
             <div class="part buttons flex flex-ai-c">
               <button type="submit" value="save">simpan</button>
-              <button type="submit" value="confirm">konfirmasi</button>
+              <button id="confirmBtn" type="submit" value="confirm">konfirmasi</button>
             </div>
           </form>
         </section>

@@ -1,31 +1,28 @@
-class UI {
+class AdminUI {
   constructor() {
     this.tableRow = document.querySelectorAll('tbody tr');
   }
 
-  formatFixedSoa() {
+  buttonAndStatus() {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
-      let soaData = rowCol[1];
+      const statusInfo = rowCol[7];
+      const editBtn = rowCol[9].firstElementChild;
 
-      soaData.innerText = `${soaData.innerText}/SOA-00108/2021`;
+      editBtn.style.paddingLeft = '1rem';
+      editBtn.style.paddingRight = '1rem';
 
-      console.log(soaData);
-    });
-  }
-
-  buttonAndStatusColor() {
-    this.tableRow.forEach(row => {
-      const rowCol = Array.from(row.children);
-      const statusInfo = rowCol[6];
-      const editBtn = rowCol[8].firstElementChild;
-
-      if (statusInfo.innerHTML.toLowerCase() == 'register') {
+      if (statusInfo.innerHTML.toLowerCase() == 'diterima') {
         statusInfo.style.color = '#00ab4e';
         editBtn.style.color = '#00ab4e';
-      } else if (statusInfo.innerHTML.toLowerCase() == 'kembali') {
+        editBtn.innerHTML = '<i class="far fa-edit"></i>';
+      } else if (statusInfo.innerHTML.toLowerCase() == 'ditolak') {
         statusInfo.style.color = '#e74c3c';
         editBtn.style.color = '#e74c3c';
+        editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
+      } else if (statusInfo.innerHTML.toLowerCase() == 'dalam proses') {
+        statusInfo.style.color = '#636e72';
+        editBtn.style.visible = 'hidden';
       }
     })
   }
@@ -36,7 +33,8 @@ class UI {
       const rowCol = Array.from(row.children);
 
       // edit button from last column values in row and get the first element child 
-      const editBtn = rowCol[8].firstElementChild;
+      const editBtn = rowCol[9].firstElementChild;
+      console.log(editBtn);
 
       // get column value form soa column and status column, then put them in variables
       let noSOA = null;
@@ -44,7 +42,7 @@ class UI {
       rowCol.forEach((col, index) => {
         if (index == 1) {
           noSOA = col.innerHTML;
-        } else if (index == 6) {
+        } else if (index == 7) {
           status = col.innerHTML.toLowerCase();
         }
       })
@@ -64,7 +62,7 @@ class EventListener {
   showModal() {
     this.editBtn.forEach(button => {
       button.addEventListener('click', () => {
-        button.dataset.status === 'register' ? this.showRegisterModal(button.dataset.soa) : this.showKembaliModal(button.dataset.soa);
+        button.dataset.status === 'diterima' ? this.showRegisterModal(button.dataset.soa) : this.showKembaliModal(button.dataset.soa);
       })
     });
   }
@@ -139,11 +137,10 @@ class EventListener {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const ui = new UI();
+  const ui = new AdminUI();
   const events = new EventListener();
 
-  ui.formatFixedSoa();
-  ui.buttonAndStatusColor();
+  ui.buttonAndStatus();
   ui.setDatasetButton();
   events.showModal();
 });
