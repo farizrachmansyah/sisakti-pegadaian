@@ -1,4 +1,10 @@
 .report {
+  .header-container {
+    .title {
+      color: $light-color;
+    }
+  }
+
   &__content {
     &-box {
       flex-direction: column;

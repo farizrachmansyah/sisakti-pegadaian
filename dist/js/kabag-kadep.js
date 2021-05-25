@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // conditional statements for different pages
   if (URL_STRING.includes('dashboard')) {
+    // REPORT THINGS
+    const dropdownItem = document.querySelectorAll('.dropdown-item');
+    dropdownItem.forEach(item => {
+      item.href = `../report.html?page=${item.dataset.linked}`;
+    });
+
+    // TABLE THINGS
     const tableRows = document.querySelectorAll('tbody tr');
 
     tableRows.forEach(row => {
@@ -80,6 +87,27 @@ document.addEventListener('DOMContentLoaded', () => {
         radio.setAttribute('required', '');
       });
     }
-  };
+  } else if (URL_STRING.includes('report')) {
+    const CURRENT_URL = new URL(URL_STRING);
+    const pageData = CURRENT_URL.searchParams.get('page');
+
+    // MENGUBAH TULISAN TITLE DI HEADER
+    const headerTitle = document.querySelector('.header-container .title');
+
+    switch (pageData) {
+      case 'realisasi-ma':
+        headerTitle.innerText = `Jumlah Realisasi per Mata Anggaran`;
+        break;
+      case 'realisasi-dept':
+        headerTitle.innerText = `Jumlah Realisasi per Departemen`;
+        break;
+      case 'realisasi-pa':
+        headerTitle.innerText = `Jumlah Realisasi per Pemegang Anggaran`;
+        break;
+      case 'total-soa-ma':
+        headerTitle.innerText = `Total SOA per Mata Anggaran`;
+        break;
+    }
+  }
 
 });
