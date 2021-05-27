@@ -56,7 +56,7 @@
           <form action="">
             <input id="soa" type="text" placeholder="SOA" required />
             <select class="input" name="dept" id="">
-              <option value="0">Departemen</option>
+              <option selected disabled>Departemen</option>
               <option value="02.01">Keuangan</option>
               <option value="03.01">SDM</option>
               <option value="04.01">Logistik</option>
@@ -74,7 +74,23 @@
               <span>Rp. </span>
               <input type="number" placeholder="Jumlah Permintaan" required />
             </div>
-            <input type="text" placeholder="Pemegang Anggaran" required />
+            <select class="input" name="pemegang-anggaran" id="">
+              <option selected disabled>Pemegang Anggaran</option>
+              <option value="bs-analisa">KABAG Analisa Bisnis & Evaluasi Kerja</option>
+              <option value="bs-distribusi">KABAG Jaringan Distribusi & Layanan</option>
+              <option value="bs-pemasaran">KABAG Pemasaran & Penjualan</option>
+              <option value="bs-kemitraan">KABAG Kemitraan Bina Lingkungan</option>
+              <option value="sdm-pengembangan">KABAG Pengembangan SDM</option>
+              <option value="sdm-operasional">KABAG Operasional SDM</option>
+              <option value="sdm-budayakerja">KABAG Budaya Kerja & Manajemen Perubahan</option>
+              <option value="logistik-pengadaan">KABAG Pengadaan & Logistik</option>
+              <option value="logistik-bangunan">KABAG Bangunan & Pengamanan Korporasi</option>
+              <option value="humas-protokoler">KABAG Humas & Protokoler</option>
+              <option value="keuangan-aa">KABAG Anggaran & Akuntansi</option>
+              <option value="keuangan-tresuri">KABAG Tresuri & Perpajakan</option>
+              <option value="risiko-kredit">KABAG Risiko Kredit & Asuransi</option>
+              <option value="risiko-operasional">KABAG Risiko Operasional & Kepatuhan</option>
+            </select>
             <input type="text" placeholder="Perihal" required />
             <button type="submit"><i class="fas fa-plus"></i> &MediumSpace; tambahkan</button>
           </form>
