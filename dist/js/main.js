@@ -45,11 +45,11 @@ class UI {
 
   setStatusColor() {
     this.statusData.forEach(data => {
-      if (data.innerText.toLowerCase() == 'diterima') {
+      if (data.innerText.toLowerCase() == 'accepted') {
         data.style.color = '#00ab4e';
-      } else if (data.innerText.toLowerCase() == 'ditolak') {
+      } else if (data.innerText.toLowerCase() == 'rejected') {
         data.style.color = '#e74c3c';
-      } else if (data.innerText.toLowerCase() == 'dalam proses') {
+      } else if (data.innerText.toLowerCase() == 'on progress') {
         data.style.color = '#636e72';
       }
     });

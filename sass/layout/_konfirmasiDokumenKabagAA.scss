@@ -94,7 +94,7 @@
 
             &:first-child {
               border-radius: 4px 0 0 4px;
-              background-color: $light-color;
+              background: none;
               color: $primary-color;
             }
             &:last-child {

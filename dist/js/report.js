@@ -40,19 +40,19 @@ class UI {
               <td>1</td>
               <td>1710101</td>
               <td>Rp. 50.000.000</td>
-              <td>Realisasi</td>
+              <td>Rp. 40.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
               <td>Rp. 70.000.000</td>
-              <td>Realisasi</td>
+              <td>Rp. 60.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
               <td>Rp. 90.000.000</td>
-              <td>Realisasi</td>
+              <td>Rp. 80.000.000</td>
             </tr>
           </tbody>
         </table>
@@ -83,8 +83,17 @@ class UI {
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item">5 Tahun Kedepan</a>
-          <a class="dropdown-item">5 Tahun Kebelakang</a>
+          <a class="dropdown-item">2016</a>
+          <a class="dropdown-item">2017</a>
+          <a class="dropdown-item">2018</a>
+          <a class="dropdown-item">2019</a>
+          <a class="dropdown-item">2020</a>
+          <a class="dropdown-item">2021</a>
+          <a class="dropdown-item">2022</a>
+          <a class="dropdown-item">2023</a>
+          <a class="dropdown-item">2024</a>
+          <a class="dropdown-item">2025</a>
+          <a class="dropdown-item">2026</a>
         </div>
       </div>
     `;
@@ -103,17 +112,17 @@ class UI {
             <tr>
               <td>1</td>
               <td>Logistik</td>
-              <td>Realisasi</td>
+              <td>Rp. 700.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>Humas</td>
-              <td>Realisasi</td>
+              <td>Rp. 800.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>Keuangan</td>
-              <td>Realisasi</td>
+              <td>Rp. 900.000.000</td>
             </tr>
           </tbody>
         </table>
@@ -143,17 +152,17 @@ class UI {
             <tr>
               <td>1</td>
               <td>KABAG Anggaran & Akuntansi</td>
-              <td>Realisasi</td>
+              <td>Rp. 400.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>KABAG Tresuri & Perpajakan</td>
-              <td>Realisasi</td>
+              <td>Rp. 500.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>KABAG Pengembangan SDM</td>
-              <td>Realisasi</td>
+              <td>Rp. 600.000.000</td>
             </tr>
           </tbody>
         </table>

@@ -12,13 +12,13 @@ class AdminUI {
       editBtn.style.paddingLeft = '1rem';
       editBtn.style.paddingRight = '1rem';
 
-      if (statusInfo.innerHTML.toLowerCase() == 'diterima') {
+      if (statusInfo.innerHTML.toLowerCase() == 'accepted') {
         editBtn.style.color = '#00ab4e';
         editBtn.innerHTML = '<i class="far fa-edit"></i>';
-      } else if (statusInfo.innerHTML.toLowerCase() == 'ditolak') {
+      } else if (statusInfo.innerHTML.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
-      } else if (statusInfo.innerHTML.toLowerCase() == 'dalam proses') {
+      } else if (statusInfo.innerHTML.toLowerCase() == 'on progress') {
         editBtn.style.visible = 'hidden';
       }
     })
@@ -59,7 +59,7 @@ class EventListener {
   showModal() {
     this.editBtn.forEach(button => {
       button.addEventListener('click', () => {
-        button.dataset.status === 'diterima' ? this.showRegisterModal(button.dataset.soa) : this.showKembaliModal(button.dataset.soa);
+        button.dataset.status === 'accepted' ? this.showRegisterModal(button.dataset.soa) : this.showKembaliModal(button.dataset.soa);
       })
     });
   }
@@ -109,7 +109,7 @@ class EventListener {
           <input type="date" />
           <input type="time" />
           <select class="input" name="dept" id="">
-            <option value="0">Departemen</option>
+            <option selected disabled>Departemen</option>
             <option value="02.01">Keuangan</option>
             <option value="03.01">SDM</option>
             <option value="04.01">Logistik</option>
