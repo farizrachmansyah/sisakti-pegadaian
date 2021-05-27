@@ -2,6 +2,7 @@ class UI {
   constructor() {
     this.soaData = document.querySelectorAll('.soadata-table');
     this.soppData = document.querySelectorAll('.soppdata-table');
+    this.statusData = document.querySelectorAll('.statusdata-table');
   }
 
   setSOA() {
@@ -41,6 +42,18 @@ class UI {
       data.innerText = `${data.innerText}/SOPP-00108.${deptCode}/2021`;
     });
   }
+
+  setStatusColor() {
+    this.statusData.forEach(data => {
+      if (data.innerText.toLowerCase() == 'diterima') {
+        data.style.color = '#00ab4e';
+      } else if (data.innerText.toLowerCase() == 'ditolak') {
+        data.style.color = '#e74c3c';
+      } else if (data.innerText.toLowerCase() == 'dalam proses') {
+        data.style.color = '#636e72';
+      }
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,4 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ui.setSOA();
   ui.setSOPP();
+  ui.setStatusColor();
 })

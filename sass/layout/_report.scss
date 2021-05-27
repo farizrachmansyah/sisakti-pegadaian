@@ -1,22 +1,37 @@
 .report {
   .header-container {
+    &-content {
+      @include breakpoint-down(phone) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+    }
+
+    .logo {
+      img {
+        @include breakpoint-down(phone) {
+          width: 50%;
+        }
+      }
+    }
+
     .title {
-      color: $light-color;
+      h1 {
+        width: max-content;
+        color: $light-color;
+
+        @include breakpoint-down(phone) {
+          text-align: left;
+        }
+
+        span {
+          color: $accent-color;
+        }
+      }
     }
   }
 
   &__content {
-    &-box {
-      flex-direction: column;
-      height: 100%;
-
-      a {
-        padding: 1rem;
-        border-radius: 4px;
-        background-color: #c6c8cb;
-        color: $dark-color;
-        text-transform: capitalize;
-      }
-    }
   }
 }

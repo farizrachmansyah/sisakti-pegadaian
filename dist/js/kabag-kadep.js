@@ -92,22 +92,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageData = CURRENT_URL.searchParams.get('page');
 
     // MENGUBAH TULISAN TITLE DI HEADER
-    const headerTitle = document.querySelector('.header-container .title');
+    const headerTitle = document.querySelector('.header-container h1');
 
     switch (pageData) {
       case 'realisasi-ma':
-        headerTitle.innerText = `Jumlah Realisasi per Mata Anggaran`;
+        headerTitle.innerHTML = `Jumlah Realisasi per<br /><span>Mata Anggaran</span>`;
         break;
       case 'realisasi-dept':
-        headerTitle.innerText = `Jumlah Realisasi per Departemen`;
+        headerTitle.innerHTML = `Jumlah Realisasi per<br /><span>Departemen</span>`;
         break;
       case 'realisasi-pa':
-        headerTitle.innerText = `Jumlah Realisasi per Pemegang Anggaran`;
+        headerTitle.innerHTML = `Jumlah Realisasi per<br /><span>Pemegang Anggaran</span>`;
         break;
       case 'total-soa-ma':
-        headerTitle.innerText = `Total SOA per Mata Anggaran`;
+        headerTitle.innerHTML = `Total SOA per<br /><span>Mata Anggaran</span>`;
         break;
     }
   }
-
 });

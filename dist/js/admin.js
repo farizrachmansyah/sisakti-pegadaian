@@ -13,15 +13,12 @@ class AdminUI {
       editBtn.style.paddingRight = '1rem';
 
       if (statusInfo.innerHTML.toLowerCase() == 'diterima') {
-        statusInfo.style.color = '#00ab4e';
         editBtn.style.color = '#00ab4e';
         editBtn.innerHTML = '<i class="far fa-edit"></i>';
       } else if (statusInfo.innerHTML.toLowerCase() == 'ditolak') {
-        statusInfo.style.color = '#e74c3c';
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
       } else if (statusInfo.innerHTML.toLowerCase() == 'dalam proses') {
-        statusInfo.style.color = '#636e72';
         editBtn.style.visible = 'hidden';
       }
     })
