@@ -29,7 +29,7 @@
     />
   </head>
   <body>
-    <main class="main">
+    <main class="main terima">
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-content flex">
@@ -42,9 +42,9 @@
         </div>
       </div>
 
-      <div class="main__content">
+      <div class="main__content terima__content">
         <!-- Desc -->
-        <section class="main__content-desc flex">
+        <section class="main__content-desc terima__content-desc flex">
           <div class="icon">
             <i class="fas fa-lightbulb"></i>
           </div>
@@ -52,9 +52,14 @@
         </section>
 
         <!-- Form -->
-        <section class="main__content-input">
+        <section class="main__content-input terima__content-input">
           <form action="">
-            <input id="soa" type="text" placeholder="SOA" required />
+            <div class="soa flex flex-ai-c">
+              <input id="soa" type="text" placeholder="SOA" required />
+              <div class="soa-format">
+                <p>/SOA-00108/2021</p>
+              </div>
+            </div>
             <select class="input" name="dept" id="">
               <option selected disabled>Departemen</option>
               <option value="02.01">Keuangan</option>
@@ -69,7 +74,7 @@
               <input type="date" required />
               <input type="time" required />
             </div>
-            <input type="text" placeholder="Mata Anggaran" required />
+            <input type="number" placeholder="Mata Anggaran" required />
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
               <input type="number" placeholder="Jumlah Permintaan" required />
