@@ -13,7 +13,7 @@ class UI {
   setSOPP() {
     this.soppData.forEach(data => {
       let deptCode;
-      const deptData = data.previousElementSibling;
+      const deptData = data.nextElementSibling;
       switch (deptData.innerText.toLowerCase()) {
         case 'keuangan':
           deptCode = '02.01';
