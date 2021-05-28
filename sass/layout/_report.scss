@@ -33,24 +33,28 @@
   }
 
   &__content {
-    .dropdown {
+    &-dropdown {
+      gap: 1rem;
       margin-bottom: 1rem;
-      color: $light-color;
 
-      @include breakpoint-up(tablet) {
-        margin-bottom: 1.5rem;
-      }
+      .dropdown {
+        flex: 1;
 
-      &-toggle {
-        @include breakpoint-down(phone) {
-          width: 100%;
-          padding: 10px;
+        @include breakpoint-up(smDesktop) {
+          flex: unset;
         }
-      }
 
-      &-item {
-        &:hover {
-          background-color: $accent-color;
+        &-toggle {
+          width: 100%;
+          color: $light-color;
+        }
+
+        &-item {
+          cursor: pointer;
+
+          &:hover {
+            background-color: $accent-color;
+          }
         }
       }
     }
