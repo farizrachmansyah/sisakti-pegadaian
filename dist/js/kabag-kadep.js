@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const CURRENT_URL = new URL(URL_STRING);
     const soaData = CURRENT_URL.searchParams.get('soa');
     const perihalData = CURRENT_URL.searchParams.get('perihal');
-    // parameter from adalah untuk menentukan bahwa halaman konfirmasi ini berasal dari halaman dashboard kadep
+    // parameter from adalah untuk menentukan bahwa halaman konfirmasi ini sebelumnya berasal dari halaman mana
     const fromData = CURRENT_URL.searchParams.get('from');
 
     const soaField = document.querySelector('#soafield');
@@ -81,12 +81,70 @@ document.addEventListener('DOMContentLoaded', () => {
       confirmButton.innerText = 'registrasi';
 
     // MENGECEK APAKAH SEMUA RADIO BUTTON TELAH TERISI
-    if (fromData === 'tresuri') {
+    if (fromData == 'tresuri') {
       const radioButton = document.querySelectorAll('input[type=radio]');
       radioButton.forEach(radio => {
         radio.setAttribute('required', '');
       });
     }
+
+    // MERUBAH ISI RADIO BUTTON UNTUK YANG BERASAL DARI HALAMAN KABAG-AA
+    if (fromData == 'aa') {
+      const radiobtnComponent = document.querySelector('.konfirmasi__content-form .info');
+
+      radiobtnComponent.innerHTML = `
+        <p>Keterangan</p>
+        <div class="info-choice ma">
+          <label for="">Mata Anggaran</label>
+          <div class="info-choice-options flex flex-ai-c">
+            <div class="option">
+              <input type="radio" name="ma" id="1" />
+              sesuai
+            </div>
+            <div class="option">
+              <input type="radio" name="ma" id="2" />
+              tidak sesuai
+            </div>
+          </div>
+        </div>
+        <div class="info-choice sa">
+          <label for="">Saldo Anggaran</label>
+          <div class="info-choice-options flex flex-ai-c">
+            <div class="option">
+              <input type="radio" name="sa" id="1" />
+              tersedia
+            </div>
+            <div class="option">
+              <input id="radio-tidak-tersedia" type="radio" name="sa" id="2" />
+              tidak tersedia
+            </div>
+          </div>
+        </div>
+      `;
+
+      // ngasih event listener buat radio button tidak tersedia
+      const radioTidakTersedia = document.querySelector('#radio-tidak-tersedia');
+      radioTidakTersedia.addEventListener('click', () => {
+        if (radioTidakTersedia.checked == true) {
+          radioTidakTersedia.checked = false;
+
+          let anotherOption = null;
+
+          do {
+            anotherOption = prompt('Mohon dilakukan pergeseran mata anggaran');
+          } while (anotherOption === '')
+
+          if (anotherOption !== null) {
+            radioTidakTersedia.checked = true;
+            radioTidakTersedia.nextSibling.textContent = `\nMA : ${anotherOption}`;
+          } else {
+            radioTidakTersedia.checked = false;
+            radioTidakTersedia.nextSibling.textContent = '\ntidak tersedia';
+          }
+        }
+      });
+    }
+
   } else if (URL_STRING.includes('report')) {
     const CURRENT_URL = new URL(URL_STRING);
     const pageData = CURRENT_URL.searchParams.get('page');
