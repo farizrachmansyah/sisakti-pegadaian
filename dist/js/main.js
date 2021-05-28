@@ -2,6 +2,7 @@ class UI {
   constructor() {
     this.soaData = document.querySelectorAll('.soadata-table');
     this.soppData = document.querySelectorAll('.soppdata-table');
+    this.statusField = document.querySelector('#statusfield-table');
     this.statusData = document.querySelectorAll('.statusdata-table');
   }
 
@@ -43,6 +44,18 @@ class UI {
     });
   }
 
+  configureStatus() {
+    this.statusField.innerHTML = `
+      Status
+      <select name="statusFilter" id="statusfilter">
+        <option value="all">All</option>
+        <option value="accepted">Accepted</option>
+        <option value="rejected">Rejected</option>
+        <option value="progress">On Progress</option>
+      </select>
+    `;
+  }
+
   setStatusColor() {
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
@@ -61,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ui.setSOA();
   ui.setSOPP();
+  ui.configureStatus();
   ui.setStatusColor();
 })
 
