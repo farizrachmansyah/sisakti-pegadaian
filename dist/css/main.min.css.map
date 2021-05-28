@@ -11,7 +11,7 @@
         "../../sass/layout/_dashboardAdmin.scss",
         "../../sass/layout/_terimaDokumenAdmin.scss",
         "../../sass/layout/_dashboardKepala.scss",
-        "../../sass/layout/_konfirmasiDokumenKabagAA.scss",
+        "../../sass/layout/_konfirmasiDokumen.scss",
         "../../sass/layout/_report.scss"
     ],
     "names": [],

@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
           theSOA = thisRowData.firstElementChild.innerText;
           thePerihal = thisRowData.children[8].innerText;
           window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}&from=tresuri`;
-        } else {
+        } else if (URL_STRING.includes('aa')) {
           theSOA = thisRowData.firstElementChild.innerText;
           thePerihal = thisRowData.children[8].innerText;
-          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}`;
+          window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}&from=aa`;
         }
 
       })
@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // CHOOSING WHICH TEXT SHOULD BE SET IN CONFIRMATION BUTTON (KONFIRMASI/REGISTER)
     const confirmButton = document.querySelector('#confirmBtn');
 
-    if (fromData !== null)
-      confirmButton.innerText = 'register';
+    if (fromData == 'kadep')
+      confirmButton.innerText = 'registrasi';
 
     // MENGECEK APAKAH SEMUA RADIO BUTTON TELAH TERISI
     if (fromData === 'tresuri') {
