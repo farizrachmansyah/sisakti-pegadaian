@@ -47,7 +47,7 @@
         <section class="main__content-search">
           <form autocomplete="off" action="#" method="GET">
             <div class="find flex">
-              <input autocomplete="off" type="text" name="soa" id="soa" placeholder="SOA" required />
+              <input autocomplete="off" type="text" name="soa" id="searchdata-soa" placeholder="SOA" onkeyup="searchTableData()" required />
               <button type="submit">
                 <i class="fas fa-search"></i>
               </button>
@@ -59,7 +59,7 @@
         <section class="main__content-table">
           <!-- Bootstrap Table -->
           <div class="table-responsive">
-            <table class="table">
+            <table id="table-pa" class="table">
               <thead>
                 <tr class="table-secondary">
                   <th scope="col">SOA</th>

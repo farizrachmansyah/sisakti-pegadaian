@@ -63,3 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setSOPP();
   ui.setStatusColor();
 })
+
+// search table data based on soa number (halaman pemegang anggaran)
+function searchTableData() {
+  const input = document.querySelector('#searchdata-soa');
+  const filter = input.value.toLowerCase();
+  const table = document.querySelector('#table-pa');
+  const tr = table.getElementsByTagName('tr');
+  let td, dataValue;
+
+  // looping ke setiap row dan ilangin yang ga match
+  for (let i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+
+    if (td) {
+      dataValue = td.textContent || td.innerText;
+      if (dataValue.toLowerCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
