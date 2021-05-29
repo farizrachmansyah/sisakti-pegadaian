@@ -69,9 +69,28 @@ if(isset($_POST['terima'])){
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
+
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#departemen").change(function(){
+          var deptId = $("#departemen").val();
+          $.ajax({
+            url : 'data.php',
+            method : 'post',
+            data : 'deptId='+deptId
+          }).done(function(users){
+            console.log(users);
+            parsedUsers = JSON.parse(users);
+            parsedUsers.forEach()
+          })
+        })
+      })
+    </script>
+
   </head>
   <body>
-    <main class="main terima">
+    <main class="main">
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-content flex">
@@ -84,9 +103,9 @@ if(isset($_POST['terima'])){
         </div>
       </div>
 
-      <div class="main__content terima__content">
+      <div class="main__content">
         <!-- Desc -->
-        <section class="main__content-desc terima__content-desc flex">
+        <section class="main__content-desc flex">
           <div class="icon">
             <i class="fas fa-lightbulb"></i>
           </div>
@@ -94,24 +113,20 @@ if(isset($_POST['terima'])){
         </section>
 
         <!-- Form -->
-        <section class="main__content-input terima__content-input">
-          <form action="">
-            <div class="soa flex flex-ai-c">
-              <input id="soa" type="text" placeholder="SOA" required />
-              <div class="soa-format">
-                <p>/SOA-00108/2021</p>
-              </div>
-            </div>
-            <select class="input" name="dept" id="">
-              <option selected="" disabled="">Departemen</option>
-              <?php
-                $departmens = loadDepartemen();
-                foreach($departmens as $departmen){
-                  echo "<option id='".$departmen['mst_id']."' value='".$departmen['mst_id']."'>".$departmen['mst_text']."</option>";
-                }
+        <section class="main__content-input">
+          <form action="" method="POST">
+            <input type="text" placeholder="SOA" name="soa" required/>
+            <input type="text" placeholder="SOPP" name="sopp" required/>
+            <select class="input" name="departemen" id="departemen">
+            <option selected="" disabled="">Departemen</option>
+            <?php
+              $departmens = loadDepartemen();
+              foreach($departmens as $departmen){
+                echo "<option id='".$departmen['mst_id']."' value='".$departmen['mst_id']."'>".$departmen['mst_text']."</option>";
+              }
 
-              ?>
-              <!-- <option selected disabled>Departemen</option>
+            ?>
+              <!-- <option value="0">Departemen</option>
               <option value="02.01">Keuangan</option>
               <option value="03.01">SDM</option>
               <option value="04.01">Logistik</option>
@@ -120,40 +135,19 @@ if(isset($_POST['terima'])){
               <option value="07.01">Bussiness Support</option>
               <option value="08.01">Manajemen Risiko</option> -->
             </select>
-            <select class="input" name="pemegang-anggaran" id="">
-              <option selected disabled>Pemegang Anggaran</option>
-              <option value="bs-analisa">KABAG Analisa Bisnis & Evaluasi Kerja</option>
-              <option value="bs-distribusi">KABAG Jaringan Distribusi & Layanan</option>
-              <option value="bs-pemasaran">KABAG Pemasaran & Penjualan</option>
-              <option value="bs-kemitraan">KABAG Kemitraan Bina Lingkungan</option>
-              <option value="sdm-pengembangan">KABAG Pengembangan SDM</option>
-              <option value="sdm-operasional">KABAG Operasional SDM</option>
-              <option value="sdm-budayakerja">KABAG Budaya Kerja & Manajemen Perubahan</option>
-              <option value="logistik-pengadaan">KABAG Pengadaan & Logistik</option>
-              <option value="logistik-bangunan">KABAG Bangunan & Pengamanan Korporasi</option>
-              <option value="humas-protokoler">KABAG Humas & Protokoler</option>
-              <option value="keuangan-aa">KABAG Anggaran & Akuntansi</option>
-              <option value="keuangan-tresuri">KABAG Tresuri & Perpajakan</option>
-              <option value="risiko-kredit">KABAG Risiko Kredit & Asuransi</option>
-              <option value="risiko-operasional">KABAG Risiko Operasional & Kepatuhan</option>
-            </select>
-            <!-- <div class="datetime flex">
-              <input type="date" required />
-              <input type="time" required />
-            </div> -->
-            <input type="number" placeholder="Mata Anggaran" required />
+            <input type="text" placeholder="Mata Anggaran" name="mata_anggaran" required />
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
-              <input type="number" placeholder="Jumlah Permintaan" required />
+              <input type="number" placeholder="Jumlah Permintaan" name="nominal" required />
             </div>
-            
-            <input type="text" placeholder="Perihal" required />
-            <button type="submit">submit &MediumSpace; <i class="fas fa-file-export"></i></button>
+            <select class="input" name="pemegang_anggaran" id="">            <input type="text" placeholder="Perihal" name="perihal" required />
+              <option value="Kadep">Kadep</option>
+              <option value="Kadep">Kabag</option>
+            </select>
+            <button type="submit" name="terima"><i class="fas fa-plus"></i> &MediumSpace; tambahkan</button>
           </form>
         </section>
       </div>
     </main>
-
-    <script src="../../js/admin.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiSAKTI &MediumSpace;-&MediumSpace; Admin</title>
+    <title>SiSAKTI &MediumSpace;-&MediumSpace; Staf Administrasi</title>
 
     <!-- Bootstrap -->
     <link
@@ -52,53 +52,57 @@
                 <tr class="table-secondary">
                   <th scope="col">No</th>
                   <th scope="col">SOA</th>
+                  <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
+                  <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
-                  <th scope="col">Nama Pemegang Anggaran</th>
-                  <th scope="col">Status</th>
                   <th scope="col">Lokasi</th>
-                  <th scope="col">Action</th>
+                  <th scope="col" id="statusfield-table">Status</th>
+                  <th scope="col" id="button-table-action"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td>076</td>
-                  <td>ganteng</td>
-                  <td>banget</td>
-                  <td>banget</td>
-                  <td>banget</td>
-                  <td>register</td>
-                  <td>banget</td>
+                  <td class="soadata-table">0001</td>
+                  <td class="soppdata-table">670</td>
+                  <td>legal officer</td>
+                  <td>KABAG Pengadaan & Logistik</td>
+                  <td>01/07/21</td>
+                  <td>08:00</td>
+                  <td>KABAG Tresuri & Perpajakan</td>
+                  <td class="statusdata-table">on progress</td>
                   <td>
-                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                    <button class="btn-edit"></button>
                   </td>
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>286</td>
-                  <td>bocah</td>
-                  <td>pro</td>
-                  <td>pro</td>
-                  <td>pro</td>
-                  <td>kembali</td>
-                  <td>pro</td>
+                  <td class="soadata-table">0002</td>
+                  <td class="soppdata-table">682</td>
+                  <td>humas</td>
+                  <td>KABAG Operasional SDM</td>
+                  <td>02/07/21</td>
+                  <td>08:15</td>
+                  <td>Staf Admin</td>
+                  <td class="statusdata-table">accepted</td>
                   <td>
-                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                    <button class="btn-edit"></button>
                   </td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td>294</td>
-                  <td>bocah</td>
-                  <td>kurang</td>
-                  <td>kurang</td>
-                  <td>kurang</td>
-                  <td>register</td>
-                  <td>kurang</td>
+                  <td class="soadata-table">0003</td>
+                  <td class="soppdata-table">492</td>
+                  <td>business support</td>
+                  <td>KABAG Analisa Bisnis & Evaluasi Kinerja</td>
+                  <td>03/07/21</td>
+                  <td>08:25</td>
+                  <td>KADEP Keuangan</td>
+                  <td class="statusdata-table">rejected</td>
                   <td>
-                    <button class="btn-edit"><i class="far fa-edit"></i></button>
+                    <button class="btn-edit"></button>
                   </td>
                 </tr>
               </tbody>
@@ -108,11 +112,12 @@
 
         <!-- Button Submit -->
         <section class="admin__content-footer">
-          <a href="terima-dokumen.php" type="submit" class="btn btn-terima"><i class="fas fa-plus"></i> &MediumSpace; terima dokumen</a>
+          <a href="terima-dokumen.php" type="submit" class="btn btn-terima"><i class="fas fa-plus"></i> &MediumSpace; tambah dokumen</a>
         </section>
       </div>
     </main>
 
+    <script src="../../js/main.js"></script>
     <script src="../../js/admin.js"></script>
     <!-- Library SweetAlert2 buat modal/popup -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
