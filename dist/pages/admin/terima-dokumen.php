@@ -119,12 +119,12 @@ if(isset($_POST['submit'])){
         <section class="main__content-input terima__content-input">
           <form action="" method="POST">
             <div class="soa flex flex-ai-c">
-              <input id="soa" type="text" placeholder="SOA" name="soa" required />
+              <input id="soa" type="text" placeholder="SOA" name="soa" required/>
               <div class="soa-format">
                 <p>/SOA-00108/2021</p>
               </div>
             </div>
-            <input id="soa" type="text" placeholder="SOPP" name="sopp" required />
+            <input id="sopp" type="text" placeholder="SOPP" name="sopp" required />
             <select class="input" name="departemen" id="departemen">
               <option selected="" disabled="">Departemen</option>
               <?php
@@ -164,7 +164,7 @@ if(isset($_POST['submit'])){
               <input type="date" required />
               <input type="time" required />
             </div> -->
-            <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required />
+            <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required/>
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
               <input type="number" placeholder="Jumlah Permintaan" name="nominal" required />

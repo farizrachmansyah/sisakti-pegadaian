@@ -30,7 +30,7 @@ if(isset($_POST['login'])){
             $vlocation = "./dist/pages/";
 
             switch ($user["usr_jabatan"]) {
-              case "admin":
+              case "Admin Keuangan":
                 header("Location: ".$vlocation."admin/dashboard.php");
                 break;
               case "kabag-aa":
