@@ -6,7 +6,7 @@ class AdminUI {
   buttonAndStatus() {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
-      const statusInfo = rowCol[7];
+      const statusInfo = rowCol[8];
       const editBtn = rowCol[9].firstElementChild;
 
       editBtn.style.paddingLeft = '1rem';
@@ -34,19 +34,27 @@ class AdminUI {
       console.log(editBtn);
 
       // get column value form soa column and status column, then put them in variables
-      let noSOA = null;
       let status = null;
+      let noData = null;
+      let noSOA = null;
+      let kodeDept = null;
       rowCol.forEach((col, index) => {
-        if (index == 1) {
-          noSOA = col.innerHTML;
-        } else if (index == 7) {
-          status = col.innerHTML.toLowerCase();
+        if (index == 0) {
+          noData = col.innerText;
+        } else if (index == 1) {
+          noSOA = col.innerText;
+        } else if (index == 2) {
+          kodeDept = col.innerText.slice(15, 20);
+        } else if (index == 8) {
+          status = col.innerText.toLowerCase();
         }
       })
 
       // create dataset for soa and status
-      editBtn.dataset.soa = noSOA;
       editBtn.dataset.status = status;
+      editBtn.dataset.nodata = noData;
+      editBtn.dataset.soa = noSOA;
+      editBtn.dataset.kodedept = kodeDept;
     })
   }
 }
@@ -59,12 +67,12 @@ class EventListener {
   showModal() {
     this.editBtn.forEach(button => {
       button.addEventListener('click', () => {
-        button.dataset.status === 'accepted' ? this.showRegisterModal(button.dataset.soa) : this.showKembaliModal(button.dataset.soa);
-      })
+        button.dataset.status === 'accepted' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept) : this.showKembaliModal(button.dataset.soa);
+      });
     });
   }
 
-  showRegisterModal(noSOA) {
+  showRegisterModal(noSOA, noData, kodeDept) {
     // ini masih belom diurus tombol submitnya
     const { value: formValues } = Swal.mixin({
       customClass: {
@@ -77,7 +85,7 @@ class EventListener {
           <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
           <input type="date" />
           <input type="time" />
-          <input type="text" placeholder="Nomor Register" />
+          <input class="admin-action-form__noregis type="text" placeholder="000${noData}/${kodeDept}/21" />
           <div class="admin-action-form__permintaan flex flex-ai-c">
             <span>Rp. </span>
             <input type="number" placeholder="Jumlah Permintaan"/>

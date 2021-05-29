@@ -44,28 +44,33 @@ class UI {
     });
   }
 
+  setStatus() {
+    this.statusData.forEach(data => {
+      if (data.innerText.toLowerCase() == 'accepted') {
+        data.style.color = '#00ab4e';
+        data.parentElement.classList.add('status-acc');
+      } else if (data.innerText.toLowerCase() == 'rejected') {
+        data.style.color = '#e74c3c';
+        data.parentElement.classList.add('status-reject');
+      } else if (data.innerText.toLowerCase() == 'on progress') {
+        data.style.color = '#636e72';
+        data.parentElement.classList.add('status-progress');
+      }
+    });
+  }
+
   configureStatus() {
     this.statusField.innerHTML = `
-      Status
       <select name="statusFilter" id="statusfilter">
-        <option value="all">All</option>
+        <option value="all">Status</option>
         <option value="accepted">Accepted</option>
         <option value="rejected">Rejected</option>
         <option value="progress">On Progress</option>
       </select>
     `;
-  }
 
-  setStatusColor() {
-    this.statusData.forEach(data => {
-      if (data.innerText.toLowerCase() == 'accepted') {
-        data.style.color = '#00ab4e';
-      } else if (data.innerText.toLowerCase() == 'rejected') {
-        data.style.color = '#e74c3c';
-      } else if (data.innerText.toLowerCase() == 'on progress') {
-        data.style.color = '#636e72';
-      }
-    });
+    // element select
+    const statusOption = document.querySelector('#statusfilter');
   }
 }
 
@@ -74,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ui.setSOA();
   ui.setSOPP();
+  ui.setStatus();
   ui.configureStatus();
-  ui.setStatusColor();
 })
 
 // search table data based on soa number (halaman pemegang anggaran)

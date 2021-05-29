@@ -31,6 +31,7 @@ class UI {
             <tr>
               <th scope="col">No</th>
               <th scope="col">Mata Anggaran</th>
+              <th scope="col">Aktivitas</th>
               <th scope="col">Saldo</th>
               <th scope="col">Realisasi</th>
             </tr>
@@ -39,18 +40,21 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
+              <td>Aktivitas</td>
               <td>Rp. 50.000.000</td>
               <td>Rp. 40.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
+              <td>Aktivitas</td>
               <td>Rp. 70.000.000</td>
               <td>Rp. 60.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
+              <td>Aktivitas</td>
               <td>Rp. 90.000.000</td>
               <td>Rp. 80.000.000</td>
             </tr>
@@ -216,6 +220,7 @@ class UI {
             <tr>
               <th scope="col">No</th>
               <th scope="col">Mata Anggaran</th>
+              <th scope="col">Aktivitas</th>
               <th scope="col">Total SOA</th>
             </tr>
           </thead>
@@ -223,16 +228,19 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
+              <td>Aktivitas</td>
               <td>706</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
+              <td>Aktivitas</td>
               <td>236</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
+              <td>Aktivitas</td>
               <td>294</td>
             </tr>
           </tbody>

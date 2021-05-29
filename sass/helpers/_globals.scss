@@ -242,6 +242,12 @@ button,
     }
   }
 
+  &__noregis {
+    &::placeholder {
+      color: $dark-color;
+    }
+  }
+
   &__permintaan {
     border-radius: 4px;
     box-shadow: 0px 3px 5px #d6d8db;

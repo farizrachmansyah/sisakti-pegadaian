@@ -56,21 +56,28 @@
       border: none;
       border-radius: 4px;
       outline: none;
-      padding: 3px 5px;
-      background: rgba(255, 255, 255, 0.3);
+      padding: 2px 3px;
+      background: #d6d8db;
       color: $dark-color;
-      font-weight: weight(light);
-      font-size: 0.75rem;
+      font-weight: weight(medium);
+      // font-size: 8px;
       text-align-last: center;
-      -webkit-appearance: none;
+      // -webkit-appearance: none;
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.45);
-      }
+      // @include breakpoint-up(smPhone) {
+      //   font-size: 10px;
+      // }
+      // @include breakpoint-up(smDesktop) {
+      //   font-size: 12px;
+      // }
 
-      option {
-        background: #d6d8db;
-      }
+      // &:hover {
+      //   background: rgba(255, 255, 255, 0.45);
+      // }
+
+      // option {
+      //   background: #d6d8db;
+      // }
     }
   }
 }
