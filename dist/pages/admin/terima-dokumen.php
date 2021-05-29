@@ -3,15 +3,15 @@ require_once 'data.php';
 
 
 
-if(isset($_POST['terima'])){
+if(isset($_POST['submit'])){
     // filter data yang diinputkan
-    $soa_ma = filter_input(INPUT_POST, 'mata_anggaran', FILTER_SANITIZE_STRING);
+    $soa_ma = filter_input(INPUT_POST, 'mata-anggaran', FILTER_SANITIZE_STRING);
     $soa_no = filter_input(INPUT_POST, 'soa', FILTER_SANITIZE_STRING);
     $soa_sopp = filter_input(INPUT_POST, 'sopp', FILTER_SANITIZE_STRING);
     $soa_perihal = filter_input(INPUT_POST, 'perihal', FILTER_SANITIZE_STRING);
     $soa_nominal = filter_input(INPUT_POST, 'nominal', FILTER_SANITIZE_STRING);
     $soa_departemen_id = filter_input(INPUT_POST, 'departemen', FILTER_SANITIZE_STRING);
-    $soa_pa_id = filter_input(INPUT_POST, 'pemegang_anggaran', FILTER_SANITIZE_STRING);
+    $soa_pa_id = filter_input(INPUT_POST, 'pemegang-anggaran', FILTER_SANITIZE_STRING);
 
     // menyiapkan query
     $sql = "INSERT INTO tbl_soa (soa_ma, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id) 
@@ -28,7 +28,8 @@ if(isset($_POST['terima'])){
         ":soa_departemen_id" => $soa_departemen_id,
         ":soa_pa_id" => $soa_pa_id
     );
-    
+    print_r($params);
+    die();
 
     // eksekusi query untuk menyimpan ke database
     //$saved = $stmt->execute($params);
@@ -69,6 +70,27 @@ if(isset($_POST['terima'])){
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#departemen").change(function(){
+          var deptId = $("#departemen").val();
+          $.ajax({
+            url : 'data.php',
+            method : 'post',
+            data : 'deptId='+deptId
+          }).done(function(users){
+            console.log(users);
+            parsedUsers = JSON.parse(users);
+            $("#pemegang-anggaran").empty();
+            parsedUsers.forEach(function(user){
+              $("#pemegang-anggaran").append("<option value='"+user.usr_id+"'>"+ user.usr_jabatan+'</option>')
+            })
+          })
+        })
+      })
+    </script>
+
   </head>
   <body>
     <main class="main terima">
@@ -95,14 +117,15 @@ if(isset($_POST['terima'])){
 
         <!-- Form -->
         <section class="main__content-input terima__content-input">
-          <form action="">
+          <form action="" method="POST">
             <div class="soa flex flex-ai-c">
-              <input id="soa" type="text" placeholder="SOA" required />
+              <input id="soa" type="text" placeholder="SOA" name="soa" required />
               <div class="soa-format">
                 <p>/SOA-00108/2021</p>
               </div>
             </div>
-            <select class="input" name="dept" id="">
+            <input id="soa" type="text" placeholder="SOPP" name="sopp" required />
+            <select class="input" name="departemen" id="departemen">
               <option selected="" disabled="">Departemen</option>
               <?php
                 $departmens = loadDepartemen();
@@ -120,9 +143,9 @@ if(isset($_POST['terima'])){
               <option value="07.01">Bussiness Support</option>
               <option value="08.01">Manajemen Risiko</option> -->
             </select>
-            <select class="input" name="pemegang-anggaran" id="">
+            <select class="input" name="pemegang-anggaran" id="pemegang-anggaran">
               <option selected disabled>Pemegang Anggaran</option>
-              <option value="bs-analisa">KABAG Analisa Bisnis & Evaluasi Kerja</option>
+              <!-- <option value="bs-analisa">KABAG Analisa Bisnis & Evaluasi Kerja</option>
               <option value="bs-distribusi">KABAG Jaringan Distribusi & Layanan</option>
               <option value="bs-pemasaran">KABAG Pemasaran & Penjualan</option>
               <option value="bs-kemitraan">KABAG Kemitraan Bina Lingkungan</option>
@@ -135,20 +158,20 @@ if(isset($_POST['terima'])){
               <option value="keuangan-aa">KABAG Anggaran & Akuntansi</option>
               <option value="keuangan-tresuri">KABAG Tresuri & Perpajakan</option>
               <option value="risiko-kredit">KABAG Risiko Kredit & Asuransi</option>
-              <option value="risiko-operasional">KABAG Risiko Operasional & Kepatuhan</option>
+              <option value="risiko-operasional">KABAG Risiko Operasional & Kepatuhan</option> -->
             </select>
             <!-- <div class="datetime flex">
               <input type="date" required />
               <input type="time" required />
             </div> -->
-            <input type="number" placeholder="Mata Anggaran" required />
+            <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required />
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
-              <input type="number" placeholder="Jumlah Permintaan" required />
+              <input type="number" placeholder="Jumlah Permintaan" name="nominal" required />
             </div>
             
-            <input type="text" placeholder="Perihal" required />
-            <button type="submit">submit &MediumSpace; <i class="fas fa-file-export"></i></button>
+            <input type="text" placeholder="Perihal" name="perihal" required />
+            <button type="submit" name="submit">submit &MediumSpace; <i class="fas fa-file-export"></i></button>
           </form>
         </section>
       </div>
