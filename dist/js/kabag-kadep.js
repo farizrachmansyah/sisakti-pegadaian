@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (URL_STRING.includes('kadep')) {
           theSOA = thisRowData.children[1].innerText;
-          thePerihal = thisRowData.children[6].innerText;
+          thePerihal = thisRowData.children[7].innerText;
           window.location.href = `${row.dataset.linked}?soa=${encodeURIComponent(theSOA)}&perihal=${encodeURIComponent(thePerihal)}&from=kadep`;
         } else if (URL_STRING.includes('tresuri')) {
           theSOA = thisRowData.firstElementChild.innerText;
@@ -123,12 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="info-warning">Mohon dilakukan pergeseran mata anggaran</span>
       `;
 
-      // ngasih event listener buat radio button tidak tersedia
-      const radioSaldoAnggaran = document.querySelectorAll('.option');
+      // NGASIH EVENT LISTENER BUAT RADIO BUTTON TIDAK TERSEDIA
+      const radioSaldoAnggaran = document.querySelectorAll('.sa .option');
       const warningInfo = document.querySelector('.info-warning');
       radioSaldoAnggaran.forEach(radio => {
         radio.addEventListener('change', (e) => {
-          console.log(e.target);
           if (e.target.id == '2') {
             warningInfo.classList.add('show');
           } else {
@@ -136,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
+
+      // NGASIH ATRIBUT ACTION KE FORM
+      const form = document.querySelector('form');
+      form.action = './kabag-aa/dashboard.html';
     } else if (fromData == 'tresuri' || fromData == 'kadep') {
       const radiobtnComponent = document.querySelector('.konfirmasi__content-form .info');
 
@@ -145,15 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">SOPP</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="sopp" id="1" />
+              <input type="radio" name="sopp" id="1" required />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="sopp" id="2" />
+              <input type="radio" name="sopp" id="2" required />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="sopp" id="3" />
+              <input class="option-lainnya" type="radio" name="sopp" id="3" required />
               lainnya
             </div>
           </div>
@@ -162,15 +165,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">Nota Dinas</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="nota" id="1" />
+              <input type="radio" name="nota" id="1" required />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="nota" id="2" />
+              <input type="radio" name="nota" id="2" required />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="nota" id="3" />
+              <input class="option-lainnya" type="radio" name="nota" id="3" required />
               lainnya
             </div>
           </div>
@@ -179,15 +182,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">SPK</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="spk" id="1" />
+              <input type="radio" name="spk" id="1"  required/>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="spk" id="2" />
+              <input type="radio" name="spk" id="2"  required/>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="spk" id="3" />
+              <input class="option-lainnya" type="radio" name="spk" id="3"  required/>
               lainnya
             </div>
           </div>
@@ -196,15 +199,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">PKB</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="pkb" id="1" />
+              <input type="radio" name="pkb" id="1"  required/>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="pkb" id="2" />
+              <input type="radio" name="pkb" id="2"  required/>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="pkb" id="3" />
+              <input class="option-lainnya" type="radio" name="pkb" id="3"  required/>
               lainnya
             </div>
           </div>
@@ -213,15 +216,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">PO</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="po" id="1" />
+              <input type="radio" name="po" id="1" / required>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="po" id="2" />
+              <input type="radio" name="po" id="2" / required>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="po" id="3" />
+              <input class="option-lainnya" type="radio" name="po" id="3" / required>
               lainnya
             </div>
           </div>
@@ -230,15 +233,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">PR</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="pr" id="1" />
+              <input type="radio" name="pr" id="1" / required>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="pr" id="2" />
+              <input type="radio" name="pr" id="2" / required>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="pr" id="3" />
+              <input class="option-lainnya" type="radio" name="pr" id="3" / required>
               lainnya
             </div>
           </div>
@@ -247,15 +250,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">Faktur Pajak</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="faktur" id="1" />
+              <input type="radio" name="faktur" id=" required1" />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="faktur" id="2" />
+              <input type="radio" name="faktur" id=" required2" />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="faktur" id="3" />
+              <input class="option-lainnya" type="radio" name="faktur" id=" required3" />
               lainnya
             </div>
           </div>
@@ -264,15 +267,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">KTP</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="ktp" id="1" />
+              <input type="radio" name="ktp" id="1"  required/>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="ktp" id="2" />
+              <input type="radio" name="ktp" id="2"  required/>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="ktp" id="3" />
+              <input class="option-lainnya" type="radio" name="ktp" id="3"  required/>
               lainnya
             </div>
           </div>
@@ -281,15 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">NPWP</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="npwp" id="1" />
+              <input type="radio" name="npwp" id="1" required />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="npwp" id="2" />
+              <input type="radio" name="npwp" id="2" required />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="npwp" id="3" />
+              <input class="option-lainnya" type="radio" name="npwp" id="3" required />
               lainnya
             </div>
           </div>
@@ -298,15 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">SIUP</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="siup" id="1" />
+              <input type="radio" name="siup" id="1" required />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="siup" id="2" />
+              <input type="radio" name="siup" id="2" required />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="siup" id="3" />
+              <input class="option-lainnya" type="radio" name="siup" id="3" required />
               lainnya
             </div>
           </div>
@@ -315,15 +318,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">TDP</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="tdp" id="1" />
+              <input type="radio" name="tdp" id="1"  required/>
               ada
             </div>
             <div class="option">
-              <input type="radio" name="tdp" id="2" />
+              <input type="radio" name="tdp" id="2"  required/>
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="tdp" id="3" />
+              <input class="option-lainnya" type="radio" name="tdp" id="3"  required/>
               lainnya
             </div>
           </div>
@@ -332,15 +335,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <label for="">Foto Sebelum/Sesudah</label>
           <div class="info-choice-options flex flex-ai-c">
             <div class="option">
-              <input type="radio" name="foto" id="1" />
+              <input type="radio" name="foto" id="1" required />
               ada
             </div>
             <div class="option">
-              <input type="radio" name="foto" id="2" />
+              <input type="radio" name="foto" id="2" required />
               tidak ada
             </div>
             <div class="option">
-              <input class="option-lainnya" type="radio" name="foto" id="3" />
+              <input class="option-lainnya" type="radio" name="foto" id="3" required />
               lainnya
             </div>
           </div>
