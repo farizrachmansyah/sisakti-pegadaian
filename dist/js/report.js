@@ -41,21 +41,21 @@ class UI {
               <td>1</td>
               <td>1710101</td>
               <td>Aktiva Tetap SGU Bangunan Kantor dan Rumah</td>
-              <td>Rp. 50.000.000</td>
+              <td>Rp. 1.000.000.000</td>
               <td>Rp. 40.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
               <td>Biaya Penanganan Pandemi</td>
-              <td>Rp. 70.000.000</td>
+              <td>Rp. 1.000.000.000</td>
               <td>Rp. 60.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
               <td>Biaya Penyaluran Bina Lingkungan</td>
-              <td>Rp. 90.000.000</td>
+              <td>Rp. 1.000.000.000</td>
               <td>Rp. 80.000.000</td>
             </tr>
           </tbody>
