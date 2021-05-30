@@ -1,3 +1,6 @@
+<?php
+  require_once 'data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,6 +66,30 @@
                 </tr>
               </thead>
               <tbody>
+              <?php
+                $soas = loadListDashboard();
+                foreach($soas as $key=>$data){
+                  $soa_date_time = new DateTime($data['soa_created_at']);
+                  $soa_date = $soa_date_time->format('d-m-Y');
+                  $soa_time = $soa_date_time->format('H:m');
+
+                  echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
+                  echo "<td class='soadata-table'>".$data['soa_no']."</td>";
+                  echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
+                  echo "<td>".$data['soa_departemen_name']."</td>";
+                  echo "<td>".$data['soa_pa_name']."</td>";
+                  echo "<td>".$soa_date."</td>";
+                  echo "<td>".$soa_time."</td>";
+                  echo "<td>".$soa_date_time->format('Y-m-d')."</td>";
+                  echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
+                  echo "<td><button class='btn-edit'></button></td>";
+                  echo "</tr>";
+              
+                }
+
+              ?>
+
                 <tr>
                   <td>1</td>
                   <td class="soadata-table">0001</td>
@@ -77,34 +104,7 @@
                     <button class="btn-edit"></button>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td class="soadata-table">0002</td>
-                  <td class="soppdata-table">682</td>
-                  <td>humas</td>
-                  <td>KABAG Operasional SDM</td>
-                  <td>02/07/21</td>
-                  <td>08:15</td>
-                  <td>Staf Admin</td>
-                  <td class="statusdata-table">accepted</td>
-                  <td>
-                    <button class="btn-edit"></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td class="soadata-table">0003</td>
-                  <td class="soppdata-table">492</td>
-                  <td>business support</td>
-                  <td>KABAG Analisa Bisnis & Evaluasi Kinerja</td>
-                  <td>03/07/21</td>
-                  <td>08:25</td>
-                  <td>KADEP Keuangan</td>
-                  <td class="statusdata-table">rejected</td>
-                  <td>
-                    <button class="btn-edit"></button>
-                  </td>
-                </tr>
+               
               </tbody>
             </table>
           </div>
