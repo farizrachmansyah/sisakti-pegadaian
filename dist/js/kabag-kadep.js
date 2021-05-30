@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const soaValue = row.children[0].innerText;
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
-            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+            window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;
           });
         }
       });
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const soaValue = row.children[0].innerText;
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
-            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+            window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;
           });
         }
       });
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const soaValue = row.children[1].innerText;
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
-            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+            window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;
           });
         }
       });
