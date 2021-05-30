@@ -40,7 +40,7 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
-              <td>Aktiva Tetap</td>
+              <td>Aktiva Tetap SGU Bangunan Kantor dan Rumah</td>
               <td>Rp. 50.000.000</td>
               <td>Rp. 40.000.000</td>
             </tr>
@@ -228,7 +228,7 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
-              <td>Aktiva Tetap</td>
+              <td>Aktiva Tetap SGU Bangunan Kantor dan Rumah</td>
               <td>706</td>
             </tr>
             <tr>
