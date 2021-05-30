@@ -6,12 +6,6 @@ class UI {
     this.statusData = document.querySelectorAll('.statusdata-table');
   }
 
-  setSOA() {
-    this.soaData.forEach(data => {
-      data.innerText = `${data.innerText}/SOA-00108/2021`;
-    });
-  }
-
   setSOPP() {
     this.soppData.forEach(data => {
       let deptCode;
@@ -115,7 +109,6 @@ class UI {
 document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
 
-  ui.setSOA();
   ui.setSOPP();
   ui.setStatus();
   ui.configureStatus();
