@@ -56,6 +56,7 @@ class UI {
   }
 
   configureStatus() {
+    const allTableRow = []
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
         data.style.color = '#00ab4e';
@@ -67,13 +68,46 @@ class UI {
         data.style.color = '#636e72';
         data.parentElement.classList.add('status-progress');
       }
+
+      allTableRow.push(data.parentElement);
     });
+
+    this.filterStatus(allTableRow);
   }
 
-  filterStatus() {
-    const selectedOption = document.querySelectorAll('#statusfilter option');
-
-    console.log(selectedOption);
+  filterStatus(tableRow) {
+    const selectedOption = document.querySelector('#statusfilter');
+    selectedOption.addEventListener('change', () => {
+      console.log(selectedOption.value);
+      switch (selectedOption.value.toLowerCase()) {
+        case 'all':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+          });
+          break;
+        case 'accepted':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+            if (!row.classList.contains('status-accept'))
+              row.style.display = 'none';
+          });
+          break;
+        case 'rejected':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+            if (!row.classList.contains('status-reject'))
+              row.style.display = 'none';
+          });
+          break;
+        case 'progress':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+            if (!row.classList.contains('status-progress'))
+              row.style.display = 'none';
+          });
+          break;
+      }
+    });
   }
 }
 
@@ -85,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setSOPP();
   ui.setStatus();
   ui.configureStatus();
-  ui.filterStatus();
 })
 
 // search table data based on soa number (halaman pemegang anggaran)
