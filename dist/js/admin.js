@@ -5,20 +5,20 @@ class AdminUI {
 
   buttonAndStatus() {
     this.tableRow.forEach(row => {
-      const rowCol = Array.from(row.children);
-      const statusInfo = rowCol[8];
-      const editBtn = rowCol[9].firstElementChild;
+      // const rowCol = Array.from(row.children);
+      const statusInfo = row.children[8].innerText;
+      const editBtn = row.children[9].firstElementChild;
 
       editBtn.style.paddingLeft = '1rem';
       editBtn.style.paddingRight = '1rem';
 
-      if (statusInfo.innerHTML.toLowerCase() == 'accepted') {
+      if (statusInfo.toLowerCase() == 'register') {
         editBtn.style.color = '#00ab4e';
         editBtn.innerHTML = '<i class="far fa-edit"></i>';
-      } else if (statusInfo.innerHTML.toLowerCase() == 'rejected') {
+      } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
-      } else if (statusInfo.innerHTML.toLowerCase() == 'on progress') {
+      } else if (statusInfo.toLowerCase() == 'accepted') {
         editBtn.style.visible = 'hidden';
       }
     })
@@ -26,12 +26,9 @@ class AdminUI {
 
   setDatasetButton() {
     this.tableRow.forEach(row => {
-      // get every column values from each row
       const rowCol = Array.from(row.children);
-
       // edit button from last column values in row and get the first element child 
       const editBtn = rowCol[9].firstElementChild;
-      console.log(editBtn);
 
       // get column value form soa column and status column, then put them in variables
       let status = null;
@@ -67,7 +64,7 @@ class EventListener {
   showModal() {
     this.editBtn.forEach(button => {
       button.addEventListener('click', () => {
-        button.dataset.status === 'accepted' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept) : this.showKembaliModal(button.dataset.soa);
+        button.dataset.status === 'register' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept) : this.showKembaliModal(button.dataset.soa);
       });
     });
   }
