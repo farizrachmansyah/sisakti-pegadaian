@@ -30,16 +30,16 @@ if(isset($_POST['login'])){
             $vlocation = "./dist/pages/";
 
             switch ($user["usr_jabatan"]) {
-              case "Admin Keuangan":
+              case "Staf Admin":
                 header("Location: ".$vlocation."admin/dashboard.php");
                 break;
-              case "Kepala Bagian Anggaran & Akuntansi":
+              case "KABAG Anggaran & Akuntansi":
                 header("Location: ".$vlocation."kabag-aa/dashboard.php");
                 break;
-              case "kabag-tresuri":
+              case "KABAG Tresuri & Perpajakan":
                 header("Location: ".$vlocation."kabag-tresuri/dashboard.php");
                 break;
-              case "kadep":
+              case "Kepala Departemen":
                 header("Location: ".$vlocation."kadep/dashboard.php");
                 break;
               default:

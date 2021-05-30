@@ -1,7 +1,10 @@
 <?php
+session_start();
 require_once 'data.php';
 
 if(isset($_POST['submit'])){
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
     // filter data yang diinputkan
     $soa_akt = filter_input(INPUT_POST, 'aktivitas', FILTER_SANITIZE_STRING);
     $soa_no = filter_input(INPUT_POST, 'soa', FILTER_SANITIZE_STRING);
@@ -12,8 +15,8 @@ if(isset($_POST['submit'])){
     $soa_pa_id = filter_input(INPUT_POST, 'pemegang-anggaran', FILTER_SANITIZE_STRING);
 
     // menyiapkan query
-    $sql = "INSERT INTO tbl_soa (soa_akt_id, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id) 
-            VALUES (:soa_akt, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id)";
+    $sql = "INSERT INTO tbl_soa (soa_akt_id, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id, soa_lastupdate_by, soa_lastupdate_status) 
+            VALUES (:soa_akt, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id, :usr_id, 'Accepted')";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
@@ -24,13 +27,15 @@ if(isset($_POST['submit'])){
         ":soa_perihal" => $soa_perihal,
         ":soa_nominal" => $soa_nominal,
         ":soa_departemen_id" => $soa_departemen_id,
-        ":soa_pa_id" => $soa_pa_id
+        ":soa_pa_id" => $soa_pa_id,
+        ":usr_id" => $userId
     );
+    
     
 
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
-
+    
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
     if($saved) header("Location: dashboard.php");

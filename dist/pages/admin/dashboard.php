@@ -81,30 +81,12 @@
                   echo "<td>".$data['soa_pa_name']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
-                  echo "<td>".$soa_date_time->format('Y-m-d')."</td>";
+                  echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";
                   echo "</tr>";
-              
                 }
-
               ?>
-
-                <tr>
-                  <td>1</td>
-                  <td class="soadata-table">0001</td>
-                  <td class="soppdata-table">670</td>
-                  <td>legal officer</td>
-                  <td>KABAG Pengadaan & Logistik</td>
-                  <td>01/07/21</td>
-                  <td>08:00</td>
-                  <td>KABAG Tresuri & Perpajakan</td>
-                  <td class="statusdata-table">on progress</td>
-                  <td>
-                    <button class="btn-edit"></button>
-                  </td>
-                </tr>
-               
               </tbody>
             </table>
           </div>
