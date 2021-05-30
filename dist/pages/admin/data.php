@@ -4,7 +4,7 @@ require_once(ROOTPATH."/config.php");
 
 if(isset($_POST['deptId'])){
     global $db;
-    $sql="SELECT * FROM tbl_user WHERE usr_departemen_id = ".$_POST['deptId'];
+    $sql="SELECT usr_id, usr_jabatan FROM tbl_user WHERE usr_departemen_id = ".$_POST['deptId']." AND usr_create_access = 1";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
