@@ -40,8 +40,9 @@ class UI {
 
   setStatus() {
     this.statusField.innerHTML = `
+      Status<br />
       <select name="statusFilter" id="statusfilter">
-        <option value="all">Status</option>
+        <option value="all">All</option>
         <option value="accepted">Accepted</option>
         <option value="rejected">Rejected</option>
         <option value="progress">On Progress</option>

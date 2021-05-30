@@ -85,7 +85,7 @@ class EventListener {
           <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
           <input type="date" />
           <input type="time" />
-          <input class="admin-action-form__noregis type="text" placeholder="000${noData}/${kodeDept}/21" />
+          <input class="admin-action-form__noregis type="text" placeholder="000${noData}/${kodeDept}/21" disabled/>
           <div class="admin-action-form__permintaan flex flex-ai-c">
             <span>Rp. </span>
             <input type="number" placeholder="Jumlah Permintaan"/>

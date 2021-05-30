@@ -77,10 +77,15 @@
             border-radius: 4px;
             width: 100%;
             margin-top: 1rem;
-            padding: 3px 0;
+            padding: 5px;
             background-color: rgba($red-color, 0.4);
+            font-size: 0.75rem;
             color: $red-color;
             text-align: center;
+
+            @include breakpoint-up(lgPhone) {
+              font-size: 1rem;
+            }
 
             &.show {
               visibility: visible;
