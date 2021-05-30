@@ -45,10 +45,21 @@ class UI {
   }
 
   setStatus() {
+    this.statusField.innerHTML = `
+      <select name="statusFilter" id="statusfilter">
+        <option value="all">Status</option>
+        <option value="accepted">Accepted</option>
+        <option value="rejected">Rejected</option>
+        <option value="progress">On Progress</option>
+      </select>
+    `;
+  }
+
+  configureStatus() {
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
         data.style.color = '#00ab4e';
-        data.parentElement.classList.add('status-acc');
+        data.parentElement.classList.add('status-accept');
       } else if (data.innerText.toLowerCase() == 'rejected') {
         data.style.color = '#e74c3c';
         data.parentElement.classList.add('status-reject');
@@ -59,20 +70,13 @@ class UI {
     });
   }
 
-  configureStatus() {
-    this.statusField.innerHTML = `
-      <select name="statusFilter" id="statusfilter">
-        <option value="all">Status</option>
-        <option value="accepted">Accepted</option>
-        <option value="rejected">Rejected</option>
-        <option value="progress">On Progress</option>
-      </select>
-    `;
+  filterStatus() {
+    const selectedOption = document.querySelectorAll('#statusfilter option');
 
-    // element select
-    const statusOption = document.querySelector('#statusfilter');
+    console.log(selectedOption);
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
@@ -81,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setSOPP();
   ui.setStatus();
   ui.configureStatus();
+  ui.filterStatus();
 })
 
 // search table data based on soa number (halaman pemegang anggaran)
