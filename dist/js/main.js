@@ -45,7 +45,7 @@ class UI {
         <option value="all">All</option>
         <option value="accepted">Accepted</option>
         <option value="rejected">Rejected</option>
-        <option value="progress">On Progress</option>
+        <option value="register">Register</option>
       </select>
     `;
   }
@@ -54,14 +54,14 @@ class UI {
     const allTableRow = []
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
-        data.style.color = '#00ab4e';
+        data.style.color = '#e67e22';
         data.parentElement.classList.add('status-accept');
       } else if (data.innerText.toLowerCase() == 'rejected') {
         data.style.color = '#e74c3c';
         data.parentElement.classList.add('status-reject');
-      } else if (data.innerText.toLowerCase() == 'on progress') {
-        data.style.color = '#636e72';
-        data.parentElement.classList.add('status-progress');
+      } else {
+        data.style.color = '#00ab4e';
+        data.parentElement.classList.add('status-register');
       }
 
       allTableRow.push(data.parentElement);
@@ -94,10 +94,10 @@ class UI {
               row.style.display = 'none';
           });
           break;
-        case 'progress':
+        case 'register':
           tableRow.forEach(row => {
             row.style.display = 'table-row';
-            if (!row.classList.contains('status-progress'))
+            if (!row.classList.contains('status-register'))
               row.style.display = 'none';
           });
           break;

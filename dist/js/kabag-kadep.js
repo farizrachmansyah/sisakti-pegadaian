@@ -10,59 +10,62 @@ document.addEventListener('DOMContentLoaded', () => {
       item.href = `../report.html?page=${item.dataset.linked}`;
     });
 
-    // TABLE THINGS
-    const tableRows = document.querySelectorAll('tbody tr');
+    // MENYELEKSI BARIS DATA MANA YANG BISA DI KLIK OLEH USER TERTENTU
+    if (URL_STRING.includes('kabag-aa')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('administrasi') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('rejected');
 
-    tableRows.forEach(row => {
-      row.addEventListener('click', el => {
-        const thisRowData = el.target.parentElement;
-        let theSOA;
-
-        if (URL_STRING.includes('kadep')) {
-          theSOA = thisRowData.children[1].innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
-        } else if (URL_STRING.includes('tresuri')) {
-          theSOA = thisRowData.firstElementChild.innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
-        } else if (URL_STRING.includes('aa')) {
-          theSOA = thisRowData.firstElementChild.innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
+        if (firstCondition || secondCondition) {
+          // GET SOA DATA
+          const soaValue = row.children[0].innerText;
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+          });
         }
+      });
 
-      })
-    })
+    } else if (URL_STRING.includes('kabag-tresuri')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('rejected');
+
+        if (firstCondition || secondCondition) {
+          // GET SOA DATA
+          const soaValue = row.children[0].innerText;
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+          });
+        }
+      });
+    } else if (URL_STRING.includes('kadep')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[8].innerText;
+        const rowStatus = row.children[9].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('rejected');
+
+        if (firstCondition || secondCondition) {
+          // GET SOA DATA
+          const soaValue = row.children[1].innerText;
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(soaValue)}`;
+          });
+        }
+      });
+    }
+
   } else if (URL_STRING.includes('konfirmasi-dokumen')) {
-    // SET SOA NUMBER TO APPEAR IN TOP OF CONTENT PAGE
-    // const CURRENT_URL = new URL(URL_STRING);
-    // const soaData = CURRENT_URL.searchParams.get('soa');
-    // const perihalData = CURRENT_URL.searchParams.get('perihal');
-    // parameter from adalah untuk menentukan bahwa halaman konfirmasi ini sebelumnya berasal dari halaman mana
-    // const fromData = CURRENT_URL.searchParams.get('from');
-
-    // const soaField = document.querySelector('#soafield');
-    // const perihalField = document.querySelector('#perihalfield');
-
-    // soaField.placeholder = `SOA : ${soaData}`;
-    // perihalField.value = `${perihalData}`;
-
-
-
-    // CHOOSING WHICH TEXT SHOULD BE SET IN CONFIRMATION BUTTON (KONFIRMASI/REGISTER)
-    // const confirmButton = document.querySelector('#confirmBtn');
-
-    // if (fromData == 'kadep')
-    //   confirmButton.innerText = 'registrasi';
-
-    // MENGECEK APAKAH SEMUA RADIO BUTTON TELAH TERISI
-    // if (fromData == 'tresuri') {
-    //   const radioButton = document.querySelectorAll('input[type=radio]');
-    //   radioButton.forEach(radio => {
-    //     radio.setAttribute('required', '');
-    //   });
-    // }
-
-    // MERUBAH ISI RADIO BUTTON UNTUK YANG BERASAL DARI HALAMAN KABAG-AA
-
     // NGASIH EVENT LISTENER BUAT RADIO BUTTON TIDAK TERSEDIA
     const radioSaldoAnggaran = document.querySelectorAll('.sa .option');
     const warningInfo = document.querySelector('.info-warning');
@@ -100,12 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
-
-    if (fromData == 'aa') {
-      // NGASIH ATRIBUT ACTION KE FORM
-      // const form = document.querySelector('form');
-      // form.action = './kabag-aa/dashboard.html';
-    }
 
   } else if (URL_STRING.includes('report')) {
     const CURRENT_URL = new URL(URL_STRING);
