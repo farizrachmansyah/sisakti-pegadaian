@@ -49,30 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     soaField.placeholder = `SOA : ${soaData}`;
     perihalField.value = `${perihalData}`;
 
-    // RADIO BUTTON INPUT LOGIC
-    const radioBtnLainnya = document.querySelectorAll('.option-lainnya');
 
-    radioBtnLainnya.forEach(radio => {
-      radio.addEventListener('click', () => {
-        if (radio.checked == true) {
-          radio.checked = false;
-
-          let anotherOption = null;
-
-          do {
-            anotherOption = prompt('Masukkan pilihan lainnya');
-          } while (anotherOption === '')
-
-          if (anotherOption !== null) {
-            radio.checked = true;
-            radio.nextSibling.textContent = `\n${anotherOption}`;
-          } else {
-            radio.checked = false;
-            radio.nextSibling.textContent = '\nlainnya';
-          }
-        }
-      });
-    });
 
     // CHOOSING WHICH TEXT SHOULD BE SET IN CONFIRMATION BUTTON (KONFIRMASI/REGISTER)
     const confirmButton = document.querySelector('#confirmBtn');
@@ -349,6 +326,31 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
       `;
+
+      // RADIO BUTTON INPUT LOGIC
+      const radioBtnLainnya = document.querySelectorAll('.option-lainnya');
+
+      radioBtnLainnya.forEach(radio => {
+        radio.addEventListener('click', () => {
+          if (radio.checked == true) {
+            radio.checked = false;
+
+            let anotherOption = null;
+
+            do {
+              anotherOption = prompt('Masukkan pilihan lainnya');
+            } while (anotherOption === '')
+
+            if (anotherOption !== null) {
+              radio.checked = true;
+              radio.nextSibling.textContent = `\n${anotherOption}`;
+            } else {
+              radio.checked = false;
+              radio.nextSibling.textContent = '\nlainnya';
+            }
+          }
+        });
+      });
     }
 
   } else if (URL_STRING.includes('report')) {
