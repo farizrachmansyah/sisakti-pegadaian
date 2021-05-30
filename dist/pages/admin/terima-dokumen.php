@@ -21,22 +21,21 @@ if(isset($_POST['submit'])){
     // bind parameter ke query
     $params = array(
         ":soa_ma" => $soa_ma,
-        ":soa_no" => $soa_no,
+        ":soa_no" => strval($soa_no)."/SOA-00108/2021",
         ":soa_sopp" => $soa_sopp,
         ":soa_perihal" => $soa_perihal,
         ":soa_nominal" => $soa_nominal,
         ":soa_departemen_id" => $soa_departemen_id,
         ":soa_pa_id" => $soa_pa_id
     );
-    print_r($params);
-    die();
+    
 
     // eksekusi query untuk menyimpan ke database
-    //$saved = $stmt->execute($params);
+    $saved = $stmt->execute($params);
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
-    //if($saved) header("Location: login.php");
+    if($saved) header("Location: dashboard.php");
 }
 
 ?>
