@@ -1,11 +1,9 @@
 <?php
 require_once 'data.php';
 
-
-
 if(isset($_POST['submit'])){
     // filter data yang diinputkan
-    $soa_ma = filter_input(INPUT_POST, 'mata-anggaran', FILTER_SANITIZE_STRING);
+    $soa_akt = filter_input(INPUT_POST, 'aktivitas', FILTER_SANITIZE_STRING);
     $soa_no = filter_input(INPUT_POST, 'soa', FILTER_SANITIZE_STRING);
     $soa_sopp = filter_input(INPUT_POST, 'sopp', FILTER_SANITIZE_STRING);
     $soa_perihal = filter_input(INPUT_POST, 'perihal', FILTER_SANITIZE_STRING);
@@ -14,13 +12,13 @@ if(isset($_POST['submit'])){
     $soa_pa_id = filter_input(INPUT_POST, 'pemegang-anggaran', FILTER_SANITIZE_STRING);
 
     // menyiapkan query
-    $sql = "INSERT INTO tbl_soa (soa_ma, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id) 
-            VALUES (:soa_ma, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id)";
+    $sql = "INSERT INTO tbl_soa (soa_akt_id, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id) 
+            VALUES (:soa_akt, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id)";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
     $params = array(
-        ":soa_ma" => $soa_ma,
+        ":soa_akt" => $soa_akt,
         ":soa_no" => strval($soa_no)."/SOA-00108/2021",
         ":soa_sopp" => $soa_sopp,
         ":soa_perihal" => $soa_perihal,
@@ -37,9 +35,7 @@ if(isset($_POST['submit'])){
     // maka alihkan ke halaman login
     if($saved) header("Location: dashboard.php");
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -159,11 +155,23 @@ if(isset($_POST['submit'])){
               <option value="risiko-kredit">KABAG Risiko Kredit & Asuransi</option>
               <option value="risiko-operasional">KABAG Risiko Operasional & Kepatuhan</option> -->
             </select>
+
             <!-- <div class="datetime flex">
               <input type="date" required />
               <input type="time" required />
             </div> -->
-            <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required/>
+             <select class="input" name="aktivitas" id="aktivitas">
+              <option selected="" disabled="">Mata Anggaran</option>
+              <?php
+                $aktivitas = loadActivity();
+                foreach($aktivitas as $data){
+                  echo "<option id='".$data['akt_id']."' value='".$data['akt_id']."'>".$data['akt_name']." - ".$data['akt_ma_code']."</option>";
+                }
+
+              ?>
+             
+            </select>
+            <!-- <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required/> -->
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
               <input type="number" placeholder="Jumlah Permintaan" name="nominal" required />
