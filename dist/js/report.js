@@ -40,21 +40,21 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
-              <td>Aktivitas</td>
+              <td>Aktiva Tetap</td>
               <td>Rp. 50.000.000</td>
               <td>Rp. 40.000.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
-              <td>Aktivitas</td>
+              <td>Biaya Penanganan Pandemi</td>
               <td>Rp. 70.000.000</td>
               <td>Rp. 60.000.000</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
-              <td>Aktivitas</td>
+              <td>Biaya Penyaluran Bina Lingkungan</td>
               <td>Rp. 90.000.000</td>
               <td>Rp. 80.000.000</td>
             </tr>
@@ -228,19 +228,19 @@ class UI {
             <tr>
               <td>1</td>
               <td>1710101</td>
-              <td>Aktivitas</td>
+              <td>Aktiva Tetap</td>
               <td>706</td>
             </tr>
             <tr>
               <td>2</td>
               <td>5143501</td>
-              <td>Aktivitas</td>
+              <td>Biaya Penanganan Pandemi</td>
               <td>236</td>
             </tr>
             <tr>
               <td>3</td>
               <td>5142301</td>
-              <td>Aktivitas</td>
+              <td>Biaya Penyaluran Bina Lingkungan</td>
               <td>294</td>
             </tr>
           </tbody>
