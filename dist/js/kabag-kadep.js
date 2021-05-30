@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tableRows.forEach(row => {
         const rowLokasi = row.children[9].innerText;
         const rowStatus = row.children[10].innerText;
-        const firstCondition = rowLokasi.toLowerCase().includes('administrasi') && rowStatus.toLowerCase().includes('accepted');
+        const firstCondition = rowLokasi.toLowerCase().includes('admin') && rowStatus.toLowerCase().includes('accepted');
         const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('rejected');
 
         if (firstCondition || secondCondition) {
