@@ -144,13 +144,13 @@ button,
 
 .header-container {
   background-color: $primary-color;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 
   @include breakpoint-up(tablet) {
-    padding: 2rem;
+    padding: 2rem 0;
   }
   @include breakpoint-up(smDesktop) {
-    padding: 3rem;
+    padding: 3rem 0;
   }
 
   &-content {
