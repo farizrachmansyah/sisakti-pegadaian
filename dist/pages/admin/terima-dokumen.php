@@ -127,7 +127,6 @@ if(isset($_POST['submit'])){
                 foreach($departmens as $departmen){
                   echo "<option id='".$departmen['mst_id']."' value='".$departmen['mst_id']."'>".$departmen['mst_text']."</option>";
                 }
-
               ?>
               <!-- <option selected disabled>Departemen</option>
               <option value="02.01">Keuangan</option>
