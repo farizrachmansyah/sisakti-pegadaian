@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (URL_STRING.includes('kadep')) {
           theSOA = thisRowData.children[1].innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
+          window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(theSOA)}`;
         } else if (URL_STRING.includes('tresuri')) {
           theSOA = thisRowData.firstElementChild.innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
+          window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(theSOA)}`;
         } else if (URL_STRING.includes('aa')) {
           theSOA = thisRowData.firstElementChild.innerText;
-          window.location.href = `./konfirmasi-dokumen.html?soa=${encodeURIComponent(theSOA)}`;
+          window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(theSOA)}`;
         }
 
       })
@@ -101,11 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    if (fromData == 'aa') {
+    // if (fromData == 'aa') {
       // NGASIH ATRIBUT ACTION KE FORM
       // const form = document.querySelector('form');
       // form.action = './kabag-aa/dashboard.html';
-    }
+    // }
 
   } else if (URL_STRING.includes('report')) {
     const CURRENT_URL = new URL(URL_STRING);

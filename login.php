@@ -33,7 +33,7 @@ if(isset($_POST['login'])){
               case "Admin Keuangan":
                 header("Location: ".$vlocation."admin/dashboard.php");
                 break;
-              case "kabag-aa":
+              case "Kepala Bagian Anggaran & Akuntansi":
                 header("Location: ".$vlocation."kabag-aa/dashboard.php");
                 break;
               case "kabag-tresuri":
