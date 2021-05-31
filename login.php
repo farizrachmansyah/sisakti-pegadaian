@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
               case "KABAG Tresuri & Perpajakan":
                 header("Location: ".$vlocation."kabag-tresuri/dashboard.php");
                 break;
-              case "Kepala Departemen":
+              case "Kepala Departemen Keuangan":
                 header("Location: ".$vlocation."kadep/dashboard.php");
                 break;
               default:
