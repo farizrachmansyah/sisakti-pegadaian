@@ -49,10 +49,10 @@ if(isset($_POST['login'])){
             
         
           }else{
-            header("location:login.php?login=gagal");
+            header("location:login.php?loginStatus=gagal");
           }
     }else{
-      header("location:login.php?login=gagal"); 
+      header("location:login.php?loginStatus=gagal"); 
     }
 }
 ?>
