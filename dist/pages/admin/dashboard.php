@@ -32,6 +32,9 @@
     />
   </head>
   <body>
+    <!-- Pop Up Form -->
+    <div class="popup-container" id="popup"></div>
+    
     <main class="main admin">
       <!-- Header -->
       <div class="header-container">

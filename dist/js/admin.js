@@ -69,46 +69,78 @@ class EventListener {
     });
   }
 
-  async showRegisterModal(noSOA, noData, kodeDept, permintaan) {
+  showRegisterModal(noSOA, noData, kodeDept, permintaan) {
+    const popupContainer = document.querySelector('#popup');
+    popupContainer.innerHTML = `
+      <form action="data.php" method="POST" class="popup__container-form flex">
+        <h1>Register</h1>
+        <input id="swal-soa" class="popup__container-form-soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
+        <input id="swal-noregis" class="popup__container-form-noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
+        <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
+        <button class="btn" type="submit">Register</button>
+        <button class="btn" onclick="closeForm()">Cancel</button>
+      </form>
+    `;
+
     // ini masih belom diurus tombol submitnya
-    Swal.fire({
-      title: 'Register',
-      html: `
-        <form class="admin-action-form" action="data.php" method="POST">
-          <input id="swal-soa" class="admin-action-form__soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
-          <input id="swal-noregis" class="admin-action-form__noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
-          <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
-          <button class="btn" type="submit">Register</button>
-        </form>
-      `,
-      showConfirmButton: false,
-      showCancelButton: true,
-    })
+    // Swal.fire({
+    //   title: 'Register',
+    //   html: `
+    //     <form class="admin-action-form" action="data.php" method="POST">
+    //       <input id="swal-soa" class="admin-action-form__soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
+    //       <input id="swal-noregis" class="admin-action-form__noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
+    //       <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
+    //       <button class="btn" type="submit">Register</button>
+    //     </form>
+    //   `,
+    //   showConfirmButton: false,
+    //   showCancelButton: true,
+    // })
   }
 
   showKembaliModal(noSOA) {
+    const popupContainer = document.querySelector('#popup');
+    popupContainer.innerHTML = `
+      <form action="data.php" method="POST" class="popup__container-form flex">
+        <h1>Pengembalian</h1>
+        <input id="swal-soa" class="popup__container-form-soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
+        <select class="input" name="dept" id="">
+          <option selected disabled>Departemen</option>
+          <option value="02.01">Keuangan</option>
+          <option value="03.01">SDM</option>
+          <option value="04.01">Logistik</option>
+          <option value="05.01">Legal Officer</option>
+          <option value="06.01">Humas</option>
+          <option value="07.01">Bussiness Support</option>
+          <option value="08.01">Manajemen Risiko</option>
+        </select>
+        <input type="text" placeholder="Penerima" />
+        <button class="btn" type="submit">Reject</button>
+        <button class="btn" onclick="closeForm()">Cancel</button>
+      </form>
+    `;
     // ini masih belom diurus tombol submitnya
-    Swal.fire({
-      title: 'Pengembalian',
-      html: `
-        <form class="admin-action-form" action="" method="POST">
-          <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
-          <select class="input" name="dept" id="">
-            <option selected disabled>Departemen</option>
-            <option value="02.01">Keuangan</option>
-            <option value="03.01">SDM</option>
-            <option value="04.01">Logistik</option>
-            <option value="05.01">Legal Officer</option>
-            <option value="06.01">Humas</option>
-            <option value="07.01">Bussiness Support</option>
-            <option value="08.01">Manajemen Risiko</option>
-          </select>
-          <input type="text" placeholder="Penerima" />
-          <button class="btn" type="submit">Submit</button>
-        </form>
-      `,
-      showConfirmButton: false
-    });
+    // Swal.fire({
+    //   title: 'Pengembalian',
+    //   html: `
+    //     <form class="admin-action-form" action="" method="POST">
+    //       <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
+    //       <select class="input" name="dept" id="">
+    //         <option selected disabled>Departemen</option>
+    //         <option value="02.01">Keuangan</option>
+    //         <option value="03.01">SDM</option>
+    //         <option value="04.01">Logistik</option>
+    //         <option value="05.01">Legal Officer</option>
+    //         <option value="06.01">Humas</option>
+    //         <option value="07.01">Bussiness Support</option>
+    //         <option value="08.01">Manajemen Risiko</option>
+    //       </select>
+    //       <input type="text" placeholder="Penerima" />
+    //       <button class="btn" type="submit">Submit</button>
+    //     </form>
+    //   `,
+    //   showConfirmButton: false
+    // });
   }
 }
 
@@ -120,3 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setDatasetButton();
   events.showModal();
 });
+
+function closeForm() {
+  const popupContainer = document.querySelector('#popup');
+  popupContainer.innerHTML = '';
+  // popupContainer.style.all = 'unset';
+}
