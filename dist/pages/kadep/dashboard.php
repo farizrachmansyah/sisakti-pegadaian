@@ -37,7 +37,7 @@
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
           <span class="name">Kepala Departemen</span>
-          <a href="../../../login.html" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
+          <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
 
         <div class="header-container-content flex">
