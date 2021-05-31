@@ -9,7 +9,7 @@ if(isset($_POST['soa-regis'])){
     $userId = $user["usr_id"];
     
     if(!isset($_SESSION["user"])||$userId=''){
-      header("Location: ../../../login.php")
+      header("Location: ../../../login.php");
     }
 
     // filter data yang diinputkan
