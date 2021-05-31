@@ -108,11 +108,23 @@ class UI {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const URL_STRING = window.location.href;
   const ui = new UI();
 
-  ui.setSOPP();
-  ui.setStatus();
-  ui.configureStatus();
+  if (URL_STRING.includes('login.html')) {
+    const CURRENT_URL = new URL(URL_STRING);
+    // login error handle
+    const loginGagalParam = CURRENT_URL.searchParams.get('login');
+    if (loginGagalParam) {
+      alert('Login Gagal! Username atau Password salah');
+    }
+  } else {
+    ui.setSOPP();
+    ui.setStatus();
+    ui.configureStatus();
+  }
+
+
 })
 
 // search table data based on soa number (halaman pemegang anggaran)
