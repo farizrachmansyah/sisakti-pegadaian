@@ -20,8 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('rejected');
 
         if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;
@@ -38,8 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('rejected');
 
         if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;
@@ -55,8 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('rejected');
 
         if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[1].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             window.location.href = `./konfirmasi-dokumen.php?soa=${encodeURIComponent(soaValue)}`;

@@ -78,7 +78,7 @@
         <section class="main__content-table kepala__content-table">
           <!-- Bootstrap Table -->
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table">
               <thead>
                 <tr>
                   <th scope="col">No</th>
@@ -91,6 +91,7 @@
                   <th scope="col">Perihal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -112,6 +113,7 @@
                   echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
+                  echo "<td>""</td>";
                   echo "</tr>";
                 }
               ?>

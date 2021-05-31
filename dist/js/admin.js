@@ -69,9 +69,9 @@ class EventListener {
     });
   }
 
-  showRegisterModal(noSOA, noData, kodeDept) {
+  async showRegisterModal(noSOA, noData, kodeDept) {
     // ini masih belom diurus tombol submitnya
-    const { value: formValues } = Swal.mixin({
+    const { value: formValues } = await Swal.mixin({
       customClass: {
         confirmButton: 'sweetalert-btn-primary'
       }
@@ -79,13 +79,13 @@ class EventListener {
       title: 'Register',
       html: `
         <div class="admin-action-form">
-          <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
-          <input type="date" />
-          <input type="time" />
-          <input class="admin-action-form__noregis type="text" placeholder="000${noData}/${kodeDept}/21" disabled/>
+          <input id="swal-soa" class="admin-action-form__soa" type="text" value="SOA : ${noSOA}" disabled/>
+          <input id="swal-date" type="date" />
+          <input id="swal-time" type="time" />
+          <input id="swal-noregis" class="admin-action-form__noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
           <div class="admin-action-form__permintaan flex flex-ai-c">
             <span>Rp. </span>
-            <input type="number" placeholder="Jumlah Permintaan"/>
+            <input id="swal-permintaan" type="number" placeholder="Jumlah Permintaan"/>
           </div>
         </div>
       `,
@@ -93,11 +93,18 @@ class EventListener {
       focusConfirm: false,
       preConfirm: () => {
         return [
-          document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value
+          document.getElementById('swal-soa').value,
+          document.getElementById('swal-date').value,
+          document.getElementById('swal-time').value,
+          document.getElementById('swal-noregis').value,
+          document.getElementById('swal-permintaan').value
         ]
       }
     })
+
+    if (formValues) {
+      console.log(formValues);
+    }
   }
 
   showKembaliModal(noSOA) {

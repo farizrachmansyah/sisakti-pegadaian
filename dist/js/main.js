@@ -113,11 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (URL_STRING.includes('login.php')) {
     const CURRENT_URL = new URL(URL_STRING);
-    console.log(CURRENT_URL);
+    const inputField = document.querySelectorAll('.item');
     // login error handle
     const loginGagalParam = CURRENT_URL.searchParams.get('loginStatus');
     if (loginGagalParam) {
       alert('Login Gagal! Username atau Password salah');
+      inputField.forEach(field => field.style.boxShadow = '0px 3px 6px #e74c3c');
     }
   } else {
     ui.setSOPP();
