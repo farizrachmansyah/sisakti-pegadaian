@@ -112,7 +112,7 @@
                   echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
-                  echo "<td>""</td>";
+                  echo "<td></td>";
                   echo "</tr>";
                 }
               ?>
