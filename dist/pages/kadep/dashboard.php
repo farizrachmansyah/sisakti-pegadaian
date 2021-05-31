@@ -36,17 +36,11 @@
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-content flex">
-          <div class="content-top flex flex-ai-c">
-            <div class="user">KABAG Tresuri & Perpajakan</div>
-            <a href="../../../logout.php" class="logout"> <i class="fas fa-sign-out-alt"></i></a>
+          <div class="logo">
+            <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
-          <div class="content-bottom flex">
-            <div class="logo">
-              <img src="../../assets/logo-login.png" alt="logo pegadaian" />
-            </div>
-            <div class="title">
-              <h1>daftar dokumen</h1>
-            </div>
+          <div class="title">
+            <h1>daftar dokumen</h1>
           </div>
         </div>
       </div>
