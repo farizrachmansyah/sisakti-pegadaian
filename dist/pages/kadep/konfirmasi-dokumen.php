@@ -109,11 +109,17 @@ if(isset($_POST['submit'])){
     <main class="main konfirmasi">
       <div class="header-container">
         <div class="header-container-content flex">
-          <div class="logo">
-            <img src="../../assets/logo-login.png" alt="logo pegadaian" />
+          <div class="content-top flex flex-ai-c">
+            <div class="user"></div>
+            <a href="../../../logout.php" class="logout"></a>
           </div>
-          <div class="title">
-            <h1>daftar dokumen</h1>
+          <div class="content-bottom flex">
+            <div class="logo">
+              <img src="../../assets/logo-login.png" alt="logo pegadaian" />
+            </div>
+            <div class="title">
+              <h1>konfirmasi dokumen</h1>
+            </div>
           </div>
         </div>
       </div>
