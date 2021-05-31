@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
     && $rfaktur == "Y" && $rktp == "Y" 
     && $rnpwp == "Y" && $rsiup == "Y" 
     && $rtdp == "Y" && $rfoto == "Y"){
-        $lastStatus = "Accepted";
+        $lastStatus = "Register";
     }else{
         $lastStatus = "Rejected";
     }
@@ -307,7 +307,7 @@ if(isset($_POST['submit'])){
                 <label for="">Foto Sebelum/Sesudah</label>
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option">
-                    <input type="radio" name="foto" id="1" required value ='Y' <?php if($soa['is_fss']=="N") echo 'checked'; ?>/>
+                    <input type="radio" name="foto" id="1" required value ='Y' <?php if($soa['is_fss']=="Y") echo 'checked'; ?>/>
                     ada
                   </div>
                   <div class="option">
