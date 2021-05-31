@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!empty($_SESSION)){ }else{ session_start(); }
 require_once 'data.php';
 
 if(isset($_POST['submit'])){
