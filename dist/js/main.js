@@ -54,13 +54,13 @@ class UI {
     const allTableRow = []
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
-        data.style.color = '#e67e22';
+        data.style.color = '#00ab4e';
         data.parentElement.classList.add('status-accept');
       } else if (data.innerText.toLowerCase() == 'rejected') {
         data.style.color = '#e74c3c';
         data.parentElement.classList.add('status-reject');
       } else {
-        data.style.color = '#00ab4e';
+        data.style.color = '#3498db';
         data.parentElement.classList.add('status-register');
       }
 

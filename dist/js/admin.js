@@ -13,7 +13,7 @@ class AdminUI {
       editBtn.style.paddingRight = '1rem';
 
       if (statusInfo.toLowerCase() == 'register') {
-        editBtn.style.color = '#00ab4e';
+        editBtn.style.color = '#3498db';
         editBtn.innerHTML = '<i class="far fa-edit"></i>';
       } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
