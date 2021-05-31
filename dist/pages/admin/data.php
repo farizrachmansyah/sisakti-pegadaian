@@ -1,6 +1,42 @@
 <?php
+if(!empty($_SESSION)){ }else{ session_start(); }
 define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
 require_once(ROOTPATH."/config.php");
+
+
+if(isset($_POST['soa-regis'])){
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
+    
+    if(!isset($_SESSION["user"])||$userId=''){
+      header("Location: ../../../login.php")
+    }
+
+    // filter data yang diinputkan
+    $soa_no = filter_input(INPUT_POST, 'soa-regis', FILTER_SANITIZE_STRING);
+    $ma = filter_input(INPUT_POST, 'ma', FILTER_SANITIZE_STRING);
+    // $soa_no = filter_input(INPUT_GET, 'soa_no', FILTER_SANITIZE_STRING);
+    $lastStatus = "Registered";
+    
+    // menyiapkan query
+    $sql = "UPDATE tbl_soa SET soa_lastupdate_by = :usr_id, soa_lastupdate_status = :last_status where soa_no = :soa_no";
+    $stmt = $db->prepare($sql);
+
+    // bind parameter ke query
+    $params = array(
+        ":soa_no" => $soa_no,
+        ":usr_id" => $userId,
+        ":last_status" => $lastStatus
+    );    
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman login
+    if($saved) header("Location: dashboard.php");
+}
+
 
 if(isset($_POST['deptId'])){
     global $db;
