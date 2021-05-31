@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
           // HOVER EFFECT ROW
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
           // HOVER EFFECT ROW
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[1].innerText;
           // HOVER EFFECT ROW
