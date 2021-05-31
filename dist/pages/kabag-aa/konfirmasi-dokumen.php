@@ -11,6 +11,10 @@ if(isset($_GET['soa'])){
 if(isset($_POST['submit'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
+    
+    if(!isset($_SESSION["user"])||$userId=''){
+      header("Location: ../../../login.php")
+    }
 
     // filter data yang diinputkan
     $sa = filter_input(INPUT_POST, 'sa', FILTER_SANITIZE_STRING);
