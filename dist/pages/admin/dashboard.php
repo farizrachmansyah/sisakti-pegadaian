@@ -35,7 +35,7 @@
     <main class="main admin">
       <!-- Header -->
       <div class="header-container">
-      <div class="header-container-content flex">
+        <div class="header-container-content flex">
           <div class="content-top flex flex-ai-c">
             <div class="user">Staf Admin</div>
             <button type="submit" class="logout"><i class="fas fa-sign-out-alt"></i></button>
