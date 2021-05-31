@@ -144,104 +144,112 @@ button,
 
 .header-container {
   background-color: $primary-color;
-  padding: 1.5rem 0;
 
-  &-content {
-    width: 80%;
-    margin: 0 auto;
-    flex-direction: column;
+  &-user {
+    padding: 10px 1rem;
+    background-color: #fff;
 
-    .content-top {
-      justify-content: flex-end;
-      margin-bottom: 1.5rem;
+    @include breakpoint-up(tablet) {
+      padding: 8px 1.5rem;
+    }
 
-      .user {
-        color: $light-color;
-        font-size: 0.75rem;
+    .name {
+      color: $secondary-color;
+      font-size: 0.75rem;
+      font-weight: weight(semiBold);
+      text-transform: uppercase;
+      letter-spacing: -0.25px;
 
-        @include breakpoint-up(smPhone) {
-          font-size: 1rem;
-        }
-        @include breakpoint-up(smDesktop) {
-          font-size: 1.25rem;
-        }
+      @include breakpoint-up(mdPhone) {
+        font-size: 14px;
       }
-
-      .logout {
-        padding: 0;
-        margin-left: 1rem;
-        font-size: 0.75rem;
-        color: $light-color;
-
-        @include breakpoint-up(smPhone) {
-          font-size: 1rem;
-        }
-        @include breakpoint-up(smDesktop) {
-          font-size: 1.5rem;
-        }
-
-        &:hover {
-          background: none;
-          color: $accent-color;
-        }
+      @include breakpoint-up(tablet) {
+        font-size: 1rem;
       }
     }
 
-    .content-bottom {
-      align-items: flex-end;
+    .logout {
+      border-radius: 4px;
+      padding: 5px 8px;
+      background-color: $primary-color;
+      color: $light-color;
+      font-size: 10px;
+      text-transform: capitalize;
 
-      .logo {
-        flex: 0.8;
+      @include breakpoint-up(mdPhone) {
+        font-size: 0.75rem;
+      }
+      @include breakpoint-up(tablet) {
+        font-size: 1rem;
+        padding: 8px 12px;
+      }
+    }
+  }
 
-        @include breakpoint-up(tablet) {
-          flex: 0.5;
-        }
-        @include breakpoint-up(mdDesktop) {
-          flex: 0.3;
-        }
+  &-content {
+    width: 80%;
+    padding: 1.5rem 0;
+    margin: 0 auto;
+    align-items: flex-end;
 
-        img {
-          width: 100%;
-        }
+    @include breakpoint-up(tablet) {
+      padding: 2.5rem 0;
+    }
+    @include breakpoint-up(smDesktop) {
+      padding: 3rem 0;
+    }
+
+    .logo {
+      flex: 0.8;
+
+      @include breakpoint-up(tablet) {
+        flex: 0.5;
+      }
+      @include breakpoint-up(mdDesktop) {
+        flex: 0.3;
       }
 
-      .title {
-        flex: 1.2;
+      img {
+        width: 100%;
+      }
+    }
 
+    .title {
+      flex: 1.2;
+
+      @include breakpoint-up(tablet) {
+        flex: 1.5;
+      }
+      @include breakpoint-up(mdDesktop) {
+        flex: 1.7;
+      }
+
+      h1 {
+        width: 50%;
+        margin-left: auto;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        text-align: right;
+        color: $light-color;
+        font-size: 14px;
+
+        @include breakpoint-up(smPhone) {
+          font-size: 1rem;
+        }
+        @include breakpoint-up(lgPhone) {
+          font-size: 1.25rem;
+        }
         @include breakpoint-up(tablet) {
-          flex: 1.5;
+          font-size: 1.5rem;
+        }
+        @include breakpoint-up(smDesktop) {
+          font-size: 2rem;
         }
         @include breakpoint-up(mdDesktop) {
-          flex: 1.7;
+          font-size: 1.75rem;
         }
-
-        h1 {
-          width: 50%;
-          margin-left: auto;
-          margin-bottom: 0;
-          text-transform: capitalize;
-          text-align: right;
-          color: $light-color;
-          font-size: 14px;
-
-          @include breakpoint-up(smPhone) {
-            font-size: 1rem;
-          }
-          @include breakpoint-up(lgPhone) {
-            font-size: 1.25rem;
-          }
-          @include breakpoint-up(tablet) {
-            font-size: 1.5rem;
-          }
-          @include breakpoint-up(smDesktop) {
-            font-size: 2rem;
-          }
-          @include breakpoint-up(mdDesktop) {
-            font-size: 1.75rem;
-          }
-          @include breakpoint-up(lgDesktop) {
-            font-size: 2rem;
-          }
+        @include breakpoint-up(lgDesktop) {
+          font-size: 2rem;
         }
       }
     }
