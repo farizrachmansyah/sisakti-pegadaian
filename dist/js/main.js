@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const URL_STRING = window.location.href;
   const ui = new UI();
 
-  if (URL_STRING.includes('login.html')) {
+  if (URL_STRING.includes('login.php')) {
     const CURRENT_URL = new URL(URL_STRING);
     console.log(CURRENT_URL);
     // login error handle
