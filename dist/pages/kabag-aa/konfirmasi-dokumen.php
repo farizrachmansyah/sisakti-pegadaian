@@ -5,9 +5,6 @@ require_once 'data.php';
 
 if(isset($_GET['soa'])){
     $soa_no = $_GET['soa'];
-
-    print_r($soa_no);
-    die();
     $soa = loadSoa($soa_no);
 }
 

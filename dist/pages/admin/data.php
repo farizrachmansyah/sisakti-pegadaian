@@ -28,7 +28,7 @@ function loadListDashboard(){
        (select usr_jabatan from tbl_user where usr_id = soa_pa_id) as  soa_pa_name,
        (SELECT CONVERT_TZ(soa_created_at, '+00:00','+8:00')) as soa_created_at,
        (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
-       'accepted' as soa_status FROM tbl_soa";
+       soa_lastupdate_status as soa_status FROM tbl_soa";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
