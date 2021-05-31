@@ -45,20 +45,14 @@ if(isset($_POST['login'])){
               default:
                 header("Location: ".$vlocation."pemegang-anggaran/dashboard.php");
             }
-            // login sukses, alihkan ke halaman timeline
-            // if($user["jabatan"]=="admin"){
-            //   header("Location: ./dist/pages/admin/dashboard.php");
-            // }else if($user["jabatan"]=="admin"){
-            //   header("Location: dashboard-admin.php");
-            // }else if($user["jabatan"]=="kabag-aa"){
-            //   header("Location: dashboard-kabag-aa.php");
-            // }else if($user["jabatan"]=="kabag-tresuri"){
-            //   header("Location: dashboard-kabag-tresuri.php");
-            // }else if($user["jabatan"]=="kadep"){
-            //   header("Location: dashboard-kadep.php");
-            // }
             
-        }
+            
+        
+          }else{
+            header("location:login.php?login=gagal");
+          }
+    }else{
+      header("location:login.php?login=gagal"); 
     }
 }
 ?>
