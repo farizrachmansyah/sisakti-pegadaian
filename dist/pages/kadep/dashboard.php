@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiSAKTI &MediumSpace;-&MediumSpace; KABAG Tresuri & Perpajakan</title>
+    <title>SiSAKTI &MediumSpace;-&MediumSpace; KADEP</title>
 
     <!-- Bootstrap -->
     <link
@@ -38,7 +38,7 @@
         <div class="header-container-content flex">
           <div class="content-top flex flex-ai-c">
             <div class="user">Kepala Departemen</div>
-            <a href="../../../logout.php" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+            <a href="../../../login.html" class="logout"><i class="fas fa-sign-out-alt"></i></a>
           </div>
           <div class="content-bottom flex">
             <div class="logo">
@@ -81,14 +81,13 @@
             <table class="table table-hover">
               <thead>
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">SOA</th>
                   <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
-                  <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Mata Anggaran</th>
-                  <th scope="col">Jumlah Permintaan</th>
                   <th scope="col">Perihal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
@@ -103,14 +102,13 @@
                   $soa_time = $soa_date_time->format('H:m');
 
                   echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
                   echo "<td class='soadata-table'>".$data['soa_no']."</td>";
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
-                  echo "<td>".$data['soa_pa_name']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>".$data['soa_ma']."</td>";
-                  echo "<td>".$data['soa_nominal']."</td>";
                   echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
