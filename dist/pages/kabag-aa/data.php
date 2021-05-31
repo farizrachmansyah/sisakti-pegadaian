@@ -22,7 +22,7 @@ function loadDepartemen() {
 
 function loadSoa($psoa) {
     global $db;
-    $sql="SELECT soa_no,soa_perihal FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $sql="SELECT * FROM tbl_soa WHERE soa_no ='".$psoa."'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $soa = $stmt->fetch(PDO::FETCH_ASSOC);

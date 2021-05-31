@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     $ma = filter_input(INPUT_POST, 'ma', FILTER_SANITIZE_STRING);
     // $soa_no = filter_input(INPUT_GET, 'soa_no', FILTER_SANITIZE_STRING);
     
-    if($sa == "Y" && $sa == "Y"){
+    if($sa == "Y" && $ma == "Y"){
         $lastStatus = "Accepted";
     }else{
         $lastStatus = "Rejected";
@@ -102,11 +102,11 @@ if(isset($_POST['submit'])){
                 <label for="">Mata Anggaran</label>
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option">
-                    <input type="radio" name="ma" id="1" value ='Y'/>
+                    <input type="radio" name="ma" id="1" value ='Y' <?php if($soa['is_ma']=="Y") echo 'checked'; ?>/>
                     sesuai
                   </div>
                   <div class="option">
-                    <input type="radio" name="ma" id="2" value ='N'/>
+                    <input type="radio" name="ma" id="2" value ='N' <?php if($soa['is_ma']=="N") echo 'checked'; ?>/>
                     tidak sesuai
                   </div>
                 </div>
@@ -115,11 +115,11 @@ if(isset($_POST['submit'])){
                 <label for="">Saldo Anggaran</label>
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option">
-                    <input type="radio" name="sa" id="1" value ='Y'/>
+                    <input type="radio" name="sa" id="1" value ='Y' <?php if($soa['is_sa']=="Y") echo 'checked'; ?>/>
                     tersedia
                   </div>
                   <div class="option">
-                    <input type="radio" name="sa" id="2" value ='N'/>
+                    <input type="radio" name="sa" id="2" value ='N' <?php if($soa['is_sa']=="N") echo 'checked'; ?>/>
                     tidak tersedia
                   </div>
                 </div>
