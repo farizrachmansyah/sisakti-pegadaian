@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (anotherOption !== null) {
             radio.checked = true;
             radio.nextSibling.textContent = `\n${anotherOption}`;
+            radio.value = `\n${anotherOption}`;
           } else {
             radio.checked = false;
             radio.nextSibling.textContent = '\nlainnya';

@@ -275,6 +275,10 @@ button,
     }
   }
 
+  .btn {
+    margin-top: 2rem;
+  }
+
   &__soa {
     &::placeholder {
       color: $dark-color;

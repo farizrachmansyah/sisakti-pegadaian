@@ -6,8 +6,8 @@ class AdminUI {
   buttonAndStatus() {
     this.tableRow.forEach(row => {
       // const rowCol = Array.from(row.children);
-      const statusInfo = row.children[8].innerText;
-      const editBtn = row.children[9].firstElementChild;
+      const statusInfo = row.children[9].innerText;
+      const editBtn = row.children[10].firstElementChild;
 
       editBtn.style.paddingLeft = '1rem';
       editBtn.style.paddingRight = '1rem';
@@ -28,13 +28,10 @@ class AdminUI {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
       // edit button from last column values in row and get the first element child 
-      const editBtn = rowCol[9].firstElementChild;
+      const editBtn = rowCol[10].firstElementChild;
 
       // get column value form soa column and status column, then put them in variables
-      let status = null;
-      let noData = null;
-      let noSOA = null;
-      let kodeDept = null;
+      let status, noData, noSOA, kodeDept, jumPermintaan = null;
       rowCol.forEach((col, index) => {
         if (index == 0) {
           noData = col.innerText;
@@ -42,7 +39,9 @@ class AdminUI {
           noSOA = col.innerText;
         } else if (index == 2) {
           kodeDept = col.innerText.slice(15, 20);
-        } else if (index == 8) {
+        } else if (index == 5) {
+          jumPermintaan = col.innerText;
+        } else if (index == 9) {
           status = col.innerText.toLowerCase();
         }
       })
@@ -52,6 +51,7 @@ class AdminUI {
       editBtn.dataset.nodata = noData;
       editBtn.dataset.soa = noSOA;
       editBtn.dataset.kodedept = kodeDept;
+      editBtn.dataset.permintaan = jumPermintaan;
     })
   }
 }
@@ -64,62 +64,35 @@ class EventListener {
   showModal() {
     this.editBtn.forEach(button => {
       button.addEventListener('click', () => {
-        button.dataset.status === 'register' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept) : this.showKembaliModal(button.dataset.soa);
+        button.dataset.status === 'register' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept, button.dataset.permintaan) : this.showKembaliModal(button.dataset.soa);
       });
     });
   }
 
-  async showRegisterModal(noSOA, noData, kodeDept) {
+  async showRegisterModal(noSOA, noData, kodeDept, permintaan) {
     // ini masih belom diurus tombol submitnya
-    const { value: formValues } = await Swal.mixin({
-      customClass: {
-        confirmButton: 'sweetalert-btn-primary'
-      }
-    }).fire({
+    Swal.fire({
       title: 'Register',
       html: `
-        <div class="admin-action-form">
-          <input id="swal-soa" class="admin-action-form__soa" type="text" value="SOA : ${noSOA}" disabled/>
-          <input id="swal-date" type="date" />
-          <input id="swal-time" type="time" />
+        <form class="admin-action-form" action="data.php" method="POST">
+          <input id="swal-soa" class="admin-action-form__soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
           <input id="swal-noregis" class="admin-action-form__noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
-          <div class="admin-action-form__permintaan flex flex-ai-c">
-            <span>Rp. </span>
-            <input id="swal-permintaan" type="number" placeholder="Jumlah Permintaan"/>
-          </div>
-        </div>
+          <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
+          <button class="btn" type="submit">Register</button>
+        </form>
       `,
-      confirmButtonText: 'Submit',
-      focusConfirm: false,
-      preConfirm: () => {
-        return [
-          document.getElementById('swal-soa').value,
-          document.getElementById('swal-date').value,
-          document.getElementById('swal-time').value,
-          document.getElementById('swal-noregis').value,
-          document.getElementById('swal-permintaan').value
-        ]
-      }
+      showConfirmButton: false,
+      showCancelButton: true,
     })
-
-    if (formValues) {
-      console.log(formValues);
-    }
   }
 
   showKembaliModal(noSOA) {
     // ini masih belom diurus tombol submitnya
-    const { value: formValues } = Swal.mixin({
-      customClass: {
-        confirmButton: 'sweetalert-btn-primary'
-      }
-    }).fire({
+    Swal.fire({
       title: 'Pengembalian',
       html: `
-        <div class="admin-action-form">
+        <form class="admin-action-form" action="" method="POST">
           <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
-          <input type="date" />
-          <input type="time" />
           <select class="input" name="dept" id="">
             <option selected disabled>Departemen</option>
             <option value="02.01">Keuangan</option>
@@ -131,17 +104,11 @@ class EventListener {
             <option value="08.01">Manajemen Risiko</option>
           </select>
           <input type="text" placeholder="Penerima" />
-        </div>
+          <button class="btn" type="submit">Submit</button>
+        </form>
       `,
-      confirmButtonText: 'Submit',
-      focusConfirm: false,
-      preConfirm: () => {
-        return [
-          document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value
-        ]
-      }
-    })
+      showConfirmButton: false
+    });
   }
 }
 

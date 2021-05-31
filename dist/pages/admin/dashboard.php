@@ -63,6 +63,7 @@
                   <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
                   <th scope="col">Pemegang Anggaran</th>
+                  <th scope="col">Jumlah Permintaan</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Lokasi</th>
@@ -84,6 +85,7 @@
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
                   echo "<td>".$data['soa_pa_name']."</td>";
+                  echo "<td>".$data['soa_nominal']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
