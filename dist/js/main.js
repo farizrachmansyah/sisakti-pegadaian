@@ -113,8 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (URL_STRING.includes('login.html')) {
     const CURRENT_URL = new URL(URL_STRING);
+    console.log(CURRENT_URL);
     // login error handle
-    const loginGagalParam = CURRENT_URL.searchParams.get('login');
+    const loginGagalParam = CURRENT_URL.searchParams.get('loginStatus');
     if (loginGagalParam) {
       alert('Login Gagal! Username atau Password salah');
     }
