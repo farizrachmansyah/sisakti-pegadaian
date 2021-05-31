@@ -41,7 +41,7 @@ function loadListDashboard(){
     soa_perihal,
     (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
     soa_lastupdate_status as soa_status
-    FROM tbl_soa";
+    FROM tbl_soa order by soa_id desc";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
