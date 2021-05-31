@@ -46,7 +46,7 @@ class AdminUI {
         }
       })
 
-      // create dataset for soa and status
+      // create dataset
       editBtn.dataset.status = status;
       editBtn.dataset.nodata = noData;
       editBtn.dataset.soa = noSOA;
@@ -61,100 +61,54 @@ class EventListener {
     this.editBtn = document.querySelectorAll('.btn-edit');
   }
 
-  showModal() {
-    this.editBtn.forEach(button => {
-      button.addEventListener('click', () => {
-        button.dataset.status === 'register' ? this.showRegisterModal(button.dataset.soa, button.dataset.nodata, button.dataset.kodedept, button.dataset.permintaan) : this.showKembaliModal(button.dataset.soa);
+  setBtnAction() {
+    this.editBtn.forEach(btn => {
+      const status = btn.dataset.status;
+      const noData = btn.dataset.nodata;
+      const soa = btn.dataset.soa;
+      const kodeDept = btn.dataset.kodedept;
+      const permintaan = btn.dataset.permintaan;
+
+      btn.addEventListener('click', () => {
+        if (status == 'register') {
+          window.location.href = `./register.html?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
+        } else if (status == 'rejected') {
+          window.location.href = `./reject.html?soa=${soa}`;
+        }
       });
     });
-  }
-
-  showRegisterModal(noSOA, noData, kodeDept, permintaan) {
-    const popupContainer = document.querySelector('#popup');
-    popupContainer.innerHTML = `
-      <form action="data.php" method="POST" class="popup__container-form flex">
-        <h1>Register</h1>
-        <input id="swal-soa" class="popup__container-form-soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
-        <input id="swal-noregis" class="popup__container-form-noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
-        <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
-        <button class="btn" type="submit">Register</button>
-        <button class="btn" onclick="closeForm()">Cancel</button>
-      </form>
-    `;
-
-    // ini masih belom diurus tombol submitnya
-    // Swal.fire({
-    //   title: 'Register',
-    //   html: `
-    //     <form class="admin-action-form" action="data.php" method="POST">
-    //       <input id="swal-soa" class="admin-action-form__soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
-    //       <input id="swal-noregis" class="admin-action-form__noregis type="text" value="000${noData}/${kodeDept}/21" disabled/>
-    //       <input id="swal-permintaan" type="text" value="${permintaan}" disabled/>
-    //       <button class="btn" type="submit">Register</button>
-    //     </form>
-    //   `,
-    //   showConfirmButton: false,
-    //   showCancelButton: true,
-    // })
-  }
-
-  showKembaliModal(noSOA) {
-    const popupContainer = document.querySelector('#popup');
-    popupContainer.innerHTML = `
-      <form action="data.php" method="POST" class="popup__container-form flex">
-        <h1>Pengembalian</h1>
-        <input id="swal-soa" class="popup__container-form-soa" type="text" name="soa-regis" value="${noSOA}" disabled/>
-        <select class="input" name="dept" id="">
-          <option selected disabled>Departemen</option>
-          <option value="02.01">Keuangan</option>
-          <option value="03.01">SDM</option>
-          <option value="04.01">Logistik</option>
-          <option value="05.01">Legal Officer</option>
-          <option value="06.01">Humas</option>
-          <option value="07.01">Bussiness Support</option>
-          <option value="08.01">Manajemen Risiko</option>
-        </select>
-        <input type="text" placeholder="Penerima" />
-        <button class="btn" type="submit">Reject</button>
-        <button class="btn" onclick="closeForm()">Cancel</button>
-      </form>
-    `;
-    // ini masih belom diurus tombol submitnya
-    // Swal.fire({
-    //   title: 'Pengembalian',
-    //   html: `
-    //     <form class="admin-action-form" action="" method="POST">
-    //       <input class="admin-action-form__soa" type="text" placeholder="SOA : ${noSOA}" disabled/>
-    //       <select class="input" name="dept" id="">
-    //         <option selected disabled>Departemen</option>
-    //         <option value="02.01">Keuangan</option>
-    //         <option value="03.01">SDM</option>
-    //         <option value="04.01">Logistik</option>
-    //         <option value="05.01">Legal Officer</option>
-    //         <option value="06.01">Humas</option>
-    //         <option value="07.01">Bussiness Support</option>
-    //         <option value="08.01">Manajemen Risiko</option>
-    //       </select>
-    //       <input type="text" placeholder="Penerima" />
-    //       <button class="btn" type="submit">Submit</button>
-    //     </form>
-    //   `,
-    //   showConfirmButton: false
-    // });
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const URL_STRING = window.location.href;
   const ui = new AdminUI();
   const events = new EventListener();
 
-  ui.buttonAndStatus();
-  ui.setDatasetButton();
-  events.showModal();
-});
+  if (URL_STRING.includes('dashboard')) {
+    ui.buttonAndStatus();
+    ui.setDatasetButton();
+    events.setBtnAction();
+  } else if (URL_STRING.includes('register')) {
+    const CURRENT_URL = new URL(URL_STRING);
+    const noDataValue = CURRENT_URL.searchParams.get('noData');
+    const soaValue = CURRENT_URL.searchParams.get('soa');
+    const kodeDeptValue = CURRENT_URL.searchParams.get('kodeDept');
+    const permintaanValue = CURRENT_URL.searchParams.get('nominal');
 
-function closeForm() {
-  const popupContainer = document.querySelector('#popup');
-  popupContainer.innerHTML = '';
-  // popupContainer.style.all = 'unset';
-}
+    const inputFormSoa = document.querySelector('.soa');
+    inputFormSoa.value = soaValue;
+
+    const inputFormNoRegis = document.querySelector('.noregis');
+    inputFormNoRegis.value = `000${noDataValue}/${kodeDeptValue}/21`;
+
+    const inputFormPermintaan = document.querySelector('.permintaan');
+    inputFormPermintaan.value = permintaanValue;
+  } else if (URL_STRING.includes('reject')) {
+    const CURRENT_URL = new URL(URL_STRING);
+    const soaValue = CURRENT_URL.searchParams.get('soa');
+
+    const inputFormSoa = document.querySelector('.soa');
+    inputFormSoa.value = soaValue;
+  }
+});

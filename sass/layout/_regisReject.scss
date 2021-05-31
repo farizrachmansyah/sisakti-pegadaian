@@ -1,0 +1,33 @@
+.dokumen-action {
+  &__content {
+    @include breakpoint-up(smDesktop) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-form {
+      @include breakpoint-up(smDesktop) {
+        width: 600px;
+        margin: 0 auto;
+      }
+
+      form {
+        flex-direction: column;
+
+        input,
+        .input {
+          margin-bottom: 1rem;
+        }
+
+        .btn {
+          margin-top: 2rem;
+
+          &.reject {
+            background-color: $red-color;
+          }
+        }
+      }
+    }
+  }
+}
