@@ -71,7 +71,7 @@ class EventListener {
 
       btn.addEventListener('click', () => {
         if (status == 'register') {
-          window.location.href = `./register.html?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
+          window.location.href = `./register.php?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
         } else if (status == 'rejected') {
           window.location.href = `./reject.html?soa=${soa}`;
         }
