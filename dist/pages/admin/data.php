@@ -59,7 +59,14 @@ function loadDepartemen() {
     $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $departmens;
 }
-
+function loadSoa($psoa) {
+    global $db;
+    $sql="SELECT * FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $soa;
+}
 function loadListDashboard(){
     global $db;
     $sql="SELECT  soa_no,
