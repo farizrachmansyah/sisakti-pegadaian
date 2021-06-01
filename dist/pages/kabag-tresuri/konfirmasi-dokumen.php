@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
         ":usr_id" => $userId,
         ":last_status" => $lastStatus
         
-    );    
+    );  
 
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
@@ -141,8 +141,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="sopp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_sopp'])&&$soa['is_sopp']!="N"&&$soa['is_sopp']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='sopp' id='3' checked value='".$soa['is_sopp']."' required/>";
+                        echo $soa['is_sopp'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='sopp' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -158,8 +165,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="nota" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_nd'])&&$soa['is_nd']!="N"&&$soa['is_nd']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='nota' id='3' checked value='".$soa['is_nd']."' required/>";
+                        echo $soa['is_nd'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='nota' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -175,8 +189,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="spk" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_spk'])&&$soa['is_spk']!="N"&&$soa['is_spk']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='spk' id='3' checked value='".$soa['is_spk']."' required/>";
+                        echo $soa['is_spk'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='spk' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -192,8 +213,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="pkb" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_pkb'])&&$soa['is_pkb']!="N"&&$soa['is_pkb']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='pkb' id='3' checked value='".$soa['is_pkb']."' required/>";
+                        echo $soa['is_pkb'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='pkb' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -202,7 +230,17 @@ if(isset($_POST['submit'])){
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option"><input type="radio" name="po" id="1" / required value ='Y' <?php if($soa['is_po']=="Y") echo 'checked'; ?>> ada</div>
                   <div class="option"><input type="radio" name="po" id="2" / required value ='N' <?php if($soa['is_po']=="N") echo 'checked'; ?>> tidak ada</div>
-                  <div class="option"><input class="option-lainnya" type="radio" name="po" id="3" / required> lainnya</div>
+                  <div class="option">
+                  <?php
+                      if(isset($soa['is_po'])&&$soa['is_po']!="N"&&$soa['is_po']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='po' id='3' checked value='".$soa['is_po']."' required/>";
+                        echo $soa['is_po'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='po' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
+                  </div>
                 </div>
               </div>
               <div class="info-choice pr">
@@ -210,7 +248,17 @@ if(isset($_POST['submit'])){
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option"><input type="radio" name="pr" id="1" / required value ='Y' <?php if($soa['is_pr']=="Y") echo 'checked'; ?>> ada</div>
                   <div class="option"><input type="radio" name="pr" id="2" / required value ='N' <?php if($soa['is_pr']=="N") echo 'checked'; ?>> tidak ada</div>
-                  <div class="option"><input class="option-lainnya" type="radio" name="pr" id="3" / required> lainnya</div>
+                  <div class="option">
+                  <?php
+                      if(isset($soa['is_pr'])&&$soa['is_pr']!="N"&&$soa['is_pr']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='pr' id='3' checked value='".$soa['is_pr']."' required/>";
+                        echo $soa['is_pr'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='pr' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
+                  </div>
                 </div>
               </div>
               <div class="info-choice fakturpajak">
@@ -225,8 +273,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="faktur" id=" required3" />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_fp'])&&$soa['is_fp']!="N"&&$soa['is_fp']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='faktur' id='3' checked value='".$soa['is_fp']."' required/>";
+                        echo $soa['is_fp'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='faktur' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -242,8 +297,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="ktp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_ktp'])&&$soa['is_ktp']!="N"&&$soa['is_ktp']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='ktp' id='3' checked value='".$soa['is_ktp']."' required/>";
+                        echo $soa['is_ktp'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='ktp' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -259,8 +321,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="npwp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_npwp'])&&$soa['is_npwp']!="N"&&$soa['is_npwp']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='npwp' id='3' checked value='".$soa['is_npwp']."' required/>";
+                        echo $soa['is_npwp'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='npwp' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -276,8 +345,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="siup" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_siup'])&&$soa['is_siup']!="N"&&$soa['is_siup']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='siup' id='3' checked value='".$soa['is_siup']."' required/>";
+                        echo $soa['is_siup'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='siup' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -293,8 +369,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="tdp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_tdp'])&&$soa['is_tdp']!="N"&&$soa['is_tdp']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='tdp' id='3' checked value='".$soa['is_tdp']."' required/>";
+                        echo $soa['is_tdp'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='tdp' id='3' required/>";
+                        echo " lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -316,7 +399,7 @@ if(isset($_POST['submit'])){
                         echo $soa['is_fss'];
                       }else{
                         echo "<input class='option-lainnya' type='radio' name='foto' id='3' required/>";
-                        echo "lainnya";
+                        echo " lainnya";
                       }
                     ?>
                   </div>
