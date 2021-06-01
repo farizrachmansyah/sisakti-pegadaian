@@ -41,7 +41,7 @@ class AdminUI {
           kodeDept = col.innerText.slice(15, 20);
         } else if (index == 5) {
           jumPermintaan = col.innerText;
-        } else if (index == 9) {
+        } else if (index == 10) {
           status = col.innerText.toLowerCase();
         }
       })
