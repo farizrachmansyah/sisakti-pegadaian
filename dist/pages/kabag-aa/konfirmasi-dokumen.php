@@ -3,19 +3,19 @@ session_start();
 require_once 'data.php';
 
 
+
 if(isset($_GET['soa'])){
     $soa_no = $_GET['soa'];
     $soa = loadSoa($soa_no);
 }
 
 if(isset($_POST['submit'])){
-    $user = $_SESSION["user"];
-    $userId = $user["usr_id"];
     
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
     }
-
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
     // filter data yang diinputkan
     $sa = filter_input(INPUT_POST, 'sa', FILTER_SANITIZE_STRING);
     $ma = filter_input(INPUT_POST, 'ma', FILTER_SANITIZE_STRING);
@@ -26,6 +26,7 @@ if(isset($_POST['submit'])){
     }else{
         $lastStatus = "Rejected";
     }
+    print_r($userId);
 
     // menyiapkan query
     $sql = "UPDATE tbl_soa SET is_ma = :is_ma, is_sa = :is_sa, soa_lastupdate_by = :usr_id, soa_lastupdate_status = :last_status where soa_no = :soa_no";
