@@ -40,10 +40,7 @@ if(isset($_POST['submit'])){
         ":usr_id" => $userId,
         ":last_status" => $lastStatus
         
-    );    
-
-    print_r($params);
-    die();
+    );
 
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
