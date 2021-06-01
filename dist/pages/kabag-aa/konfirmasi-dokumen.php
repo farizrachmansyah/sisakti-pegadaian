@@ -41,6 +41,9 @@ if(isset($_POST['submit'])){
         
     );    
 
+    print_r($params);
+    die();
+
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
 
