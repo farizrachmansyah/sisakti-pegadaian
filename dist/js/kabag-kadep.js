@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (URL_STRING.includes('kabag-aa')) {
       const tableRows = document.querySelectorAll('tbody tr');
       tableRows.forEach(row => {
-        const rowLokasi = row.children[9].innerText;
-        const rowStatus = row.children[10].innerText;
+        const rowLokasi = row.children[10].innerText;
+        const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('admin') && rowStatus.toLowerCase().includes('accepted');
         const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('rejected');
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // CREATE BUTTON
           row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
-          const soaValue = row.children[0].innerText;
+          const soaValue = row.children[1].innerText;
           // HOVER EFFECT ROW
           row.classList.add('hover-effect');
           // CLICKABLE ROW = TRUE
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (URL_STRING.includes('kabag-tresuri')) {
       const tableRows = document.querySelectorAll('tbody tr');
       tableRows.forEach(row => {
-        const rowLokasi = row.children[9].innerText;
-        const rowStatus = row.children[10].innerText;
+        const rowLokasi = row.children[10].innerText;
+        const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('accepted');
         const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('rejected');
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // CREATE BUTTON
           row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
-          const soaValue = row.children[0].innerText;
+          const soaValue = row.children[1].innerText;
           // HOVER EFFECT ROW
           row.classList.add('hover-effect');
           // CLICKABLE ROW = TRUE
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (URL_STRING.includes('kadep')) {
       const tableRows = document.querySelectorAll('tbody tr');
       tableRows.forEach(row => {
-        const rowLokasi = row.children[8].innerText;
-        const rowStatus = row.children[9].innerText;
+        const rowLokasi = row.children[10].innerText;
+        const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('accepted');
         const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('rejected');
 

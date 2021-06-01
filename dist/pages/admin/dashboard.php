@@ -34,7 +34,7 @@
   <body>
     <!-- Pop Up Form -->
     <div class="popup-container" id="popup"></div>
-    
+
     <main class="main admin">
       <!-- Header -->
       <div class="header-container">
@@ -69,6 +69,8 @@
                   <th scope="col">Jumlah Permintaan</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
+                  <th scope="col">Mata Anggaran</th>
+                  <th scope="col">Perihal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
                   <th scope="col" id="button-table-action"></th>
@@ -91,6 +93,8 @@
                   echo "<td>".$data['soa_nominal']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
+                  echo "<td>Mata Anggaran</td>";
+                  echo "<td>Perihal</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";

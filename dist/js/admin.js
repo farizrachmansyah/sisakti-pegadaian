@@ -6,8 +6,8 @@ class AdminUI {
   buttonAndStatus() {
     this.tableRow.forEach(row => {
       // const rowCol = Array.from(row.children);
-      const statusInfo = row.children[9].innerText;
-      const editBtn = row.children[10].firstElementChild;
+      const statusInfo = row.children[11].innerText;
+      const editBtn = row.children[12].firstElementChild;
 
       editBtn.style.paddingLeft = '1rem';
       editBtn.style.paddingRight = '1rem';
@@ -28,7 +28,7 @@ class AdminUI {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
       // edit button from last column values in row and get the first element child 
-      const editBtn = rowCol[10].firstElementChild;
+      const editBtn = rowCol[12].firstElementChild;
 
       // get column value form soa column and status column, then put them in variables
       let status, noData, noSOA, kodeDept, jumPermintaan = null;
@@ -41,7 +41,7 @@ class AdminUI {
           kodeDept = col.innerText.slice(15, 20);
         } else if (index == 5) {
           jumPermintaan = col.innerText;
-        } else if (index == 9) {
+        } else if (index == 11) {
           status = col.innerText.toLowerCase();
         }
       })
