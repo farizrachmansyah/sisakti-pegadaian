@@ -67,6 +67,7 @@
                   <th scope="col">Departemen</th>
                   <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Jumlah Permintaan</th>
+                  <th scope="col">Perihal</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Lokasi</th>
