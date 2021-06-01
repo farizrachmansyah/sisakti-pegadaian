@@ -1,5 +1,11 @@
 <?php
   require_once 'data.php';
+  function rupiah($angka){
+	
+    $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+    return $hasil_rupiah;
+   
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,6 +112,7 @@
                   $soa_date_time = new DateTime($data['soa_created_at']);
                   $soa_date = $soa_date_time->format('d-m-Y');
                   $soa_time = $soa_date_time->format('H:m');
+                  $jumlah_permintaan = rupiah($data['soa_nominal']);
 
                   echo "<tr>";
                   echo "<td>No</td>";

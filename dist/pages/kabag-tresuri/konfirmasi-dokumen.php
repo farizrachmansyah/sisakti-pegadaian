@@ -318,7 +318,7 @@ if(isset($_POST['submit'])){
 
             <div class="part buttons flex flex-ai-c">
               <button type="submit" value="cancel">cancel</button>
-              <button id="confirmBtn" type="submit" value="confirm" name="submit">register</button>
+              <button id="confirmBtn" type="submit" value="confirm" name="submit">konfirmasi</button>
             </div>
           </form>
         </section>

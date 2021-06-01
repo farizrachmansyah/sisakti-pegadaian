@@ -1,5 +1,12 @@
 <?php
   require_once 'data.php';
+
+  function rupiah($angka){
+	
+    $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+    return $hasil_rupiah;
+   
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +74,7 @@
                   <th scope="col">Departemen</th>
                   <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Jumlah Permintaan</th>
+                  <th scope="col">Perihal</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Mata Anggaran</th>
@@ -83,6 +91,7 @@
                   $soa_date_time = new DateTime($data['soa_created_at']);
                   $soa_date = $soa_date_time->format('d-m-Y');
                   $soa_time = $soa_date_time->format('H:m');
+                  $jumlah_permintaan = rupiah($data['soa_nominal']);
 
                   echo "<tr>";
                   echo "<td>".($key+1)."</td>";
@@ -90,7 +99,8 @@
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
                   echo "<td>".$data['soa_pa_name']."</td>";
-                  echo "<td>".$data['soa_nominal']."</td>";
+                  echo "<td>".$jumlah_permintaan."</td>";
+                  echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>Mata Anggaran</td>";

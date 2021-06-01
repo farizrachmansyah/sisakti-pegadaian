@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>teirma dokumen</h1>
+            <h1>terima dokumen</h1>
           </div>
         </div>
       </div>

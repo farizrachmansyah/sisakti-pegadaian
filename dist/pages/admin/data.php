@@ -4,10 +4,14 @@ define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
 require_once(ROOTPATH."/config.php");
 
 
-if(isset($_POST['soa-regis'])){
+if(isset($_POST['register'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
-    
+
+    echo "alin";
+    print_r($_POST);
+    die();
+
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
     }
@@ -55,7 +59,14 @@ function loadDepartemen() {
     $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $departmens;
 }
-
+function loadSoa($psoa) {
+    global $db;
+    $sql="SELECT * FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $soa;
+}
 function loadListDashboard(){
     global $db;
     $sql="SELECT  soa_no,
@@ -63,6 +74,7 @@ function loadListDashboard(){
       (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_name,
        (select usr_jabatan from tbl_user where usr_id = soa_pa_id) as  soa_pa_name,
        soa_nominal,
+       soa_perihal,
        (SELECT CONVERT_TZ(soa_created_at, '+00:00','+8:00')) as soa_created_at,
        (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
        soa_lastupdate_status as soa_status FROM tbl_soa order by soa_id desc";
