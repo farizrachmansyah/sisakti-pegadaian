@@ -176,6 +176,11 @@ button,
       font-size: 10px;
       text-transform: capitalize;
 
+      &:hover {
+        text-decoration: none;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2));
+      }
+
       @include breakpoint-up(mdPhone) {
         font-size: 0.75rem;
       }

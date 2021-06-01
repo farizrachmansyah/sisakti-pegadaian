@@ -37,6 +37,10 @@
             border: 1px solid $primary-color;
             background: none;
             color: $primary-color;
+
+            &:hover {
+              background-image: linear-gradient(rgba(0, 0, 0, 0.1));
+            }
           }
         }
       }
