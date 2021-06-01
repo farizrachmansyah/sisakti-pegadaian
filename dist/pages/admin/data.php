@@ -4,10 +4,14 @@ define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
 require_once(ROOTPATH."/config.php");
 
 
-if(isset($_POST['soa-regis'])){
+if(isset($_POST['register'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
-    
+
+    echo "alin";
+    print_r($_POST);
+    die();
+
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
     }
