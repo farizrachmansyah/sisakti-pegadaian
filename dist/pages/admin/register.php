@@ -80,7 +80,7 @@ if(isset($_POST['register'])){
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>Register Dokumen</h1>
+            <h1>Register SOA</h1>
           </div>
         </div>
       </div>
