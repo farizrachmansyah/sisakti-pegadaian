@@ -71,7 +71,7 @@ class EventListener {
 
       btn.addEventListener('click', () => {
         if (status == 'register') {
-          window.location.href = `./register.php?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
+          window.location.href = `./register.html?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
         } else if (status == 'rejected') {
           window.location.href = `./reject.html?soa=${soa}`;
         }
@@ -97,18 +97,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const permintaanValue = CURRENT_URL.searchParams.get('nominal');
 
     const inputFormSoa = document.querySelector('.soa');
-    inputFormSoa.value = soaValue;
+    inputFormSoa.setAttribute('value', soaValue);
 
     const inputFormNoRegis = document.querySelector('.noregis');
-    inputFormNoRegis.value = `000${noDataValue}/${kodeDeptValue}/21`;
+    inputFormNoRegis.setAttribute('value', `000${noDataValue}/${kodeDeptValue}/21`);
 
     const inputFormPermintaan = document.querySelector('.permintaan');
-    inputFormPermintaan.value = permintaanValue;
+    inputFormPermintaan.setAttribute('value', permintaanValue);
+
   } else if (URL_STRING.includes('reject')) {
     const CURRENT_URL = new URL(URL_STRING);
     const soaValue = CURRENT_URL.searchParams.get('soa');
 
     const inputFormSoa = document.querySelector('.soa');
-    inputFormSoa.value = soaValue;
+    inputFormSoa.setAttribute('value', soaValue);
   }
 });
