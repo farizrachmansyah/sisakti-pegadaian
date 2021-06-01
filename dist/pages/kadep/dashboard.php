@@ -99,7 +99,6 @@
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Mata Anggaran</th>
-                  <th scope="col">Jumlah Permintaan</th>
                   <th scope="col">Perihal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
@@ -121,12 +120,11 @@
                   echo "<td class='soadata-table'>".$data['soa_no']."</td>";
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
-                  echo "<td>Pemegang Anggaran</td>";
-                  echo "<td>Jumlah Permintaan</td>";
+                  echo "<td>".$data['soa_pa_name']."</td>";
+                  echo "<td>".$jumlah_permintaan."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>".$data['soa_ma']."</td>";
-                  echo "<td>".$jumlah_permintaan."</td>";
                   echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";

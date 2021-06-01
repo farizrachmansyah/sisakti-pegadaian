@@ -8,13 +8,13 @@ if(isset($_GET['soa'])){
 }
 
 if(isset($_POST['register'])){
-    $user = $_SESSION["user"];
-    $userId = $user["usr_id"];
     
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
     }
-
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
+    
     // filter data yang diinputkan
     $lastStatus = "Registered";
     
