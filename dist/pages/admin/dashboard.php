@@ -74,7 +74,6 @@
                   <th scope="col">Departemen</th>
                   <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Jumlah Permintaan</th>
-                  <th scope="col">Perihal</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Mata Anggaran</th>
@@ -100,11 +99,10 @@
                   echo "<td>".$data['soa_departemen_name']."</td>";
                   echo "<td>".$data['soa_pa_name']."</td>";
                   echo "<td>".$jumlah_permintaan."</td>";
-                  echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
-                  echo "<td>Mata Anggaran</td>";
-                  echo "<td>Perihal</td>";
+                  echo "<td>".$data['soa_ma']."</td>";
+                  echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";
