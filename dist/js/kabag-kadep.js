@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (URL_STRING.includes('kadep')) {
       const tableRows = document.querySelectorAll('tbody tr');
       tableRows.forEach(row => {
-        const rowLokasi = row.children[8].innerText;
-        const rowStatus = row.children[9].innerText;
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('accepted');
         const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('rejected');
 

@@ -1,5 +1,6 @@
 <?php
   require_once 'data.php';
+
   function rupiah($angka){
 	
     $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
@@ -13,7 +14,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiSAKTI &MediumSpace;-&MediumSpace; KADEP</title>
+    <title>SiSAKTI &MediumSpace;-&MediumSpace; Pemegang Anggaran</title>
 
     <!-- Bootstrap -->
     <link
@@ -38,11 +39,11 @@
     />
   </head>
   <body>
-    <main class="main kepala">
+    <main class="main">
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
-          <span class="name">Kepala Departemen</span>
+          <span class="name">Pemegang Anggaran</span>
           <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
 
@@ -56,44 +57,30 @@
         </div>
       </div>
 
-      <div class="main__content kepala__content">
-        <!-- Dropdown Menu -->
-        <div class="dropdown show">
-          <a
-            class="btn dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fas fa-file-signature"></i>&MediumSpace; Report
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="../report-realisasi-ma.html" data-linked="realisasi-ma">Jumlah Realisasi Per Mata Anggaran</a>
-            <a class="dropdown-item" href="../report-realisasi-dept.html" data-linked="realisasi-dept"
-              >Jumlah Realisasi Per Departemen(Bulan/Tahun)</a
-            >
-            <a class="dropdown-item" href="../report-realisasi-pa.html" data-linked="realisasi-pa"
-              >Jumlah Realisasi Per Pemegang Anggaran</a
-            >
-            <a class="dropdown-item" href="../report-total-soa.html" data-linked="total-soa-ma">Total SOA Per Mata Anggaran</a>
-          </div>
-        </div>
+      <div class="main__content">
+        <!-- Search Bar -->
+        <section class="main__content-search">
+          <form autocomplete="off" action="#" method="GET">
+            <div class="find flex">
+              <input autocomplete="off" type="text" name="soa" id="searchdata-soa" placeholder="SOA" onkeyup="searchTableData()" required />
+              <button type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </section>
 
         <!-- Table -->
-        <section class="main__content-table kepala__content-table">
+        <section class="main__content-table">
           <!-- Bootstrap Table -->
           <div class="table-responsive">
-            <table class="table">
+            <table id="table-pa" class="table">
               <thead>
-                <tr>
-                  <th scope="col">No</th>
+                <tr class="table-secondary">
                   <th scope="col">SOA</th>
                   <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
+                  <th scope="col">Pemegang Anggaran</th>
                   <th scope="col">Tanggal Masuk</th>
                   <th scope="col">Jam</th>
                   <th scope="col">Mata Anggaran</th>
@@ -101,7 +88,6 @@
                   <th scope="col">Perihal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
-                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -115,10 +101,10 @@
 
 
                   echo "<tr>";
-                  echo "<td>".($key+1)."</td>";
                   echo "<td class='soadata-table'>".$data['soa_no']."</td>";
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
+                  echo "<td>".$data['soa_pa_name']."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>".$data['soa_ma']."</td>";
@@ -126,7 +112,6 @@
                   echo "<td>".$data['soa_perihal']."</td>";
                   echo "<td>".$data['soa_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['soa_status']."</td>";
-                  echo "<td></td>";
                   echo "</tr>";
                 }
               ?>
@@ -138,16 +123,5 @@
     </main>
 
     <script src="../../js/main.js"></script>
-    <script src="../../js/kabag-kadep.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
