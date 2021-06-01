@@ -182,7 +182,7 @@ if(isset($_POST['submit'])){
             </div>
             
             <input type="text" placeholder="Perihal" name="perihal" required />
-            <button type="submit" name="submit">submit &MediumSpace; <i class="fas fa-file-export"></i></button>
+            <button type="submit" name="submit">submit</button>
           </form>
         </section>
       </div>

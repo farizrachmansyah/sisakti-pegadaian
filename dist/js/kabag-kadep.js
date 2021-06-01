@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // conditional statements for different pages
   if (URL_STRING.includes('dashboard')) {
-    // REPORT THINGS
-    const dropdownItem = document.querySelectorAll('.dropdown-item');
-    dropdownItem.forEach(item => {
-      item.href = `../report.html?page=${item.dataset.linked}`;
-    });
-
     // MENYELEKSI BARIS DATA MANA YANG BISA DI KLIK OLEH USER TERTENTU
     if (URL_STRING.includes('kabag-aa')) {
       const tableRows = document.querySelectorAll('tbody tr');
@@ -21,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
           // HOVER EFFECT ROW
@@ -43,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[0].innerText;
           // HOVER EFFECT ROW
@@ -64,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
-          row.lastElementChild.innerHTML = `<button><i class="fas fa-user-edit"></i></button>`;
+          row.lastElementChild.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
           // GET SOA DATA
           const soaValue = row.children[1].innerText;
           // HOVER EFFECT ROW
