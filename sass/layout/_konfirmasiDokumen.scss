@@ -62,11 +62,79 @@
             }
 
             &-options {
+              width: 90%;
+              margin: 0 auto;
+
+              @include breakpoint-down(phone) {
+                flex-direction: column;
+              }
+
               .option {
+                border-radius: 4px;
                 width: 100%;
+                margin: 0 0.5rem;
+                padding: 0.5rem;
                 font-weight: weight(light);
-                text-align: center;
                 text-transform: capitalize;
+
+                label {
+                  all: unset;
+                  position: relative;
+                  padding-left: 30px;
+                  cursor: pointer;
+                  -webkit-user-select: none;
+                  -moz-user-select: none;
+                  -ms-user-select: none;
+                  user-select: none;
+
+                  @include breakpoint-down(phone) {
+                    display: block;
+                  }
+
+                  &:hover input ~ .checkmark {
+                    background-color: #bbb;
+                  }
+
+                  input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+
+                    &:checked ~ .checkmark {
+                      background-color: $primary-color;
+                    }
+
+                    &:checked ~ .checkmark:after {
+                      display: block;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      width: 6px;
+                      height: 6px;
+                      border-radius: 50%;
+                      background: $accent-color;
+                    }
+                  }
+
+                  .checkmark {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    height: 20px;
+                    width: 20px;
+                    background-color: #ddd;
+                    border-radius: 50%;
+
+                    &:after {
+                      content: "";
+                      position: absolute;
+                      display: none;
+                    }
+                  }
+                }
               }
             }
           }

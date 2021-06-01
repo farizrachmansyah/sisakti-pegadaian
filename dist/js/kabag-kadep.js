@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const warningInfo = document.querySelector('.info-warning');
     radioSaldoAnggaran.forEach(radio => {
       radio.addEventListener('change', (e) => {
-        if (e.target.id == '2') {
+        if (e.target.id == 'sa-2') {
           warningInfo.classList.add('show');
         } else {
           warningInfo.classList.remove('show');
@@ -101,11 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (anotherOption !== null) {
             radio.checked = true;
-            radio.nextSibling.textContent = `\n${anotherOption}`;
+            radio.previousSibling.textContent = `\n${anotherOption}`;
             radio.value = `\n${anotherOption}`;
           } else {
             radio.checked = false;
-            radio.nextSibling.textContent = '\nlainnya';
+            radio.previousSibling.textContent = '\nlainnya';
           }
         }
       });
