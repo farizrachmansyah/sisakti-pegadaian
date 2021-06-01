@@ -67,6 +67,7 @@ if(isset($_POST['submit'])){
         ":last_status" => $lastStatus
         
     );    
+
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
 
@@ -309,8 +310,15 @@ if(isset($_POST['submit'])){
                     tidak ada
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="foto" id="3" required />
-                    lainnya
+                    <?php
+                      if(isset($soa['is_fss'])&&$soa['is_fss']!="N"&&$soa['is_fss']!="Y"){
+                        echo "<input class='option-lainnya' type='radio' name='foto' id='3' checked value='".$soa['is_fss']."' required/>";
+                        echo $soa['is_fss'];
+                      }else{
+                        echo "<input class='option-lainnya' type='radio' name='foto' id='3' required/>";
+                        echo "lainnya";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
