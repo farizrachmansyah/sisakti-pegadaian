@@ -46,6 +46,7 @@ class UI {
         <option value="accepted">Accepted</option>
         <option value="rejected">Rejected</option>
         <option value="register">Register</option>
+        <option value="pending">Pending</option>
       </select>
     `;
   }
@@ -59,9 +60,12 @@ class UI {
       } else if (data.innerText.toLowerCase() == 'rejected') {
         data.style.color = '#e74c3c';
         data.parentElement.classList.add('status-reject');
-      } else {
+      } else if ((data.innerText.toLowerCase() == 'register')) {
         data.style.color = '#3498db';
         data.parentElement.classList.add('status-register');
+      } else if (data.innerText.toLowerCase() == 'pending') {
+        data.style.color = '#9b59b6';
+        data.parentElement.classList.add('status-pending');
       }
 
       allTableRow.push(data.parentElement);
@@ -98,6 +102,13 @@ class UI {
           tableRow.forEach(row => {
             row.style.display = 'table-row';
             if (!row.classList.contains('status-register'))
+              row.style.display = 'none';
+          });
+          break;
+        case 'pending':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+            if (!row.classList.contains('status-pending'))
               row.style.display = 'none';
           });
           break;
