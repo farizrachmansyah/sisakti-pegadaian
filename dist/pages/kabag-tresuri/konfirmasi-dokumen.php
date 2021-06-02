@@ -260,14 +260,14 @@ if(isset($_POST['submit'])){
                         echo "<label for='pkb-3'>";
                         echo $soa['is_pkb'];
                         echo "<input class='option-lainnya' type='radio' name='pkb' id='pkb-3' checked value='".$soa['is_pkb']."' required/>";
-                        echo "<span class='checkmark'></span>"
-                        echo "</label>"
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
                       }else{
                         echo "<label for='pkb-3'>";
                         echo " lainnya";
                         echo "<input class='option-lainnya' type='radio' name='pkb' id='pkb-3' required/>";
-                        echo "<span class='checkmark'></span>"
-                        echo "</label>"
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
                       }
                     ?>
                   </div>
@@ -531,7 +531,7 @@ if(isset($_POST['submit'])){
                   <div class="option">
                     <label for="foto-1">
                       ada
-                      <input type="radio" name="foto" id="foto-1" required value ='Y' <?php if($soa['is_fss']=="N") echo 'checked'; ?>/>
+                      <input type="radio" name="foto" id="foto-1" required value ='Y' <?php if($soa['is_fss']=="Y") echo 'checked'; ?>/>
                       <span class='checkmark'></span>
                     </label>
                   </div>

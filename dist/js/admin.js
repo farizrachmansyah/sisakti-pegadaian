@@ -71,7 +71,7 @@ class EventListener {
 
       btn.addEventListener('click', () => {
         if (status == 'register') {
-          window.location.href = `./register.php?noData=${noData}&soa=${soa}&kodeDept=${kodeDept}&nominal=${permintaan}`;
+          window.location.href = `./register.php?soa=${soa}`;
         } else if (status == 'rejected') {
           window.location.href = `./reject.html?soa=${soa}`;
         }
@@ -90,26 +90,26 @@ document.addEventListener('DOMContentLoaded', () => {
     ui.setDatasetButton();
     events.setBtnAction();
   } else if (URL_STRING.includes('register')) {
-    const CURRENT_URL = new URL(URL_STRING);
-    const noDataValue = CURRENT_URL.searchParams.get('noData');
-    const soaValue = CURRENT_URL.searchParams.get('soa');
-    const kodeDeptValue = CURRENT_URL.searchParams.get('kodeDept');
-    const permintaanValue = CURRENT_URL.searchParams.get('nominal');
+    // const CURRENT_URL = new URL(URL_STRING);
+    // const noDataValue = CURRENT_URL.searchParams.get('noData');
+    // const soaValue = CURRENT_URL.searchParams.get('soa');
+    // const kodeDeptValue = CURRENT_URL.searchParams.get('kodeDept');
+    // const permintaanValue = CURRENT_URL.searchParams.get('nominal');
 
-    const inputFormSoa = document.querySelector('.soa');
-    inputFormSoa.setAttribute('value', soaValue);
+    // const inputFormSoa = document.querySelector('.soa');
+    // inputFormSoa.setAttribute('value', soaValue);
 
-    const inputFormNoRegis = document.querySelector('.noregis');
-    inputFormNoRegis.setAttribute('value', `000${noDataValue}/${kodeDeptValue}/21`);
+    // const inputFormNoRegis = document.querySelector('.noregis');
+    // inputFormNoRegis.setAttribute('value', `000${noDataValue}/${kodeDeptValue}/21`);
 
-    const inputFormPermintaan = document.querySelector('.permintaan');
-    inputFormPermintaan.setAttribute('value', permintaanValue);
+    // const inputFormPermintaan = document.querySelector('.permintaan');
+    // inputFormPermintaan.setAttribute('value', permintaanValue);
 
   } else if (URL_STRING.includes('reject')) {
-    const CURRENT_URL = new URL(URL_STRING);
-    const soaValue = CURRENT_URL.searchParams.get('soa');
+    // const CURRENT_URL = new URL(URL_STRING);
+    // const soaValue = CURRENT_URL.searchParams.get('soa');
 
-    const inputFormSoa = document.querySelector('.soa');
-    inputFormSoa.setAttribute('value', soaValue);
+    // const inputFormSoa = document.querySelector('.soa');
+    // inputFormSoa.setAttribute('value', soaValue);
   }
 });

@@ -146,8 +146,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="sopp" id="3" required />
-                    lainnya
+                    <?php
+                      if(isset($soa['is_sopp'])&&$soa['is_sopp']!="N"&&$soa['is_sopp']!="Y"){
+                        echo "<label for='sopp-3'>";
+                        echo $soa['is_sopp'];
+                        echo "<input class='option-lainnya' type='radio' name='sopp' id='sopp-3' checked value='".$soa['is_sopp']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='sopp-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='sopp' id='sopp-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -169,8 +182,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="nota" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_nd'])&&$soa['is_nd']!="N"&&$soa['is_nd']!="Y"){
+                        echo "<label for='nota-3'>";
+                        echo $soa['is_nd'];
+                        echo "<input class='option-lainnya' type='radio' name='nota' id='nota-3' checked value='".$soa['is_nd']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='nota-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='nota' id='nota-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -192,8 +218,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="spk" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_spk'])&&$soa['is_spk']!="N"&&$soa['is_spk']!="Y"){
+                        echo "<label for='spk-3'>";
+                        echo $soa['is_spk'];
+                        echo "<input class='option-lainnya' type='radio' name='spk' id='spk-3' checked value='".$soa['is_spk']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='spk-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='spk' id='spk-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -215,8 +254,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="pkb" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_pkb'])&&$soa['is_pkb']!="N"&&$soa['is_pkb']!="Y"){
+                        echo "<label for='pkb-3'>";
+                        echo $soa['is_pkb'];
+                        echo "<input class='option-lainnya' type='radio' name='pkb' id='pkb-3' checked value='".$soa['is_pkb']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='pkb-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='pkb' id='pkb-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -238,8 +290,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="po" id="3" / required> 
-                    lainnya
+                  <?php
+                      if(isset($soa['is_po'])&&$soa['is_po']!="N"&&$soa['is_po']!="Y"){
+                        echo "<label for='po-3'>";
+                        echo $soa['is_po'];
+                        echo "<input class='option-lainnya' type='radio' name='po' id='po-3' checked value='".$soa['is_po']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='po-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='po' id='po-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -261,8 +326,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="pr" id="3" / required> 
-                    lainnya
+                  <?php
+                      if(isset($soa['is_pr'])&&$soa['is_pr']!="N"&&$soa['is_pr']!="Y"){
+                        echo "<label for='pr-3'>";
+                        echo $soa['is_pr'];
+                        echo "<input class='option-lainnya' type='radio' name='pr' id='pr-3' checked value='".$soa['is_pr']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='pr-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='pr' id='pr-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -284,8 +362,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="faktur" id=" required3" />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_fp'])&&$soa['is_fp']!="N"&&$soa['is_fp']!="Y"){
+                        echo "<label for='pajak-3'>";
+                        echo $soa['is_fp'];
+                        echo "<input class='option-lainnya' type='radio' name='faktur' id='pajak-3' checked value='".$soa['is_fp']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='pajak-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='faktur' id='pajak-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -307,8 +398,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="ktp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_ktp'])&&$soa['is_ktp']!="N"&&$soa['is_ktp']!="Y"){
+                        echo "<label for='ktp-3'>";
+                        echo $soa['is_ktp'];
+                        echo "<input class='option-lainnya' type='radio' name='ktp' id='ktp-3' checked value='".$soa['is_ktp']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='ktp-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='ktp' id='ktp-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -330,8 +434,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="npwp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_npwp'])&&$soa['is_npwp']!="N"&&$soa['is_npwp']!="Y"){
+                        echo "<label for='npwp-3'>";
+                        echo $soa['is_npwp'];
+                        echo "<input class='option-lainnya' type='radio' name='npwp' id='npwp-3' checked value='".$soa['is_npwp']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='npwp-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='npwp' id='npwp-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -353,8 +470,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="siup" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_siup'])&&$soa['is_siup']!="N"&&$soa['is_siup']!="Y"){
+                        echo "<label for='siup-3'>";
+                        echo $soa['is_siup'];
+                        echo "<input class='option-lainnya' type='radio' name='siup' id='siup-3' checked value='".$soa['is_siup']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='siup-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='siup' id='siup-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -376,8 +506,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="tdp" id="3" required />
-                    lainnya
+                  <?php
+                      if(isset($soa['is_tdp'])&&$soa['is_tdp']!="N"&&$soa['is_tdp']!="Y"){
+                        echo "<label for='tdp-3'>";
+                        echo $soa['is_tdp'];
+                        echo "<input class='option-lainnya' type='radio' name='tdp' id='tdp-3' checked value='".$soa['is_tdp']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='tdp-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='tdp' id='tdp-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -387,7 +530,7 @@ if(isset($_POST['submit'])){
                   <div class="option">
                     <label for="foto-1">
                       ada
-                      <input type="radio" name="foto" id="foto-1" required value ='Y' <?php if($soa['is_fss']=="N") echo 'checked'; ?>/>
+                      <input type="radio" name="foto" id="foto-1" required value ='Y' <?php if($soa['is_fss']=="Y") echo 'checked'; ?>/>
                       <span class='checkmark'></span>
                     </label>
                   </div>
@@ -399,8 +542,21 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
                   <div class="option">
-                    <input class="option-lainnya" type="radio" name="foto" id="3" required />
-                    lainnya
+                    <?php
+                      if(isset($soa['is_fss'])&&$soa['is_fss']!="N"&&$soa['is_fss']!="Y"){
+                        echo "<label for='foto-3'>";
+                        echo $soa['is_fss'];
+                        echo "<input class='option-lainnya' type='radio' name='foto' id='foto-3' checked value='".$soa['is_fss']."' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }else{
+                        echo "<label for='foto-3'>";
+                        echo " lainnya";
+                        echo "<input class='option-lainnya' type='radio' name='foto' id='foto-3' required/>";
+                        echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
