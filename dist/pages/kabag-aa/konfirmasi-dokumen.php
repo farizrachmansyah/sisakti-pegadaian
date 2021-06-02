@@ -104,12 +104,18 @@ if(isset($_POST['submit'])){
                 <label for="">Mata Anggaran</label>
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option">
-                    <input type="radio" name="ma" id="1" value ='Y' <?php if($soa['is_ma']=="Y") echo 'checked'; ?>/>
-                    sesuai
+                    <label for="ma-1">
+                      sesuai
+                      <input type="radio" name="ma" id="ma-1" value ='Y' <?php if($soa['is_ma']=="Y") echo 'checked'; ?>/>
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
                   <div class="option">
-                    <input type="radio" name="ma" id="2" value ='N' <?php if($soa['is_ma']=="N") echo 'checked'; ?>/>
-                    tidak sesuai
+                    <label for="ma-2">
+                      tidak sesuai
+                      <input type="radio" name="ma" id="ma-2" value ='N' <?php if($soa['is_ma']=="N") echo 'checked'; ?>/>
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -117,12 +123,18 @@ if(isset($_POST['submit'])){
                 <label for="">Saldo Anggaran</label>
                 <div class="info-choice-options flex flex-ai-c">
                   <div class="option">
-                    <input type="radio" name="sa" id="1" value ='Y' <?php if($soa['is_sa']=="Y") echo 'checked'; ?>/>
-                    tersedia
+                    <label for="sa-1">
+                      tersedia
+                      <input type="radio" name="sa" id="sa-1" value ='Y' <?php if($soa['is_sa']=="Y") echo 'checked'; ?>/>
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
                   <div class="option">
-                    <input type="radio" name="sa" id="2" value ='N' <?php if($soa['is_sa']=="N") echo 'checked'; ?>/>
-                    tidak tersedia
+                    <label for="sa-2">
+                      tidak tersedia
+                      <input type="radio" name="sa" id="sa-2" value ='N' <?php if($soa['is_sa']=="N") echo 'checked'; ?>/>
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
                 </div>
               </div>
