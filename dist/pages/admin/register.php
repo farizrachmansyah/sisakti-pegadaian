@@ -4,7 +4,19 @@ require_once 'data.php';
 
 if(isset($_GET['soa'])){
     $soa_no = $_GET['soa'];
-    $soa = loadSoa($soa_no);
+    $soa = loadRegisterSoa($soa_no);
+    
+    $currRegNo = 0;
+    $register_no_list = getCurrentRegisterNo();
+    foreach($register_no_list as $key=>$data){
+      $first4String = substr($data['soa_register_no'], 0, 4);
+      $currNum = intval($first4String);
+      if($currNum>$currRegNo){
+        $currRegNo = $currNum;
+      }
+    }
+    $regNo = str_pad($currRegNo + 1,4,'0',STR_PAD_LEFT)."/".$soa['soa_departemen_code']."/".$soa["soa_year"];
+    
 }
 
 if(isset($_POST['register'])){
@@ -15,6 +27,9 @@ if(isset($_POST['register'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
     
+    print_r($regNo);
+    die();
+
     // filter data yang diinputkan
     $lastStatus = "Registered";
     
@@ -89,7 +104,7 @@ if(isset($_POST['register'])){
         <section class="main__content-form dokumen-action__content-form">
           <form class="flex" action="" method="POST">
             <input class="soa" type="text" name="soa-regis" disabled />
-            <input class="noregis" type="text" name="no-regis" disabled />
+            <input class="noregis" type="text" name="no-regis" value=<?php echo $regNo;?> disabled />
             <input class="permintaan" type="text" name="nominal-regis" disabled />
             <button class="btn" type="submit" name="register">Register</button>
           </form>

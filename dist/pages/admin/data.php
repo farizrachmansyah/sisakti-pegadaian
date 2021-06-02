@@ -67,6 +67,7 @@ function loadSoa($psoa) {
     $soa = $stmt->fetch(PDO::FETCH_ASSOC);
     return $soa;
 }
+
 function loadListDashboard(){
     global $db;
     $sql="SELECT  soa_no,
@@ -92,5 +93,23 @@ function loadActivity() {
     $stmt->execute();
     $aktivitas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $aktivitas;
+}
+
+function loadRegisterSoa($psoa) {
+    global $db;
+    $sql="SELECT soa_id,soa_no,soa_departemen_id,(select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, (DATE_FORMAT(soa_created_at,'%y')) as soa_year FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $soa;
+}
+
+function getCurrentRegisterNo() {
+    global $db;
+    $sql="SELECT soa_register_no FROM tbl_soa where soa_register_no is not null or soa_register_no !='' ";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $registerNo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $registerNo;
 }
 ?>
