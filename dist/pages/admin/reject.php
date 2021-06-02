@@ -4,7 +4,7 @@ require_once 'data.php';
 
 if(isset($_GET['soa'])){
     $soa_no = $_GET['soa'];
-    $soa = loadRegisterSoa($soa_no);
+    $soa = loadPengembalianSoa($soa_no);
     
     $currRegNo = 0;
     $register_no_list = getCurrentRegisterNo();
@@ -19,7 +19,7 @@ if(isset($_GET['soa'])){
     
 }
 
-if(isset($_POST['register'])){
+if(isset($_POST['reject'])){
     
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
@@ -28,18 +28,16 @@ if(isset($_POST['register'])){
     $userId = $user["usr_id"];
     
     // filter data yang diinputkan
-    $lastStatus = "Registered";
+    $lastStatus = "Pending";
     
 
     // menyiapkan query
-    $sql = "UPDATE tbl_soa SET soa_lastupdate_by = :usr_id, soa_lastupdate_status = :last_status, soa_register_no = :register_no where soa_no = :soa_no";
+    $sql = "UPDATE tbl_soa SET soa_lastupdate_status = :last_status where soa_no = :soa_no";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
     $params = array(
-        ":soa_no" => $soa_no,
-        ":usr_id" => $userId,
-        ":register_no" => $regNo,
+        ":soa_no" => $soa['soa_no'],
         ":last_status" => $lastStatus
         
     );
@@ -58,7 +56,7 @@ if(isset($_POST['register'])){
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Pengembalian</title>
 
     <!-- Bootstrap -->
     <link
@@ -91,7 +89,7 @@ if(isset($_POST['register'])){
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>Register SOA</h1>
+            <h1>Pengembalian Dokumen</h1>
           </div>
         </div>
       </div>
@@ -99,10 +97,12 @@ if(isset($_POST['register'])){
       <div class="main__content dokumen-action__content">
         <section class="main__content-form dokumen-action__content-form">
           <form class="flex" action="" method="POST">
-            <input class="soa" type="text" name="soa-regis" value=<?php echo $soa['soa_no'];?> disabled />
-            <input class="noregis" type="text" name="no-regis" value=<?php echo $regNo;?> disabled />
-            <input class="permintaan" type="text" name="nominal-regis" value=<?php echo $soa['soa_nominal'];?> disabled />
-            <button class="btn" type="submit" name="register">Register</button>
+            <input class="soa" type="text" name="soa-reject" disabled value = "<?php echo $soa['soa_no'] ?>"/>
+            <select class="input" name="dept-reject" id="">
+              <option selected disabled value = "<?php echo $soa['soa_departemen_name'] ?>"><?php echo $soa['soa_departemen_name'] ?></option>
+            </select>
+            <input class="penerima" type="text" name="penerima-reject" placeholder="Penerima" value = "<?php echo $soa['soa_lokasi'] ?>"/>
+            <button class="btn reject" type="submit" name="reject">Kembalikan</button>
           </form>
         </section>
       </div>

@@ -97,7 +97,25 @@ function loadActivity() {
 
 function loadRegisterSoa($psoa) {
     global $db;
-    $sql="SELECT soa_id,soa_no,soa_departemen_id,(select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, (DATE_FORMAT(soa_created_at,'%y')) as soa_year FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $sql="SELECT soa_id,soa_no,soa_nominal,soa_departemen_id,(select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, (DATE_FORMAT(soa_created_at,'%y')) as soa_year FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $soa;
+}
+
+function loadPengembalianSoa($psoa) {
+    global $db;
+    $sql="SELECT 
+    soa_id,
+    soa_no,
+    soa_nominal,
+    soa_departemen_id,
+    (select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, 
+    (DATE_FORMAT(soa_created_at,'%y')) as soa_year, 
+    (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
+    (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_name 
+    FROM tbl_soa WHERE soa_no ='".$psoa."'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $soa = $stmt->fetch(PDO::FETCH_ASSOC);

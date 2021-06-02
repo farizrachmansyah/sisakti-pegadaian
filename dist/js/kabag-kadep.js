@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rowLokasi = row.children[10].innerText;
         const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('admin') && rowStatus.toLowerCase().includes('accepted');
-        const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('rejected');
+        const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('pending');
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rowLokasi = row.children[10].innerText;
         const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('accepted');
-        const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('rejected');
+        const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('pending');
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rowLokasi = row.children[10].innerText;
         const rowStatus = row.children[11].innerText;
         const firstCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('accepted');
-        const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('rejected');
+        const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('pending');
 
         if (firstCondition || secondCondition) {
           // CREATE BUTTON

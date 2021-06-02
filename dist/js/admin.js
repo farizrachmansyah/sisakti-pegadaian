@@ -18,7 +18,7 @@ class AdminUI {
       } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
-      } else if (statusInfo.toLowerCase() == 'accepted') {
+      } else if ((statusInfo.toLowerCase() == 'accepted')||(statusInfo.toLowerCase() == 'pending')) {
         editBtn.style.visible = 'hidden';
       }
     })
@@ -73,7 +73,7 @@ class EventListener {
         if (status == 'register') {
           window.location.href = `./register.php?soa=${soa}`;
         } else if (status == 'rejected') {
-          window.location.href = `./reject.html?soa=${soa}`;
+          window.location.href = `./reject.php?soa=${soa}`;
         }
       });
     });
