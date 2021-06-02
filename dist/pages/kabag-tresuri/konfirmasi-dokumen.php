@@ -417,7 +417,6 @@ if(isset($_POST['submit'])){
                   </div>
                 </div>
               </div>
-              
               <div class="info-choice ktp">
                 <label for="">KTP</label>
                 <div class="info-choice-options flex flex-ai-c">
