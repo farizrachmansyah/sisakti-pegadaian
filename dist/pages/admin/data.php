@@ -77,7 +77,7 @@ function loadListDashboard(){
        soa_nominal,
        soa_perihal,
        (select ma_code from tbl_mata_anggaran where ma_id = (select akt_ma_id from tbl_aktivitas where akt_id = soa_akt_id)) as soa_ma,
-       (SELECT CONVERT_TZ(soa_created_at, '+00:00','+8:00')) as soa_created_at,
+       soa_lastupdate_at as soa_created_at,
        (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
        soa_lastupdate_status as soa_status FROM tbl_soa order by soa_id desc";
     $stmt = $db->prepare($sql);

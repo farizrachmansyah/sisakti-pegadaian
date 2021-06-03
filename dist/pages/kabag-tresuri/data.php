@@ -35,7 +35,7 @@ function loadListDashboard(){
     soa_sopp,
     (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_name,
     (select usr_jabatan from tbl_user where usr_id = soa_pa_id) as  soa_pa_name,
-    (select CONVERT_TZ(soa_created_at, '+00:00','+8:00')) as soa_created_at,
+    soa_lastupdate_at as soa_created_at,
     (select ma_code from tbl_mata_anggaran where ma_id = (select akt_ma_id from tbl_aktivitas where akt_id = soa_akt_id)) as soa_ma,
     soa_nominal,
     soa_perihal,
