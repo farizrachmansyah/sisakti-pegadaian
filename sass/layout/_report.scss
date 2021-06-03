@@ -50,9 +50,9 @@
           text-align: left;
         }
 
-        a {
+        button {
           border-radius: 4px;
-          display: block;
+          width: 100%;
           padding: 10px;
           background-color: #d6d8db;
           font-size: 0.75rem;
@@ -63,6 +63,9 @@
           @include breakpoint-up(smPhone) {
             padding: 0.75rem;
             font-size: 1rem;
+          }
+          @include breakpoint-up(tablet) {
+            width: auto;
           }
 
           &:hover {
