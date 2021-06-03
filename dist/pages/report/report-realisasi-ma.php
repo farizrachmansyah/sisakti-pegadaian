@@ -1,3 +1,79 @@
+<?php
+session_start();
+require_once 'data.php';
+
+function rupiah($angka){
+  $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+  return $hasil_rupiah;  
+}
+
+if(isset($_POST['submit'])){
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
+
+    // filter data yang diinputkan
+    $rsopp = filter_input(INPUT_POST, 'sopp', FILTER_SANITIZE_STRING);
+    $rnota = filter_input(INPUT_POST, 'nota', FILTER_SANITIZE_STRING);
+    $rspk = filter_input(INPUT_POST, 'spk', FILTER_SANITIZE_STRING);
+    $rpkb = filter_input(INPUT_POST, 'pkb', FILTER_SANITIZE_STRING);
+    $rpo = filter_input(INPUT_POST, 'po', FILTER_SANITIZE_STRING);
+    $rpr = filter_input(INPUT_POST, 'pr', FILTER_SANITIZE_STRING);
+    $rfaktur = filter_input(INPUT_POST, 'fp', FILTER_SANITIZE_STRING);
+    $rktp = filter_input(INPUT_POST, 'ktp', FILTER_SANITIZE_STRING);
+    $rnpwp = filter_input(INPUT_POST, 'npwp', FILTER_SANITIZE_STRING);
+    $rsiup = filter_input(INPUT_POST, 'siup', FILTER_SANITIZE_STRING);
+    $rtdp = filter_input(INPUT_POST, 'tdp', FILTER_SANITIZE_STRING);
+    $rfoto = filter_input(INPUT_POST, 'foto', FILTER_SANITIZE_STRING);
+    // $soa_no = filter_input(INPUT_GET, 'soa_no', FILTER_SANITIZE_STRING);
+    
+    if($rsopp == "Y" && $rnota == "Y" 
+    && $rspk == "Y" && $rpkb == "Y" 
+    && $rpo == "Y" && $rpr == "Y" 
+    && $rfaktur == "Y" && $rktp == "Y" 
+    && $rnpwp == "Y" && $rsiup == "Y" 
+    && $rtdp == "Y" && $rfoto == "Y"){
+        $lastStatus = "Register";
+    }else{
+        $lastStatus = "Rejected";
+    }
+
+    // menyiapkan query
+    $sql = "UPDATE tbl_soa SET is_sopp = :is_sopp, is_nd = :is_nota,
+    is_spk = :is_spk, is_pkb = :is_pkb,
+    is_po = :is_po, is_pr = :is_pr,
+    is_fp = :is_fp, is_ktp = :is_ktp,
+    is_npwp = :is_npwp, is_siup = :is_siup,
+    is_tdp = :is_tdp, is_fss = :is_fss,
+    soa_lastupdate_by = :usr_id, soa_lastupdate_status = :last_status where soa_no = :soa_no";
+    $stmt = $db->prepare($sql);
+
+    // bind parameter ke query
+    $params = array(
+        ":soa_no" => $soa_no,
+        ":is_sopp" => $rsopp,
+        ":is_nota" => $rnota,
+        ":is_spk" => $rspk,
+        ":is_pkb" => $rpkb,
+        ":is_po" => $rpo,
+        ":is_pr" => $rpr,
+        ":is_fp" => $rfaktur,
+        ":is_ktp" => $rktp,
+        ":is_npwp" => $rnpwp,
+        ":is_siup" => $rsiup,
+        ":is_tdp" => $rtdp,
+        ":is_fss" => $rfoto,
+        ":usr_id" => $userId,
+        ":last_status" => $lastStatus
+        
+    );    
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman login
+    if($saved) header("Location: dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +90,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../css/main.min.css" />
+    <link rel="stylesheet" href="../../css/main.min.css" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -34,7 +110,7 @@
       <div class="header-container">
         <div class="header-container-content flex">
           <div class="logo">
-            <img src="../assets/logo-login.png" alt="logo pegadaian" />
+            <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
             <h1>Jumlah Realisasi per<br /><span>Mata Anggaran</span></h1>
@@ -61,6 +137,21 @@
                 </tr>
               </thead>
               <tbody>
+              <?php
+                $soas = loadReportPerMataAnggaran();
+                foreach($soas as $key=>$data){
+                  $realisasi = rupiah($data['soa_total_nominal']);
+                  $saldo = rupiah($data['soa_saldo']);
+
+                  echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
+                  echo "<td class='soadata-table'>".$data['soa_ma_code']."</td>";
+                  echo "<td class='soadata-table'>".$data['soa_ma_name']."</td>";
+                  echo "<td>".$saldo."</td>";
+                  echo "<td>".$realisasi."</td>";
+                  echo "</tr>";
+                }
+              ?>
                 <tr>
                   <td>1</td>
                   <td>1710101</td>
