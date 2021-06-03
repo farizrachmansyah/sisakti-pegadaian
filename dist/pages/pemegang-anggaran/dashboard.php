@@ -94,7 +94,10 @@
               <?php
                 $soas = loadListDashboard();
                 foreach($soas as $key=>$data){
+                  date_default_timezone_set('UTC');
+                  $userTimeZone = new DateTimeZone('Asia/Jakarta');
                   $soa_date_time = new DateTime($data['soa_created_at']);
+                  $soa_date_time->setTimeZone($userTimeZone);
                   $soa_date = $soa_date_time->format('d-m-Y');
                   $soa_time = $soa_date_time->format('H:m');
                   $jumlah_permintaan = rupiah($data['soa_nominal']);
