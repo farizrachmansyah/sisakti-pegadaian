@@ -105,7 +105,7 @@ if(isset($_POST['register'])){
           <form class="flex" action="" method="POST">
             <input class="soa" type="text" name="soa-regis" value=<?php echo $soa['soa_no'];?> disabled />
             <input class="noregis" type="text" name="no-regis" value=<?php echo $regNo;?> disabled />
-            <input class="permintaan" type="text" name="nominal-regis" value=<?php echo  rupiah($soa['soa_nominal']);?> disabled />
+            <input class="permintaan" type="text" name="nominal-regis" value=<?php $jumlah_permintaan = rupiah($data['soa_nominal']); echo $jumlah_permintaan;?> disabled />
             <button class="btn" type="submit" name="register">Register</button>
           </form>
         </section>
