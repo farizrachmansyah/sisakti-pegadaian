@@ -9,7 +9,8 @@ function rupiah($angka){
 if(isset($_GET['soa'])){
     $soa_no = $_GET['soa'];
     $soa = loadRegisterSoa($soa_no);
-    
+
+    $jumlah_anggaran = rupiah($soa['soa_nominal']);
     $currRegNo = 0;
     $register_no_list = getCurrentRegisterNo();
     foreach($register_no_list as $key=>$data){
@@ -105,7 +106,7 @@ if(isset($_POST['register'])){
           <form class="flex" action="" method="POST">
             <input class="soa" type="text" name="soa-regis" value=<?php echo $soa['soa_no'];?> disabled />
             <input class="noregis" type="text" name="no-regis" value=<?php echo $regNo;?> disabled />
-            <input class="permintaan" type="text" name="nominal-regis" value=<?php echo $soa['soa_nominal'];?> disabled />
+            <input class="permintaan" type="text" name="nominal-regis" value=<?php echo $jumlah_anggaran;?> disabled />
             <button class="btn" type="submit" name="register">Register</button>
           </form>
         </section>
