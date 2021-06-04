@@ -120,8 +120,8 @@ if(isset($_POST['submit'])){
 
       <div class="main__content report__content">
         <section class="main__content-buttons report__content-buttons">
-          <form class="download single">
-            <button class="single" type="submit"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
+          <form class="download single" action="export.php" method="POST">
+            <button class="single" type="submit"  name="export_ma"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
           </form>
         </section>
         <section class="main__content-table report__content-table">
@@ -152,27 +152,6 @@ if(isset($_POST['submit'])){
                   echo "</tr>";
                 }
               ?>
-                <tr>
-                  <td>1</td>
-                  <td>1710101</td>
-                  <td>Aktiva Tetap SGU Bangunan Kantor dan Rumah</td>
-                  <td>Rp. 1.000.000.000</td>
-                  <td>Rp. 130.000.000</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>5143501</td>
-                  <td>Biaya Penanganan Pandemi</td>
-                  <td>Rp. 1.000.000.000</td>
-                  <td>Rp. 8.350.000</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>5142301</td>
-                  <td>Biaya Penyaluran Bina Lingkungan</td>
-                  <td>Rp. 1.000.000.000</td>
-                  <td>Rp. 10.000.000</td>
-                </tr>
               </tbody>
             </table>
           </div>
