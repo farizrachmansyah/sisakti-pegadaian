@@ -1,3 +1,30 @@
+<?php
+session_start();
+require_once 'data.php';
+
+function rupiah($angka){
+  $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+  return $hasil_rupiah; 
+}
+date_default_timezone_set('UTC');
+$userTimeZone = new DateTimeZone('Asia/Jakarta');
+$aWeekAgo = date("Y-m-d", strtotime("-7 day"));
+$nowDay = date("Y-m-d");
+$startDateVal = new DateTime($aWeekAgo);
+$endDateVal = new DateTime($nowDay);
+$startDateVal->setTimeZone($userTimeZone);
+$endDateVal->setTimeZone($userTimeZone);
+$startDate = $startDateVal->format('Y-m-d');
+$endDate = $endDateVal->format('Y-m-d');
+$soas = loadReportPerDepartemen($startDate,$endDate);
+
+
+if(isset($_POST['btnFilter'])){
+  $startDate = $_POST['from'];
+  $endDate = $_POST['to'];
+  $soas = loadReportPerDepartemen($startDate,$endDate);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,43 +64,53 @@
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>Jumlah Realisasi per<br /><span>Pemegang Anggaran</span></h1>
+            <h1>Jumlah Realisasi per<br /><span>Departemen</span></h1>
           </div>
         </div>
       </div>
 
       <div class="main__content report__content">
-        <section class="main__content-buttons report__content-buttons">
-          <form class="download single">
-            <button class="single" type="submit"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
+        <section class="main__content-buttons report__content-buttons flex">
+          <form class="download">
+            <button type="submit" name="btnFilter"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
+          </form>
+          <form class="filter flex" method="POST">
+            <div class="filter-date flex">
+              <div class="filter-date-calender flex">
+                <span>From</span>
+                <input type="date" name="from" id="from" <?php if (isset($startDate)) echo "value='".$startDate."'";?>/>
+              </div>
+              <div class="filter-date-calender flex">
+                <span>To</span>
+                <input type="date" name="to" id="to" <?php if (isset($endDate)) echo "value='".$endDate."'";?>/>
+              </div>
+            </div>
+            <button type="submit" name="btnFilter">Filter</button>
           </form>
         </section>
+
         <section class="main__content-table report__content-table">
+          <!-- Table -->
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Pemegang Anggaran</th>
+                  <th scope="col">Departemen</th>
                   <th scope="col">Realisasi</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>KABAG Bangunan & Pengamanan Korporasi</td>
-                  <td>Rp. 400.000.000</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>KABAG Operasional SDM</td>
-                  <td>Rp. 500.000.000</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>KABAG Kemitraan Bina Lingkungan</td>
-                  <td>Rp. 600.000.000</td>
-                </tr>
+              <?php
+                foreach($soas as $key=>$data){
+                  $realisasi = rupiah($data['soa_total_nominal']);
+                  echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
+                  echo "<td>".$data['soa_departemen']."</td>";
+                  echo "<td>".$realisasi."</td>";
+                  echo "</tr>";
+                }
+              ?>
               </tbody>
             </table>
           </div>

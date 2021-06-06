@@ -64,6 +64,50 @@ function loadReportPerMataAnggaran(){
     return $soas;
 }
 
+function loadReportPerDepartemen($start_date,$end_date){
+    global $db;
+    $sql="SELECT
+    (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen,
+    soa_lastupdate_at,
+    SUM(soa_nominal) as soa_total_nominal
+    FROM tbl_soa
+    where soa_lastupdate_status = 'Registered' AND (SELECT CONVERT_TZ(soa_lastupdate_at,'+00:00','+7:00') between '".$start_date."' and '".$end_date."')
+    GROUP BY soa_departemen;";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $soas;
+}
+
+function loadReportPerPemegangAnggaran(){
+    global $db;
+    $sql="SELECT
+    (select usr_jabatan from tbl_user where usr_id = soa_pa_id) as soa_pa,
+    SUM(soa_nominal) as soa_total_nominal
+    FROM tbl_soa
+    where soa_lastupdate_status = 'Registered'
+    GROUP BY soa_pa_id";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $soas;
+}
+
+function loadReportTotalSoaMataAnggaran(){
+    global $db;
+    $sql="SELECT
+    (select ma_code from tbl_mata_anggaran where ma_id = (select akt_ma_id from tbl_aktivitas where akt_id = soa_akt_id)) as soa_ma_code,
+    (select ma_name from tbl_mata_anggaran where ma_id = (select akt_ma_id from tbl_aktivitas where akt_id = soa_akt_id)) as soa_ma_name,
+    count(soa_id) as soa_total_count
+    FROM tbl_soa
+    where soa_lastupdate_status = 'Registered'
+    GROUP BY soa_ma_code";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $soas;
+}
+
 function loadActivity() {
     global $db;
     $sql="SELECT akt_id,akt_code,akt_name,akt_ma_id,(select ma_code from tbl_mata_anggaran where ma_id = akt_ma_id) as akt_ma_code FROM tbl_aktivitas";

@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once 'data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,58 +41,40 @@
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>Jumlah Realisasi per<br /><span>Departemen</span></h1>
+            <h1>Total SOA per<br /><span>Mata Anggaran</span></h1>
           </div>
         </div>
       </div>
 
       <div class="main__content report__content">
-        <section class="main__content-buttons report__content-buttons flex">
-          <form class="download">
-            <button type="submit"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
-          </form>
-          <form class="filter flex">
-            <div class="filter-date flex">
-              <div class="filter-date-calender flex">
-                <span>From</span>
-                <input type="date" name="from" id="from" />
-              </div>
-              <div class="filter-date-calender flex">
-                <span>To</span>
-                <input type="date" name="to" id="to" />
-              </div>
-            </div>
-            <button type="submit">Filter</button>
+        <section class="main__content-buttons report__content-buttons">
+          <form class="download single">
+            <button class="single" type="submit"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
           </form>
         </section>
-
         <section class="main__content-table report__content-table">
-          <!-- Table -->
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Departemen</th>
-                  <th scope="col">Realisasi</th>
+                  <th scope="col">Mata Anggaran</th>
+                  <th scope="col">Aktivitas</th>
+                  <th scope="col">Total SOA</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Logistik</td>
-                  <td>Rp. 700.000.000</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>SDM</td>
-                  <td>Rp. 800.000.000</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Business Support</td>
-                  <td>Rp. 900.000.000</td>
-                </tr>
+              <?php
+                $soas = loadReportTotalSoaMataAnggaran();
+                foreach($soas as $key=>$data){
+                  echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
+                  echo "<td>".$data['soa_ma_code']."</td>";
+                  echo "<td>".$data['soa_ma_name']."</td>";
+                  echo "<td>".$data['soa_total_count']."</td>";
+                  echo "</tr>";
+                }
+              ?>
               </tbody>
             </table>
           </div>
@@ -96,8 +82,7 @@
       </div>
     </main>
 
-    <script src="../../js/kabag-kadep.js"></script>
-    <!-- <script src="../js/report.js"></script> -->
+    <script src="../js/kabag-kadep.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

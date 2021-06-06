@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once 'data.php';
+
+function rupiah($angka){
+  $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+  return $hasil_rupiah;  
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +23,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../css/main.min.css" />
+    <link rel="stylesheet" href="../../css/main.min.css" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -34,10 +43,10 @@
       <div class="header-container">
         <div class="header-container-content flex">
           <div class="logo">
-            <img src="../assets/logo-login.png" alt="logo pegadaian" />
+            <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
           <div class="title">
-            <h1>Total SOA per<br /><span>Mata Anggaran</span></h1>
+            <h1>Jumlah Realisasi per<br /><span>Pemegang Anggaran</span></h1>
           </div>
         </div>
       </div>
@@ -54,30 +63,22 @@
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Mata Anggaran</th>
-                  <th scope="col">Aktivitas</th>
-                  <th scope="col">Total SOA</th>
+                  <th scope="col">Pemegang Anggaran</th>
+                  <th scope="col">Realisasi</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>1710101</td>
-                  <td>Aktiva Tetap SGU Bangunan Kantor dan Rumah</td>
-                  <td>706</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>5143501</td>
-                  <td>Biaya Penanganan Pandemi</td>
-                  <td>236</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>5142301</td>
-                  <td>Biaya Penyaluran Bina Lingkungan</td>
-                  <td>294</td>
-                </tr>
+              <?php
+                $soas = loadReportPerPemegangAnggaran();
+                foreach($soas as $key=>$data){
+                  $realisasi = rupiah($data['soa_total_nominal']);
+                  echo "<tr>";
+                  echo "<td>".($key+1)."</td>";
+                  echo "<td>".$data['soa_pa']."</td>";
+                  echo "<td>".$realisasi."</td>";
+                  echo "</tr>";
+                }
+              ?>
               </tbody>
             </table>
           </div>
@@ -85,7 +86,8 @@
       </div>
     </main>
 
-    <script src="../js/kabag-kadep.js"></script>
+    <script src="../../js/kabag-kadep.js"></script>
+    <!-- <script src="../js/report.js"></script> -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
