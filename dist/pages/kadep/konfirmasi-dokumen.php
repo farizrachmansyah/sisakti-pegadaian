@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
     && $rfaktur == "Y" && $rkb == "Y" 
     && $rnpwp == "Y" && $rsiup == "Y" 
     && $rba == "Y" && $rfoto == "Y"){
-        $lastStatus = "Accepted";
+        $lastStatus = "Register";
     }else{
         $lastStatus = "Rejected";
     }
@@ -145,6 +145,13 @@ if(isset($_POST['submit'])){
                     <label for="sopp-2">
                       tidak ada
                       <input type="radio" name="sopp" id="sopp-2" required value ='N' <?php if($soa['is_sopp']=="N") echo 'checked'; ?>/>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="sopp-4">
+                      tidak perlu
+                      <input type="radio" name="sopp" id="sopp-4" required value ='U' <?php if($soa['is_sopp']=="U") echo 'checked'; ?>/>
                       <span class="checkmark"></span>
                     </label>
                   </div>
