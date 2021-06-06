@@ -72,14 +72,14 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="../report-realisasi-ma.html" data-linked="realisasi-ma">Jumlah Realisasi Per Mata Anggaran</a>
-            <a class="dropdown-item" href="../report-realisasi-dept.html" data-linked="realisasi-dept"
+            <a class="dropdown-item" href="../report/report-realisasi-ma.php" data-linked="realisasi-ma">Jumlah Realisasi Per Mata Anggaran</a>
+            <a class="dropdown-item" href="../report/report-realisasi-dept.php" data-linked="realisasi-dept"
               >Jumlah Realisasi Per Departemen(Bulan/Tahun)</a
             >
-            <a class="dropdown-item" href="../report-realisasi-pa.html" data-linked="realisasi-pa"
+            <a class="dropdown-item" href="../report/report-realisasi-pa.php" data-linked="realisasi-pa"
               >Jumlah Realisasi Per Pemegang Anggaran</a
             >
-            <a class="dropdown-item" href="../report-total-soa.html" data-linked="total-soa-ma">Total SOA Per Mata Anggaran</a>
+            <a class="dropdown-item" href="../report/report-total-soa.php" data-linked="total-soa-ma">Total SOA Per Mata Anggaran</a>
           </div>
         </div>
 
