@@ -121,7 +121,7 @@
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
                   echo "<td>".$data['soa_pa_name']."</td>";
-                  echo "<td>".$data['soa_nominal']."</td>";
+                  echo "<td>".$jumlah_permintaan."</td>";
                   echo "<td>".$soa_date."</td>";
                   echo "<td>".$soa_time."</td>";
                   echo "<td>".$data['soa_ma']."</td>";
