@@ -71,8 +71,10 @@ if(isset($_POST['btnFilter'])){
 
       <div class="main__content report__content">
         <section class="main__content-buttons report__content-buttons flex">
-          <form class="download">
-            <button type="submit" name="btnFilter"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
+          <form class="download" action="export.php" method="POST">
+          <input type="hidden" name="from" id="from" <?php if (isset($startDate)) echo "value='".$startDate."'";?>/>
+          <input type="hidden" name="to" id="to" <?php if (isset($endDate)) echo "value='".$endDate."'";?>/>
+          <button type="submit"  name="export_dept"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
           </form>
           <form class="filter flex" method="POST">
             <div class="filter-date flex">

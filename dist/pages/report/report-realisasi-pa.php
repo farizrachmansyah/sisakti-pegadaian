@@ -53,8 +53,8 @@ function rupiah($angka){
 
       <div class="main__content report__content">
         <section class="main__content-buttons report__content-buttons">
-          <form class="download single">
-            <button class="single" type="submit"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
+          <form class="download single" action="export.php" method="POST">
+            <button class="single" type="submit" name="export_pa"><i class="fas fa-file-download"></i> &MediumSpace; Download</button>
           </form>
         </section>
         <section class="main__content-table report__content-table">

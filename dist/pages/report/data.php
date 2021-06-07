@@ -68,10 +68,10 @@ function loadReportPerDepartemen($start_date,$end_date){
     global $db;
     $sql="SELECT
     (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen,
-    soa_lastupdate_at,
+    (SELECT CONVERT_TZ(soa_lastupdate_at,'+00:00','+7:00')) as soa_lastupdate_at,
     SUM(soa_nominal) as soa_total_nominal
     FROM tbl_soa
-    where soa_lastupdate_status = 'Registered' AND (SELECT CONVERT_TZ(soa_lastupdate_at,'+00:00','+7:00') between '".$start_date."' and '".$end_date."')
+    where soa_lastupdate_status = 'Registered' AND (SELECT CONVERT_TZ(soa_lastupdate_at,'+00:00','+7:00') between '".$start_date."' and '".$end_date." 23:59:59')
     GROUP BY soa_departemen;";
     $stmt = $db->prepare($sql);
     $stmt->execute();
