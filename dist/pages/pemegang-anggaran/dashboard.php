@@ -77,6 +77,7 @@
             <table id="table-pa" class="table">
               <thead>
                 <tr class="table-secondary">
+                  <th scope="col">No</th>
                   <th scope="col">SOA</th>
                   <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
@@ -104,6 +105,7 @@
 
 
                   echo "<tr>";
+                  echo "<td>No</td>";
                   echo "<td class='soadata-table'>".$data['soa_no']."</td>";
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";

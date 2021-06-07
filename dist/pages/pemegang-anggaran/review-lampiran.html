@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Lampiran</title>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../../css/main.min.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main class="main konfirmasi">
+      <div class="header-container">
+        <div class="header-container-content flex">
+          <div class="logo">
+            <img src="../../assets/logo-login.png" alt="logo pegadaian" />
+          </div>
+          <div class="title">
+            <h1>review lampiran</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="main__content konfirmasi__content">
+        <section class="main__content-form konfirmasi__content-form">
+          <form class="flex" method="">
+            <div class="part profile">
+              <input id="soafield" type="text" disabled />
+              <input id="perihalfield" type="text" placeholder="Perihal" />
+            </div>
+
+            <div class="part info">
+              <p>Keterangan</p>
+              <div class="info-choice sopp">
+                <label for="">SOPP</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="sopp-1">
+                      Ada
+                      <input type="radio" name="sopp" id="sopp-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="sopp-2">
+                      tidak ada
+                      <input type="radio" name="sopp" id="sopp-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="sopp-4">
+                      tidak perlu
+                      <input type="radio" name="sopp" id="sopp-4" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="sopp-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="sopp" id="sopp-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice notadinas">
+                <label for="">Nota Dinas</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="nota-1">
+                      Ada
+                      <input type="radio" name="nota" id="nota-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="nota-2">
+                      tidak ada
+                      <input type="radio" name="nota" id="nota-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="nota-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="nota" id="nota-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice spk">
+                <label for="">SPK</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="spk-1">
+                      Ada
+                      <input type="radio" name="spk" id="spk-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="spk-2">
+                      tidak ada
+                      <input type="radio" name="spk" id="spk-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="spk-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="spk" id="spk-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice pkb">
+                <label for="">PKB</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="pkb-1">
+                      Ada
+                      <input type="radio" name="pkb" id="pkb-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pkb-2">
+                      tidak ada
+                      <input type="radio" name="pkb" id="pkb-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pkb-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="pkb" id="pkb-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice po">
+                <label for="">PO</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="po-1">
+                      Ada
+                      <input type="radio" name="po" id="po-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="po-2">
+                      tidak ada
+                      <input type="radio" name="po" id="po-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="po-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="po" id="po-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice pr">
+                <label for="">PR</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="pr-1">
+                      Ada
+                      <input type="radio" name="pr" id="pr-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pr-2">
+                      tidak ada
+                      <input type="radio" name="pr" id="pr-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pr-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="pr" id="pr-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice fakturpajak">
+                <label for="">Faktur Pajak</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="pajak-1">
+                      Ada
+                      <input type="radio" name="pajak" id="pajak-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pajak-2">
+                      tidak ada
+                      <input type="radio" name="pajak" id="pajak-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="pajak-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="pajak" id="pajak-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice ktp">
+                <label for="">KTP</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="ktp-1">
+                      Ada
+                      <input type="radio" name="ktp" id="ktp-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="ktp-2">
+                      tidak ada
+                      <input type="radio" name="ktp" id="ktp-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="ktp-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="ktp" id="ktp-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice npwp">
+                <label for="">NPWP</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="npwp-1">
+                      Ada
+                      <input type="radio" name="npwp" id="npwp-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="npwp-2">
+                      tidak ada
+                      <input type="radio" name="npwp" id="npwp-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="npwp-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="npwp" id="npwp-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice siup">
+                <label for="">SIUP</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="siup-1">
+                      Ada
+                      <input type="radio" name="siup" id="siup-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="siup-2">
+                      tidak ada
+                      <input type="radio" name="siup" id="siup-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="siup-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="siup" id="siup-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice tdp">
+                <label for="">TDP</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="tdp-1">
+                      Ada
+                      <input type="radio" name="tdp" id="tdp-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="tdp-2">
+                      tidak ada
+                      <input type="radio" name="tdp" id="tdp-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="tdp-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="tdp" id="tdp-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="info-choice foto">
+                <label for="">Foto Sebelum/Sesudah</label>
+                <div class="info-choice-options flex flex-ai-c">
+                  <div class="option">
+                    <label for="foto-1">
+                      Ada
+                      <input type="radio" name="foto" id="foto-1" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="foto-2">
+                      tidak ada
+                      <input type="radio" name="foto" id="foto-2" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label for="foto-3">
+                      lainnya
+                      <input class="option-lainnya" type="radio" name="foto" id="foto-3" required />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="part buttons flex flex-ai-c">
+              <button type="submit" value="save">cancel</button>
+              <button id="confirmBtn" type="submit" value="confirm">konfirmasi</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="../../js/pemegang-anggaran.js"></script>
+  </body>
+</html>

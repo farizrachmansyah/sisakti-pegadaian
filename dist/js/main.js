@@ -150,7 +150,7 @@ function searchTableData() {
 
   // looping ke setiap row dan ilangin yang ga match
   for (let i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
 
     if (td) {
       dataValue = td.textContent || td.innerText;

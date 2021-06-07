@@ -51,5 +51,20 @@
         }
       }
     }
+
+    &-table {
+      table {
+        tbody {
+          .status-reject {
+            background-color: rgba($red-color, 0.1);
+            cursor: pointer;
+
+            &:hover {
+              background-image: linear-gradient(rgba($red-color, 0.1));
+            }
+          }
+        }
+      }
+    }
   }
 }
