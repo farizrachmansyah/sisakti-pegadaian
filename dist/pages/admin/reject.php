@@ -102,7 +102,7 @@ if(isset($_POST['reject'])){
               <option selected disabled value = "<?php echo $soa['soa_departemen_name'] ?>"><?php echo $soa['soa_departemen_name'] ?></option>
             </select>
             <input class="penerima" type="text" name="penerima-reject" placeholder="Penerima" value = "<?php echo $soa['soa_lokasi'] ?>"/>
-            <button class="btn reject" type="submit" name="reject">Kembalikan</button>
+            <button class="btn reject" type="submit" name="reject">Return</button>
           </form>
         </section>
       </div>
