@@ -154,17 +154,35 @@ button,
     }
 
     .name {
+      background: none;
+      padding: 0;
+      border-bottom: 1px solid transparent;
+      border-radius: 0;
       color: $secondary-color;
       font-size: 0.75rem;
       font-weight: weight(semiBold);
       text-transform: uppercase;
       letter-spacing: -0.25px;
 
-      @include breakpoint-up(mdPhone) {
+      @include breakpoint-up(smPhone) {
         font-size: 14px;
       }
       @include breakpoint-up(tablet) {
         font-size: 1rem;
+      }
+
+      &:after {
+        margin-left: 0.5rem;
+      }
+
+      &:hover {
+        border-bottom: 1px solid $dark-color;
+      }
+
+      &-page {
+        &:hover {
+          background-color: $accent-color;
+        }
       }
     }
 
@@ -173,7 +191,7 @@ button,
       padding: 5px 8px;
       background-color: $primary-color;
       color: $light-color;
-      font-size: 10px;
+      font-size: 0.75rem;
       text-transform: capitalize;
 
       &:hover {
@@ -181,8 +199,8 @@ button,
         background-image: linear-gradient(rgba(0, 0, 0, 0.2));
       }
 
-      @include breakpoint-up(mdPhone) {
-        font-size: 0.75rem;
+      @include breakpoint-up(smPhone) {
+        font-size: 14px;
       }
       @include breakpoint-up(tablet) {
         font-size: 1rem;

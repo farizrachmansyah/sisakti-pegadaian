@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new AdminUI();
   const events = new EventListener();
 
-  if (URL_STRING.includes('dashboard')) {
+  if (URL_STRING.includes('dashboard') && !URL_STRING.includes('ump')) {
     ui.buttonAndStatus();
     ui.setDatasetButton();
     events.setBtnAction();

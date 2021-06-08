@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Login Gagal! Username atau Password salah');
       inputField.forEach(field => field.style.boxShadow = '0px 3px 6px #e74c3c');
     }
-  } else {
+  } else if (!URL_STRING.includes('ump')) {
     ui.setSOPP();
     ui.setStatus();
     ui.configureStatus();
