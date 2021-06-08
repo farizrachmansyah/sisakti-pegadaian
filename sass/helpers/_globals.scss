@@ -261,11 +261,6 @@ button,
   }
 }
 
-// WARNAIN BUTTON DI MODAL/POPUP
-.sweetalert-btn-primary {
-  background-color: $primary-color !important;
-}
-
 // FIELD STATUS DI TABLE
 #statusfilter {
   border: none;
@@ -292,5 +287,38 @@ button,
 
   option {
     background: #d6d8db;
+  }
+}
+
+// POPUP
+.popup {
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 225px;
+  padding: 1.5rem;
+  background-color: $light-color;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px $secondary-color;
+  opacity: 0;
+  transition: top 0.5s ease, transform 0.5s ease, opacity 1s ease;
+
+  &.show {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+
+    @include breakpoint-up(smPhone) {
+      font-size: 1rem;
+    }
   }
 }

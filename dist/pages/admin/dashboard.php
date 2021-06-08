@@ -39,8 +39,13 @@
     />
   </head>
   <body>
-    <!-- Pop Up Form -->
-    <div class="popup-container" id="popup"></div>
+    <!-- Pop Up Registered -->
+    <div id="popup-registered" class="popup flex flex-ai-c">
+      <p>Dokumen transaksi sudah dibayarkan</p>
+      <form>
+        <button type="submit">Selesai</button>
+      </form>
+    </div>
 
     <main class="main admin">
       <!-- Header -->
