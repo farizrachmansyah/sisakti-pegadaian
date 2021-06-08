@@ -61,7 +61,7 @@
           </div>
         </div>
 
-        <a href="../../../login.html" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
+        <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
       </div>
 
         <div class="header-container-content flex">
