@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const URL_STRING = window.location.href;
   const ui = new UmpUI();
 
+  // ngeset tulisan di header, dibedain kalo buka di hp sama di desktop
   if (URL_STRING.includes('kabag-aa')) {
     ui.setUserName('KABAG Anggaran & Akuntansi', 'KABAG AA');
   } else if (URL_STRING.includes('kabag-tresuri')) {

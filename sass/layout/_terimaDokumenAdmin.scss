@@ -6,13 +6,6 @@
       background-color: $secondary-color;
       border-radius: 4px;
 
-      @include breakpoint-up(tablet) {
-        margin-bottom: 1.5rem;
-      }
-      @include breakpoint-up(smDesktop) {
-        margin-top: 0.5rem;
-        margin-bottom: 2rem;
-      }
       @include breakpoint-up(mdDesktop) {
         width: fit-content;
       }
@@ -35,9 +28,45 @@
     }
 
     &-input {
+      #primary-warning {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+        margin-bottom: 1rem;
+        padding: 0 12px;
+        color: $red-color;
+        font-size: 0.75rem;
+        pointer-events: none;
+        transition: all 0.3s ease;
+
+        @include breakpoint-up(smPhone) {
+          font-size: 1rem;
+        }
+      }
+
       form {
         &:last-child {
           text-align: right;
+        }
+      }
+
+      #kode-utama {
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        @include breakpoint-up(tablet) {
+          flex-direction: row;
+          gap: 1.5rem;
+        }
+
+        .ump {
+          margin-bottom: 0;
+        }
+
+        .soa {
+          @include breakpoint-up(tablet) {
+            margin-bottom: 0;
+          }
         }
       }
 

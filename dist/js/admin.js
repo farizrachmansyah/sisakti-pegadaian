@@ -59,6 +59,10 @@ class AdminUI {
 class EventListener {
   constructor() {
     this.editBtn = document.querySelectorAll('.btn-edit');
+    this.soaUmpWarning = document.querySelector('#primary-warning');
+    this.soaUmpField = document.querySelectorAll('.primary input');
+    this.soaField = document.querySelector('.primary #soa');
+    this.umpField = document.querySelector('.primary #ump');
   }
 
   setBtnAction() {
@@ -83,6 +87,23 @@ class EventListener {
       });
     });
   }
+
+  soaUmpValidation() {
+    const soaField = this.soaField;
+    const umpField = this.umpField;
+
+    this.soaUmpField.forEach(field => {
+      field.addEventListener('blur', () => {
+        if (soaField.value == '' && umpField.value == '') {
+          this.soaUmpWarning.style.opacity = '1';
+          this.soaUmpWarning.style.transform = 'translateY(0)';
+        } else {
+          this.soaUmpWarning.style.transform = 'translateY(100%)';
+          this.soaUmpWarning.style.opacity = '0';
+        }
+      });
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -94,5 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ui.buttonAndStatus();
     ui.setDatasetButton();
     events.setBtnAction();
+  } else if (URL_STRING.includes('terima-dokumen')) {
+    events.soaUmpValidation();
   }
 });
