@@ -58,6 +58,7 @@ class AdminUI {
   showDownloadBtn() {
     const selectedOption = document.querySelector('#statusfilter');
     const downloadBtn = document.querySelector('.admin__content-button button');
+
     selectedOption.addEventListener('change', () => {
       if (selectedOption.value === 'selesai') {
         downloadBtn.style.transform = 'translateY(0)';
@@ -94,6 +95,10 @@ class EventListener {
         } else if (status == 'rejected') {
           window.location.href = `./reject.php?soa=${soa}`;
         } else if (status == 'registered') {
+          const hiddenInput = document.querySelector('#popup-registered-data');
+
+          hiddenInput.setAttribute('value', soa);
+
           if (popupRegistered.classList.contains('show')) {
             popupRegistered.classList.remove('show');
           } else {
