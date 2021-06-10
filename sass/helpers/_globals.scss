@@ -159,13 +159,14 @@ button,
     .name {
       background: none;
       padding: 0;
-      border-bottom: 1px solid transparent;
+      // border-bottom: 1px solid transparent;
       border-radius: 0;
       color: $secondary-color;
       font-size: 0.75rem;
       font-weight: weight(semiBold);
       text-transform: uppercase;
       letter-spacing: -0.25px;
+      cursor: default;
 
       @include breakpoint-up(smPhone) {
         font-size: 14px;
@@ -178,9 +179,9 @@ button,
         margin-left: 0.5rem;
       }
 
-      &:hover {
-        border-bottom: 1px solid $dark-color;
-      }
+      // &:hover {
+      //   border-bottom: 1px solid $dark-color;
+      // }
 
       &-page {
         &:hover {

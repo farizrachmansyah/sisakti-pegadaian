@@ -42,7 +42,7 @@
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
-          <div class="btn-group">
+          <!-- <div class="btn-group">
             <a class="name btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               kepala departemen
             </a>
@@ -50,7 +50,8 @@
               <a class="name-page dropdown-item" href="#">Halaman Utama</a>
               <a class="name-page dropdown-item" href="./ump/dashboard-ump.html">Halaman UMP</a>
             </div>
-          </div>
+          </div> -->
+          <span class="name">Kepala Departemen</span>
 
           <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
