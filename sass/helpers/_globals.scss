@@ -102,9 +102,9 @@ button,
 
 // COMPONENTS
 .main {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // height: 100vh;
 
   &__content {
     flex-grow: 1;
@@ -143,9 +143,12 @@ button,
 }
 
 .header-container {
-  background-color: $primary-color;
+  display: inline;
 
   &-user {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     padding: 10px 1rem;
     background-color: #fff;
 
@@ -210,16 +213,19 @@ button,
   }
 
   &-content {
-    width: 80%;
-    padding: 1.5rem 0;
-    margin: 0 auto;
+    width: 100%;
+    padding: 1.5rem 2rem;
     align-items: flex-end;
+    background-color: $primary-color;
 
+    @include breakpoint-up(smPhone) {
+      padding: 1.5rem 3rem;
+    }
     @include breakpoint-up(tablet) {
-      padding: 2.5rem 0;
+      padding: 2.5rem 5rem;
     }
     @include breakpoint-up(smDesktop) {
-      padding: 3rem 0;
+      padding: 3rem 6rem;
     }
 
     .logo {
@@ -312,7 +318,7 @@ button,
 .popup {
   flex-direction: column;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: -100%;
   left: 50%;
   transform: translateX(-50%);

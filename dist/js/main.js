@@ -48,6 +48,7 @@ class UI {
         <option value="register">Register</option>
         <option value="registered">Registered</option>
         <option value="pending">Pending</option>
+        <option value="selesai">Selesai</option>
       </select>
     `;
   }
@@ -65,10 +66,14 @@ class UI {
         data.style.color = '#3498db';
         data.parentElement.classList.add('status-register');
       } else if ((data.innerText.toLowerCase() == 'registered')) {
+        // belom dikasih warna
         data.parentElement.classList.add('status-registered');
       } else if (data.innerText.toLowerCase() == 'pending') {
         data.style.color = '#9b59b6';
         data.parentElement.classList.add('status-pending');
+      } else if (data.innerText.toLowerCase() == 'selesai') {
+        // belom dikasih warna
+        data.parentElement.classList.add('status-selesai');
       }
 
       allTableRow.push(data.parentElement);
@@ -80,7 +85,6 @@ class UI {
   filterStatus(tableRow) {
     const selectedOption = document.querySelector('#statusfilter');
     selectedOption.addEventListener('change', () => {
-      console.log(selectedOption.value);
       switch (selectedOption.value.toLowerCase()) {
         case 'all':
           tableRow.forEach(row => {
@@ -119,6 +123,13 @@ class UI {
           tableRow.forEach(row => {
             row.style.display = 'table-row';
             if (!row.classList.contains('status-pending'))
+              row.style.display = 'none';
+          });
+          break;
+        case 'selesai':
+          tableRow.forEach(row => {
+            row.style.display = 'table-row';
+            if (!row.classList.contains('status-selesai'))
               row.style.display = 'none';
           });
           break;

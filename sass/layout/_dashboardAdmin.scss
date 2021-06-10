@@ -1,5 +1,29 @@
 .admin {
   &__content {
+    &-button {
+      margin-bottom: 1rem;
+
+      button {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(100%);
+        width: 100%;
+        background-color: #d6d8db;
+        font-weight: weight(medium);
+        color: $primary-color;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+
+        @include breakpoint-up(tablet) {
+          width: auto;
+        }
+
+        &:hover {
+          background-image: linear-gradient(rgba($secondary-color, 0.1));
+        }
+      }
+    }
+
     &-table {
       .btn-edit {
         padding: 0;

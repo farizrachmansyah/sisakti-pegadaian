@@ -21,7 +21,7 @@ class AdminUI {
       } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
-      } else if ((statusInfo.toLowerCase() == 'accepted') || (statusInfo.toLowerCase() == 'pending')) {
+      } else {
         editBtn.style.visible = 'hidden';
       }
     })
@@ -53,6 +53,22 @@ class AdminUI {
       editBtn.dataset.status = status;
       editBtn.dataset.soa = noSOA;
     })
+  }
+
+  showDownloadBtn() {
+    const selectedOption = document.querySelector('#statusfilter');
+    const downloadBtn = document.querySelector('.admin__content-button button');
+    selectedOption.addEventListener('change', () => {
+      if (selectedOption.value === 'selesai') {
+        downloadBtn.style.transform = 'translateY(0)';
+        downloadBtn.style.opacity = '1';
+        downloadBtn.style.pointerEvents = 'all';
+      } else {
+        downloadBtn.style.pointerEvents = 'none';
+        downloadBtn.style.opacity = '0';
+        downloadBtn.style.transform = 'translateY(100%)';
+      }
+    });
   }
 }
 
@@ -114,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (URL_STRING.includes('dashboard') && !URL_STRING.includes('ump')) {
     ui.buttonAndStatus();
     ui.setDatasetButton();
+    ui.showDownloadBtn();
     events.setBtnAction();
   } else if (URL_STRING.includes('terima-dokumen')) {
     events.soaUmpValidation();
