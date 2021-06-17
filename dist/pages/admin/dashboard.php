@@ -42,7 +42,7 @@
     <!-- Pop Up Registered -->
     <div id="popup-registered" class="popup flex flex-ai-c">
       <p>Dokumen transaksi sudah dibayarkan</p>
-      <form>
+      <form >
         <button type="submit">Selesai</button>
       </form>
     </div>

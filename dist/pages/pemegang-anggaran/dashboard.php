@@ -57,9 +57,9 @@
         </div>
       </div>
 
-      <div class="main__content">
+      <div class="main__content pa__content">
         <!-- Search Bar -->
-        <section class="main__content-search">
+        <section class="main__content-search pa__content-search">
           <form autocomplete="off" action="#" method="GET">
             <div class="find flex">
               <input autocomplete="off" type="text" name="soa" id="searchdata-soa" placeholder="SOA" onkeyup="searchTableData()" required />
@@ -71,7 +71,7 @@
         </section>
 
         <!-- Table -->
-        <section class="main__content-table">
+        <section class="main__content-table pa__content-table">
           <!-- Bootstrap Table -->
           <div class="table-responsive">
             <table id="table-pa" class="table">
@@ -128,5 +128,7 @@
     </main>
 
     <script src="../../js/main.js"></script>
+    <script src="../../js/pemegang-anggaran.js"></script>
+
   </body>
 </html>
