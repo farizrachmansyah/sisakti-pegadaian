@@ -102,9 +102,9 @@ button,
 
 // COMPONENTS
 .main {
-  // display: flex;
-  // flex-direction: column;
-  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
   &__content {
     flex-grow: 1;
@@ -146,9 +146,10 @@ button,
   display: inline;
 
   &-user {
-    position: sticky;
+    position: fixed;
+    z-index: 99;
     top: 0;
-    z-index: 2;
+    width: 100%;
     padding: 10px 1rem;
     background-color: #fff;
 
@@ -159,9 +160,9 @@ button,
     .name {
       background: none;
       padding: 0;
-      // border-bottom: 1px solid transparent;
+      border-bottom: 1px solid transparent;
       border-radius: 0;
-      color: $secondary-color;
+      color: $secondary-color !important;
       font-size: 0.75rem;
       font-weight: weight(semiBold);
       text-transform: uppercase;
@@ -179,9 +180,9 @@ button,
         margin-left: 0.5rem;
       }
 
-      // &:hover {
-      //   border-bottom: 1px solid $dark-color;
-      // }
+      &:hover {
+        border-bottom: 1px solid $secondary-color;
+      }
 
       &-page {
         &:hover {
@@ -227,6 +228,10 @@ button,
     }
     @include breakpoint-up(smDesktop) {
       padding: 3rem 6rem;
+    }
+
+    &.top-space {
+      margin-top: 56px;
     }
 
     .logo {

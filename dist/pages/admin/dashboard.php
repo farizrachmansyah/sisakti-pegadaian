@@ -52,7 +52,7 @@
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
-          <!-- <div class="btn-group">
+          <div class="btn-group">
             <a class="name btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Staf Admin
             </a>
@@ -60,13 +60,12 @@
               <a class="name-page dropdown-item" href="#">Halaman Utama</a>
               <a class="name-page dropdown-item" href="./ump/dashboard-ump.html">Halaman UMP</a>
             </div>
-          </div> -->
-          <span class="name">Staf Admin</span>
+          </div>
 
           <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
 
-        <div class="header-container-content flex">
+        <div class="header-container-content top-space flex">
           <div class="logo">
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
@@ -148,7 +147,16 @@
 
     <script src="../../js/main.js"></script>
     <script src="../../js/admin.js"></script>
-    <!-- Library SweetAlert2 buat modal/popup -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap Dropdown requirements -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

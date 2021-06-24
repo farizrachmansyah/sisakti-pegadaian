@@ -42,7 +42,7 @@
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
-          <!-- <div class="btn-group">
+          <div class="btn-group">
             <a class="name btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               kabag tresuri & perpajakan
             </a>
@@ -50,13 +50,12 @@
               <a class="name-page dropdown-item" href="#">Halaman Utama</a>
               <a class="name-page dropdown-item" href="./ump/dashboard-ump.html">Halaman UMP</a>
             </div>
-          </div> -->
-          <span class="name">KABAG Tresuri & Perpajakan</span>
+          </div>
 
           <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
 
-        <div class="header-container-content flex">
+        <div class="header-container-content top-space flex">
           <div class="logo">
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
