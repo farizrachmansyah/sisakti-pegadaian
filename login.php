@@ -97,6 +97,7 @@ if(isset($_POST['login'])){
         <!-- Form di halaman login -->
         <section class="login__content-form">
           <form autocomplete="off" action="" method="POST" class="flex">
+            <div class="error">Username atau password salah.</div>
             <div class="login__content-form-input flex">
               <div class="item flex flex-ai-c">
                 <i class="fas fa-user"></i>

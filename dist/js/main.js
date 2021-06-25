@@ -48,7 +48,7 @@ class UI {
         <option value="register">Register</option>
         <option value="registered">Registered</option>
         <option value="pending">Pending</option>
-        <option value="selesai">Selesai</option>
+        <option value="done">Done</option>
       </select>
     `;
   }
@@ -71,9 +71,9 @@ class UI {
       } else if (data.innerText.toLowerCase() == 'pending') {
         data.style.color = '#9b59b6';
         data.parentElement.classList.add('status-pending');
-      } else if (data.innerText.toLowerCase() == 'selesai') {
+      } else if (data.innerText.toLowerCase() == 'done') {
         // belom dikasih warna
-        data.parentElement.classList.add('status-selesai');
+        data.parentElement.classList.add('status-done');
       }
 
       allTableRow.push(data.parentElement);
@@ -126,10 +126,10 @@ class UI {
               row.style.display = 'none';
           });
           break;
-        case 'selesai':
+        case 'done':
           tableRow.forEach(row => {
             row.style.display = 'table-row';
-            if (!row.classList.contains('status-selesai'))
+            if (!row.classList.contains('status-done'))
               row.style.display = 'none';
           });
           break;
@@ -164,24 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
   const events = new MainEventListener();
 
-  events.fixedNavbar();
+  if (!URL_STRING.includes('login.php')) {
+    events.fixedNavbar();
+  }
 
   if (URL_STRING.includes('login.php')) {
     const CURRENT_URL = new URL(URL_STRING);
-    const inputField = document.querySelectorAll('.item');
+
     // login error handle
     const loginGagalParam = CURRENT_URL.searchParams.get('loginStatus');
+
     if (loginGagalParam) {
-      alert('Login Gagal! Username atau Password salah');
-      inputField.forEach(field => field.style.boxShadow = '0px 3px 6px #e74c3c');
+      const errorWarning = document.querySelector('.login__content-form .error');
+
+      errorWarning.classList.add('show');
     }
   } else if (!URL_STRING.includes('ump')) {
     ui.setSOPP();
     ui.setStatus();
     ui.configureStatus();
   }
-
-
 })
 
 // search table data based on soa number (halaman pemegang anggaran)
