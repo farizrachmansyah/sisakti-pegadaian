@@ -48,7 +48,7 @@ class UI {
         <option value="register">Register</option>
         <option value="registered">Registered</option>
         <option value="pending">Pending</option>
-        <option value="selesai">Selesai</option>
+        <option value="done">Done</option>
       </select>
     `;
   }
@@ -71,9 +71,9 @@ class UI {
       } else if (data.innerText.toLowerCase() == 'pending') {
         data.style.color = '#9b59b6';
         data.parentElement.classList.add('status-pending');
-      } else if (data.innerText.toLowerCase() == 'selesai') {
+      } else if (data.innerText.toLowerCase() == 'done') {
         // belom dikasih warna
-        data.parentElement.classList.add('status-selesai');
+        data.parentElement.classList.add('status-done');
       }
 
       allTableRow.push(data.parentElement);
@@ -126,10 +126,10 @@ class UI {
               row.style.display = 'none';
           });
           break;
-        case 'selesai':
+        case 'done':
           tableRow.forEach(row => {
             row.style.display = 'table-row';
-            if (!row.classList.contains('status-selesai'))
+            if (!row.classList.contains('status-done'))
               row.style.display = 'none';
           });
           break;

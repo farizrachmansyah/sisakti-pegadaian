@@ -44,7 +44,8 @@ if(isset($_POST['login'])){
                 break;
               default:
                 header("Location: ".$vlocation."pemegang-anggaran/dashboard.php");
-            }
+                break;
+              }
             
             
         
