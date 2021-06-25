@@ -164,24 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
   const events = new MainEventListener();
 
-  events.fixedNavbar();
+  if (!URL_STRING.includes('login.php')) {
+    events.fixedNavbar();
+  }
 
   if (URL_STRING.includes('login.php')) {
     const CURRENT_URL = new URL(URL_STRING);
-    const inputField = document.querySelectorAll('.item');
+
     // login error handle
     const loginGagalParam = CURRENT_URL.searchParams.get('loginStatus');
+
     if (loginGagalParam) {
-      alert('Login Gagal! Username atau Password salah');
-      inputField.forEach(field => field.style.boxShadow = '0px 3px 6px #e74c3c');
+      const errorWarning = document.querySelector('.login__content-form .error');
+
+      errorWarning.classList.add('show');
     }
   } else if (!URL_STRING.includes('ump')) {
     ui.setSOPP();
     ui.setStatus();
     ui.configureStatus();
   }
-
-
 })
 
 // search table data based on soa number (halaman pemegang anggaran)

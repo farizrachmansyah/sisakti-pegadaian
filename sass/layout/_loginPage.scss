@@ -147,6 +147,20 @@
         margin: 0 8rem;
       }
 
+      .error {
+        visibility: hidden;
+        margin-bottom: 0.75rem;
+        padding: 0.5rem;
+        background-color: rgba($red-color, 0.2);
+        color: $red-color;
+        font-size: 0.75rem;
+        font-weight: weight(medium);
+
+        &.show {
+          visibility: visible;
+        }
+      }
+
       form {
         flex-direction: column;
         justify-content: flex-end;

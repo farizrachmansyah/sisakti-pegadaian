@@ -5,9 +5,7 @@
         flex-direction: column;
 
         .part {
-          &:not(:last-child) {
-            margin-bottom: 2rem;
-          }
+          margin-bottom: 2rem;
         }
 
         .profile {
@@ -53,7 +51,6 @@
 
             &.foto {
               border-bottom: none;
-              padding-bottom: 0;
             }
 
             label {
