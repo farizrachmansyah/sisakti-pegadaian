@@ -66,9 +66,32 @@
               <span>Rp. </span>
               <input type="number" placeholder="Nominal" required />
             </div>
-            <input type="number" placeholder="Kode Bagian" required />
-            <input type="text" name="fc" placeholder="FC" required />
-            <input type="text" placeholder="Jatuh Tempo" required />
+            <select class="input" name="kode-bagian" id="">
+              <option selected disabled>Kode Bagian</option>
+              <option value="bs-analisa">01</option>
+              <option value="bs-distribusi">02</option>
+              <option value="bs-pemasaran">03</option>
+              <option value="bs-kemitraan">04</option>
+              <option value="sdm-pengembangan">05</option>
+              <option value="sdm-operasional">06</option>
+              <option value="sdm-budayakerja">07</option>
+              <option value="logistik-pengadaan">08</option>
+              <option value="logistik-bangunan">09</option>
+            </select>
+            <div class="fc input">
+              <span>Fotocopy:</span>
+              <label class="fc-radio">
+                Ada
+                <input type="radio" name="fc" id="fc-ada" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="fc-radio">
+                Tidak Ada
+                <input type="radio" name="fc" id="fc-gada" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <input type="date" placeholder="Jatuh Tempo" required />
             <input type="text" placeholder="Pembayaran" required />
             <button type="submit">submit</button>
           </form>
