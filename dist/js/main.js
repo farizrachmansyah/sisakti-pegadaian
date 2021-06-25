@@ -138,10 +138,33 @@ class UI {
   }
 }
 
+class MainEventListener {
+  constructor() {
+    this.fixedNav = document.querySelector('.header-container-user');
+    this.header = document.querySelector('.header-container');
+  }
+
+  fixedNavbar() {
+    const headerHeight = this.header.offsetHeight;
+
+    // ngasih efek box shadow pas navbar yang fixed nya nyentuh bates height header
+    document.addEventListener('scroll', () => {
+      if ((window.pageYOffset + this.fixedNav.offsetHeight) >= headerHeight) {
+        this.fixedNav.style.boxShadow = '0px 3px 18px -6px rgba(0,0,0,0.75)';
+      } else {
+        this.fixedNav.style.boxShadow = 'none';
+      }
+    })
+  }
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const URL_STRING = window.location.href;
   const ui = new UI();
+  const events = new MainEventListener();
+
+  events.fixedNavbar();
 
   if (URL_STRING.includes('login.php')) {
     const CURRENT_URL = new URL(URL_STRING);

@@ -4,10 +4,6 @@
       margin-bottom: 1rem;
       color: $light-color;
 
-      @include breakpoint-up(tablet) {
-        margin-bottom: 1.5rem;
-      }
-
       &-toggle {
         @include breakpoint-down(phone) {
           width: 100%;

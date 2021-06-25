@@ -47,7 +47,7 @@
           <a href="../../../logout.php" type="submit" class="logout">logout &MediumSpace;<i class="fas fa-sign-out-alt"></i></a>
         </div>
 
-        <div class="header-container-content flex">
+        <div class="header-container-content top-space flex">
           <div class="logo">
             <img src="../../assets/logo-login.png" alt="logo pegadaian" />
           </div>
@@ -129,6 +129,5 @@
 
     <script src="../../js/main.js"></script>
     <script src="../../js/pemegang-anggaran.js"></script>
-
   </body>
 </html>
