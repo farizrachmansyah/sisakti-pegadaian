@@ -100,7 +100,7 @@
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">SOA</th>
+                  <th scope="col">SOA/UMP</th>
                   <th scope="col">SOPP</th>
                   <th scope="col">Departemen</th>
                   <th scope="col">Pemegang Anggaran</th>
