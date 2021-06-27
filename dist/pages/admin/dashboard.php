@@ -66,7 +66,7 @@
     <!-- Pop Up Registered -->
     <div id="popup-registered" class="popup flex flex-ai-c">
       <p>Dokumen transaksi sudah dibayarkan</p>
-      <form>
+      <form method="POST">
         <input id="popup-registered-data" type="hidden" name="soa" />
         <button type="submit">Selesai</button>
       </form>

@@ -66,7 +66,8 @@
     <!-- Pop Up Registered -->
     <div id="popup-registered" class="popup flex flex-ai-c">
       <p>Dokumen transaksi sudah dibayarkan</p>
-      <form>
+      <form method="POST">
+        <input id="popup-registered-data" type="hidden" name="ump" />
         <button type="submit">Selesai</button>
       </form>
     </div>
@@ -118,7 +119,7 @@
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
                   <th scope="col" id="button-table-action"></th>
-                  <th scope="col">docID</th>
+                  <th scope="col" class="docid-ump">docID</th>
                 </tr>
               </thead>
               <tbody>
@@ -141,15 +142,61 @@
                   echo "<td>".$jumlah_permintaan."</td>";
                   echo "<td>".$data['ump_bagian_id']."</td>";
                   echo "<td>".$data['is_fc']."</td>";
-                  echo "<td>".$ump_date."</td>";
+                  echo "<td class='jtempo-data'>".$ump_date."</td>";
                   echo "<td>".$ump_time."</td>";
                   echo "<td>".$data['ump_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['ump_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";
-                  echo "<td>docId</td>";
+                  echo "<td class='docid-ump'>docId</td>";
                   echo "</tr>";
                 }
               ?>
+                <tr>
+                  <td>3</td>
+                  <td>003/UMP/01/2021</td>
+                  <td></td>
+                  <td>Biaya BBM Operasional Januari 2021</td>
+                  <td>Rp. 20.000.000</td>
+                  <td>4</td>
+                  <td>icon ceklis</td>
+                  <td class="jtempo-data">5-2-21</td>
+                  <td>tanggal</td>
+                  <td>KABAG Tresuri & Perpajakan</td>
+                  <td class="statusdata-table">register</td>
+                  <td><button class='btn-edit'></button></td>
+                  <td class="docid-ump">docId</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>003/UMP/01/2021</td>
+                  <td></td>
+                  <td>Biaya BBM Operasional Januari 2021</td>
+                  <td>Rp. 20.000.000</td>
+                  <td>4</td>
+                  <td>icon ceklis</td>
+                  <td class="jtempo-data">5-2-21</td>
+                  <td>tanggal</td>
+                  <td>Kepala Departemen</td>
+                  <td class="statusdata-table">registered</td>
+                  <td><button class='btn-edit'></button></td>
+                  <td class="docid-ump">docId</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>003/UMP/01/2021</td>
+                  <td></td>
+                  <td>Biaya BBM Operasional Januari 2021</td>
+                  <td>Rp. 20.000.000</td>
+                  <td>4</td>
+                  <td>icon ceklis</td>
+                  <td class="jtempo-data">5-2-21</td>
+                  <td>tanggal</td>
+                  <td>KABAG Tresuri & Perpajakan</td>
+                  <td class="statusdata-table">rejected</td>
+                  <td><button class='btn-edit'></button></td>
+                  <td class="docid-ump">docId</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -164,6 +211,7 @@
 
     <script src="../../../js/main.js"></script>
     <script src="../../../js/admin.js"></script>
+    <script src="../../../js/ump.js"></script>
     <!-- Bootstrap Dropdown requirements -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

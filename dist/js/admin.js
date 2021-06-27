@@ -3,11 +3,18 @@ class AdminUI {
     this.tableRow = document.querySelectorAll('tbody tr');
   }
 
-  buttonAndStatus() {
+  buttonAndStatus(url) {
     this.tableRow.forEach(row => {
       // const rowCol = Array.from(row.children);
-      const statusInfo = row.children[11].innerText;
-      const editBtn = row.children[12].firstElementChild;
+      let statusInfo;
+      let editBtn;
+      if (url.includes('dashboard-ump')) {
+        statusInfo = row.children[10].innerText;
+        editBtn = row.children[11].firstElementChild;
+      } else {
+        statusInfo = row.children[11].innerText;
+        editBtn = row.children[12].firstElementChild;
+      }
 
       editBtn.style.paddingLeft = '1rem';
       editBtn.style.paddingRight = '1rem';
@@ -27,31 +34,53 @@ class AdminUI {
     })
   }
 
-  setDatasetButton() {
+  setDatasetButton(url) {
     this.tableRow.forEach(row => {
       const rowCol = Array.from(row.children);
       // edit button from last column values in row and get the first element child 
-      const editBtn = rowCol[12].firstElementChild;
-
+      let editBtn;
       // get column value form soa column and status column, then put them in variables
-      let status, noData, noSOA, kodeDept, jumPermintaan = null;
-      rowCol.forEach((col, index) => {
-        if (index == 0) {
-          noData = col.innerText;
-        } else if (index == 1) {
-          noSOA = col.innerText;
-        } else if (index == 2) {
-          kodeDept = col.innerText.slice(15, 20);
-        } else if (index == 5) {
-          jumPermintaan = col.innerText;
-        } else if (index == 11) {
-          status = col.innerText.toLowerCase();
-        }
-      })
+      let status, noData, noSOA, noUMP, kodeDept, kodeBag, jumPermintaan, jatuhTempo = null;
 
-      // create dataset
-      editBtn.dataset.status = status;
-      editBtn.dataset.soa = noSOA;
+      if (url.includes('dashboard-ump')) {
+        editBtn = rowCol[11].firstElementChild;
+        rowCol.forEach((col, index) => {
+          if (index == 0) {
+            noData = col.innerText;
+          } else if (index == 1) {
+            noUMP = col.innerText;
+          } else if (index == 5) {
+            kodeBag = col.innerText.slice(15, 20);
+          } else if (index == 7) {
+            jatuhTempo = col.innerText;
+          } else if (index == 10) {
+            status = col.innerText.toLowerCase();
+          }
+        })
+
+        // create dataset
+        editBtn.dataset.status = status;
+        editBtn.dataset.ump = noUMP;
+      } else {
+        editBtn = rowCol[12].firstElementChild;
+        rowCol.forEach((col, index) => {
+          if (index == 0) {
+            noData = col.innerText;
+          } else if (index == 1) {
+            noSOA = col.innerText;
+          } else if (index == 2) {
+            kodeDept = col.innerText.slice(15, 20);
+          } else if (index == 5) {
+            jumPermintaan = col.innerText;
+          } else if (index == 11) {
+            status = col.innerText.toLowerCase();
+          }
+        })
+
+        // create dataset
+        editBtn.dataset.status = status;
+        editBtn.dataset.soa = noSOA;
+      }
     })
   }
 
@@ -82,30 +111,55 @@ class EventListener {
     this.umpField = document.querySelector('.primary #ump');
   }
 
-  setBtnAction() {
+  setBtnAction(url) {
     this.editBtn.forEach(btn => {
-      const status = btn.dataset.status;
-      const soa = btn.dataset.soa;
+      if (url.includes('dashboard-ump')) {
+        const status = btn.dataset.status;
+        const ump = btn.dataset.ump;
 
-      btn.addEventListener('click', () => {
-        const popupRegistered = document.querySelector('#popup-registered');
+        btn.addEventListener('click', () => {
+          const popupRegistered = document.querySelector('#popup-registered');
 
-        if (status == 'register') {
-          window.location.href = `./register.php?soa=${soa}`;
-        } else if (status == 'rejected') {
-          window.location.href = `./reject.php?soa=${soa}`;
-        } else if (status == 'registered') {
-          const hiddenInput = document.querySelector('#popup-registered-data');
+          if (status == 'register') {
+            window.location.href = `./register-ump.php?ump=${ump}`;
+          } else if (status == 'rejected') {
+            window.location.href = `./reject-ump.php?ump=${ump}`;
+          } else if (status == 'registered') {
+            const hiddenInput = document.querySelector('#popup-registered-data');
 
-          hiddenInput.setAttribute('value', soa);
+            hiddenInput.setAttribute('value', ump);
 
-          if (popupRegistered.classList.contains('show')) {
-            popupRegistered.classList.remove('show');
-          } else {
-            popupRegistered.classList.add('show');
+            if (popupRegistered.classList.contains('show')) {
+              popupRegistered.classList.remove('show');
+            } else {
+              popupRegistered.classList.add('show');
+            }
           }
-        }
-      });
+        });
+      } else {
+        const status = btn.dataset.status;
+        const soa = btn.dataset.soa;
+
+        btn.addEventListener('click', () => {
+          const popupRegistered = document.querySelector('#popup-registered');
+
+          if (status == 'register') {
+            window.location.href = `./register.php?soa=${soa}`;
+          } else if (status == 'rejected') {
+            window.location.href = `./reject.php?soa=${soa}`;
+          } else if (status == 'registered') {
+            const hiddenInput = document.querySelector('#popup-registered-data');
+
+            hiddenInput.setAttribute('value', soa);
+
+            if (popupRegistered.classList.contains('show')) {
+              popupRegistered.classList.remove('show');
+            } else {
+              popupRegistered.classList.add('show');
+            }
+          }
+        });
+      }
     });
   }
 
@@ -132,11 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new AdminUI();
   const events = new EventListener();
 
-  if (URL_STRING.includes('dashboard') && !URL_STRING.includes('ump')) {
-    ui.buttonAndStatus();
-    ui.setDatasetButton();
+  if (URL_STRING.includes('dashboard') && !URL_STRING.includes('tambah-ump')) {
+    ui.buttonAndStatus(URL_STRING);
+    ui.setDatasetButton(URL_STRING);
     ui.showDownloadBtn();
-    events.setBtnAction();
+    events.setBtnAction(URL_STRING);
   } else if (URL_STRING.includes('terima-dokumen')) {
     events.soaUmpValidation();
   }
