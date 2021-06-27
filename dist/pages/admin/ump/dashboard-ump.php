@@ -116,8 +116,9 @@
                   <th scope="col">Jatuh Tempo</th>
                   <th scope="col">Tanggal</th>
                   <th scope="col">Lokasi</th>
-                  <th scope="col">Status</th>
+                  <th scope="col" id="statusfield-table">Status</th>
                   <th scope="col" id="button-table-action"></th>
+                  <th scope="col">docID</th>
                 </tr>
               </thead>
               <tbody>
@@ -145,6 +146,7 @@
                   echo "<td>".$data['ump_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['ump_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";
+                  echo "<td>docId</td>";
                   echo "</tr>";
                 }
               ?>

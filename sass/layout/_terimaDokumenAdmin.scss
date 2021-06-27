@@ -51,9 +51,10 @@
 
         .fc {
           text-align: left;
-          background: none;
 
           span {
+            display: block;
+            margin-bottom: 1rem;
             margin-right: 2rem;
           }
 
@@ -62,7 +63,7 @@
             display: inline-block;
             position: relative;
             margin-bottom: 0;
-            margin-right: 2rem;
+            margin-right: 1rem;
             padding-left: 30px;
             cursor: pointer;
             -webkit-user-select: none;

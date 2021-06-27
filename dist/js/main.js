@@ -54,7 +54,7 @@ class UI {
   }
 
   configureStatus() {
-    const allTableRow = []
+    const allTableRow = [];
     this.statusData.forEach(data => {
       if (data.innerText.toLowerCase() == 'accepted') {
         data.style.color = '#00ab4e';
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       errorWarning.classList.add('show');
     }
-  } else if (!URL_STRING.includes('ump')) {
+  } else if (!URL_STRING.includes('tambah-ump')) {
     ui.setSOPP();
     ui.setStatus();
     ui.configureStatus();
