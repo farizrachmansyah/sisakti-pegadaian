@@ -159,7 +159,7 @@
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
                   <td>icon ceklis</td>
-                  <td class="jtempo-data">5-2-21</td>
+                  <td class="jtempo-data">5-2-2021</td>
                   <td>tanggal</td>
                   <td>KABAG Tresuri & Perpajakan</td>
                   <td class="statusdata-table">register</td>
@@ -174,7 +174,7 @@
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
                   <td>icon ceklis</td>
-                  <td class="jtempo-data">5-2-21</td>
+                  <td class="jtempo-data">5-2-2021</td>
                   <td>tanggal</td>
                   <td>Kepala Departemen</td>
                   <td class="statusdata-table">registered</td>
@@ -189,7 +189,7 @@
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
                   <td>icon ceklis</td>
-                  <td class="jtempo-data">5-2-21</td>
+                  <td class="jtempo-data">5-2-2021</td>
                   <td>tanggal</td>
                   <td>KABAG Tresuri & Perpajakan</td>
                   <td class="statusdata-table">rejected</td>

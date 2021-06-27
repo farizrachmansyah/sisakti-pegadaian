@@ -15,9 +15,12 @@ class UmpUI {
   }
 
   jatuhTempoWarning() {
-    let datetime = new Date();
-    const recentDate = datetime.format("dd/mm/yyyy");
-    // console.log(recentDate);
+    const recentDate = new Date().toLocaleDateString('id-ID');
+    console.log(recentDate);
+    let jtempoDate;
+    this.jtempoData.forEach(data => {
+      // convert jtempodata ke date
+    });
   }
 }
 
