@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once 'data.php';
 
   function rupiah($angka){
@@ -6,6 +7,29 @@
     $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
     return $hasil_rupiah;
    
+  }
+  $soa_no = '';
+  if(isset($_GET['soa'])){
+    if(!isset($_SESSION["user"])||$userId=''){
+      header("Location: ../../../login.php");
+    }
+    $user = $_SESSION["user"];
+    $userId = $user["usr_id"];
+    $soa_no = $_GET['soa'];
+    $lastStatus = "Done";
+
+    $sql = "UPDATE tbl_soa SET soa_lastupdate_status = :last_status where soa_no = :soa_no";
+    $stmt = $db->prepare($sql);
+
+    // bind parameter ke query
+    $params = array(
+        ":soa_no" => $soa_no,
+        ":last_status" => $lastStatus   
+    );
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+    if($saved) header("Location: dashboard.php");
   }
 ?>
 <!DOCTYPE html>
