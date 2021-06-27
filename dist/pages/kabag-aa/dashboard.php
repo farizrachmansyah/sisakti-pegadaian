@@ -46,7 +46,7 @@
             </a>
             <div class="dropdown-menu">
               <a class="name-page dropdown-item" href="#">Halaman Utama</a>
-              <a class="name-page dropdown-item" href="./ump/dashboard-ump.html">Halaman UMP</a>
+              <a class="name-page dropdown-item" href="./ump/dashboard-ump.php">Halaman UMP</a>
             </div>
           </div>
 

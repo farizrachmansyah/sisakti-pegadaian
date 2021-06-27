@@ -60,7 +60,7 @@ class AdminUI {
     const downloadBtn = document.querySelector('.admin__content-button button');
 
     selectedOption.addEventListener('change', () => {
-      if (selectedOption.value === 'selesai') {
+      if (selectedOption.value === 'done') {
         downloadBtn.style.transform = 'translateY(0)';
         downloadBtn.style.opacity = '1';
         downloadBtn.style.pointerEvents = 'all';

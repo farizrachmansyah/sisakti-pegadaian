@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // nentuin kalo di klik
         if (rowLokasi.includes('kabag anggaran')) {
           row.addEventListener('click', () => {
-            window.location.href = `./review-anggaran.html?soa=${soa}`;
+            window.location.href = `./review-anggaran.php?soa=${soa}`;
           })
         } else if (rowLokasi.includes('kabag tresuri') || rowLokasi.includes('kepala departemen')) {
           row.addEventListener('click', () => {
-            window.location.href = `./review-lampiran.html?soa=${soa}`;
+            window.location.href = `./review-lampiran.php?soa=${soa}`;
           });
         }
       }
