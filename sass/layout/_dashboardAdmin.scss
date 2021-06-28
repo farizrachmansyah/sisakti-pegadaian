@@ -34,6 +34,11 @@
       .docid-ump {
         display: none;
       }
+
+      .tempo-warning {
+        color: $red-color;
+        animation: kelapKelip 0.6s infinite alternate-reverse;
+      }
     }
 
     &-footer {

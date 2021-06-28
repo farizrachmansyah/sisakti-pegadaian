@@ -6,7 +6,6 @@ class UmpUI {
   }
 
   setUserName(longJabatan, shortJabatan) {
-    console.log(this.tableRow);
     if (window.innerWidth > 480) {
       this.headerUser.textContent = `${longJabatan} - UMP`;
     } else {
@@ -15,11 +14,33 @@ class UmpUI {
   }
 
   jatuhTempoWarning() {
-    const recentDate = new Date().toLocaleDateString('id-ID');
-    console.log(recentDate);
+    const recentDate = new Date();
     let jtempoDate;
     this.jtempoData.forEach(data => {
-      // convert jtempodata ke date
+      // convert jtempodata ke date, ambil potongan2 tanggalnya dulu
+      const year = parseInt(data.textContent.substr(6, 4));
+      const month = parseInt(data.textContent.substr(3, 2)) - 1;
+      const date = parseInt(data.textContent.substr(0, 2));
+      // dijadiin date format
+      jtempoDate = new Date(year, month, date);
+
+      // ngebandingin waktunya udah lewat atau belum
+      if (recentDate > jtempoDate) {
+        // karna gaada parameter jam di data ump, jadi untuk hari yang sama namun jamnya udah lewat
+        // tetep dianggap belom jatuh tempo
+        if (recentDate.getDate() === jtempoDate.getDate()) {
+          console.log('belum jatuh tempo');
+        } else {
+          console.log('sudah jatuh tempo');
+          // ngecek ada docid nya ga
+          const docId = data.parentElement.lastElementChild;
+
+          if (docId.textContent == '') {
+            // kasih warning
+            data.classList.add('tempo-warning');
+          }
+        }
+      }
     });
   }
 }
