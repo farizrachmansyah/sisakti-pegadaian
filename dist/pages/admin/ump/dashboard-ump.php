@@ -141,7 +141,7 @@
                   echo "<td>".$data['ump_perihal']."</td>";
                   echo "<td>".$jumlah_permintaan."</td>";
                   echo "<td>".$data['ump_bagian_id']."</td>";
-                  echo "<td>".$data['is_fc']."</td>";
+                  echo "<td class='fc-data'>".$data['is_fc']."</td>";
                   echo "<td class='jtempo-data'>".$ump_date."</td>";
                   echo "<td>".$ump_time."</td>";
                   echo "<td>".$data['ump_lokasi']."</td>";
@@ -158,7 +158,7 @@
                   <td>Biaya BBM Operasional Januari 2021</td>
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
-                  <td>icon ceklis</td>
+                  <td class="fc-data">N</td>
                   <td class="jtempo-data">05-07-2021</td>
                   <td>tanggal</td>
                   <td>KABAG Tresuri & Perpajakan</td>
@@ -173,7 +173,7 @@
                   <td>Biaya BBM Operasional Januari 2021</td>
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
-                  <td>icon ceklis</td>
+                  <td class="fc-data">N</td>
                   <td class="jtempo-data">05-02-2021</td>
                   <td>tanggal</td>
                   <td>Kepala Departemen</td>
@@ -188,7 +188,7 @@
                   <td>Biaya BBM Operasional Januari 2021</td>
                   <td>Rp. 20.000.000</td>
                   <td>4</td>
-                  <td>icon ceklis</td>
+                  <td class="fc-data">Y</td>
                   <td class="jtempo-data">05-02-2021</td>
                   <td>tanggal</td>
                   <td>KABAG Tresuri & Perpajakan</td>
@@ -196,7 +196,6 @@
                   <td><button class='btn-edit'></button></td>
                   <td class="docid-ump">docId</td>
                 </tr>
-                
               </tbody>
             </table>
           </div>

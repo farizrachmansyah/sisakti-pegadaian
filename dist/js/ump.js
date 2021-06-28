@@ -3,6 +3,7 @@ class UmpUI {
     this.tableRow = document.querySelectorAll('tbody tr');
     this.headerUser = document.querySelector('.name');
     this.jtempoData = document.querySelectorAll('.jtempo-data');
+    this.fcData = document.querySelectorAll('.fc-data');
   }
 
   setUserName(longJabatan, shortJabatan) {
@@ -43,6 +44,17 @@ class UmpUI {
       }
     });
   }
+
+  fcIcon() {
+    this.fcData.forEach(data => {
+      if (data.textContent === 'Y') {
+        data.style.fontWeight = '700';
+        data.innerHTML = '&#10003;';
+      } else {
+        data.innerHTML = '&mdash;';
+      }
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,4 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // jatuh tempo warning
   ui.jatuhTempoWarning();
+  ui.fcIcon();
 });
