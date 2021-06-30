@@ -119,7 +119,7 @@
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
                   <th scope="col" id="button-table-action"></th>
-                  <th scope="col" class="docid-ump">docID</th>
+                  <th scope="col" class="docid">docID</th>
                 </tr>
               </thead>
               <tbody>
@@ -147,7 +147,7 @@
                   echo "<td>".$data['ump_lokasi']."</td>";
                   echo "<td class='statusdata-table'>".$data['ump_status']."</td>";
                   echo "<td><button class='btn-edit'></button></td>";
-                  echo "<td class='docid-ump'>docId</td>";
+                  echo "<td class='docid'>docId</td>";
                   echo "</tr>";
                 }
               ?>
@@ -164,7 +164,7 @@
                   <td>KABAG Tresuri & Perpajakan</td>
                   <td class="statusdata-table">register</td>
                   <td><button class='btn-edit'></button></td>
-                  <td class="docid-ump">docId</td>
+                  <td class="docid">docId</td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -179,7 +179,7 @@
                   <td>Kepala Departemen</td>
                   <td class="statusdata-table">registered</td>
                   <td><button class='btn-edit'></button></td>
-                  <td class="docid-ump"></td>
+                  <td class="docid"></td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -194,7 +194,7 @@
                   <td>KABAG Tresuri & Perpajakan</td>
                   <td class="statusdata-table">rejected</td>
                   <td><button class='btn-edit'></button></td>
-                  <td class="docid-ump">docId</td>
+                  <td class="docid"></td>
                 </tr>
               </tbody>
             </table>

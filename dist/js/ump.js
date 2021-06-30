@@ -32,11 +32,11 @@ class UmpUI {
         if (recentDate.getDate() === jtempoDate.getDate()) {
           console.log('belum jatuh tempo');
         } else {
-          console.log('sudah jatuh tempo');
           // ngecek ada docid nya ga
           const docId = data.parentElement.lastElementChild;
 
           if (docId.textContent == '') {
+            console.log('sudah jatuh tempo & tidak ada docId');
             // kasih warning
             data.classList.add('tempo-warning');
           }
@@ -54,6 +54,80 @@ class UmpUI {
         data.innerHTML = '&mdash;';
       }
     });
+  }
+
+  btnActionKepala(url) {
+    // bikin row clickable dan munculin btn action berdasarkan syarat lokasi dan status
+    if (url.includes('kabag-aa')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('admin') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('pending');
+
+        if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          const rowBtn = row.children[11];
+          rowBtn.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
+          // GET UMP DATA
+          const umpValue = row.children[1].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            // lakukan aksi konfirmasi
+            console.log('row/btn clicked');
+          });
+        }
+      });
+    } else if (url.includes('kabag-tresuri')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('anggaran & akuntansi') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('pending');
+
+        if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          const rowBtn = row.children[11];
+          rowBtn.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
+          // GET UMP DATA
+          const umpValue = row.children[1].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            // lakukan aksi konfirmasi
+            console.log('row/btn clicked');
+          });
+        }
+      });
+    } else if (url.includes('kadep')) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        const rowLokasi = row.children[9].innerText;
+        const rowStatus = row.children[10].innerText;
+        const firstCondition = rowLokasi.toLowerCase().includes('tresuri & perpajakan') && rowStatus.toLowerCase().includes('accepted');
+        const secondCondition = rowLokasi.toLowerCase().includes('kepala departemen') && rowStatus.toLowerCase().includes('pending');
+
+        if (firstCondition || secondCondition) {
+          // CREATE BUTTON
+          const rowBtn = row.children[11];
+          rowBtn.innerHTML = `<button class="btn-action"><i class="fas fa-user-edit"></i></button>`;
+          // GET UMP DATA
+          const umpValue = row.children[1].innerText;
+          // HOVER EFFECT ROW
+          row.classList.add('hover-effect');
+          // CLICKABLE ROW = TRUE
+          row.addEventListener('click', () => {
+            // lakukan aksi konfirmasi
+            console.log('row/btn clicked');
+          });
+        }
+      });
+    }
   }
 }
 
@@ -83,4 +157,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // jatuh tempo warning
   ui.jatuhTempoWarning();
   ui.fcIcon();
+  ui.btnActionKepala(URL_STRING);
 });

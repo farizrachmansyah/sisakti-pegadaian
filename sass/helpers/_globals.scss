@@ -69,6 +69,16 @@ button,
   &:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2));
   }
+
+  &-action {
+    border: 1px solid $primary-color;
+    background: none;
+    color: $primary-color;
+
+    &:hover {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1));
+    }
+  }
 }
 
 .container {
@@ -137,6 +147,10 @@ button,
         @include breakpoint-up(tablet) {
           font-size: 1rem;
         }
+      }
+
+      .docid {
+        // display: none;
       }
     }
   }
