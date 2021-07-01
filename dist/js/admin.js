@@ -106,9 +106,9 @@ class EventListener {
   constructor() {
     this.editBtn = document.querySelectorAll('.btn-edit');
     this.soaUmpWarning = document.querySelector('#primary-warning');
-    this.soaUmpField = document.querySelectorAll('.primary input');
-    this.soaField = document.querySelector('.primary #soa');
-    this.umpField = document.querySelector('.primary #ump');
+    this.soaUmpField = document.querySelectorAll('.soa-ump');
+    this.soaField = document.querySelector('#soa');
+    this.umpField = document.querySelector('#ump');
   }
 
   setBtnAction(url) {
@@ -167,17 +167,27 @@ class EventListener {
     const soaField = this.soaField;
     const umpField = this.umpField;
 
-    this.soaUmpField.forEach(field => {
-      field.addEventListener('blur', () => {
-        if (soaField.value == '' && umpField.value == '') {
-          this.soaUmpWarning.style.opacity = '1';
-          this.soaUmpWarning.style.transform = 'translateY(0)';
-        } else {
-          this.soaUmpWarning.style.transform = 'translateY(100%)';
-          this.soaUmpWarning.style.opacity = '0';
-        }
-      });
-    });
+    // BLOM KELAR
+    // const validate = (e) => {
+    //   console.log(e.target);
+    //   if (e.target.value == '')
+    //     console.log('dua2nya kosong');
+    // };
+
+    // soaField.addEventListener('blur', validate);
+    // umpField.addEventListener('change', validate);
+
+    // this.soaUmpField.forEach(field => {
+    //   field.addEventListener('blur', () => {
+    //     if (soaField.value == '' && umpField.value == '') {
+    //       this.soaUmpWarning.style.opacity = '1';
+    //       this.soaUmpWarning.style.transform = 'translateY(0)';
+    //     } else {
+    //       this.soaUmpWarning.style.transform = 'translateY(100%)';
+    //       this.soaUmpWarning.style.opacity = '0';
+    //     }
+    //   });
+    // });
   }
 }
 
