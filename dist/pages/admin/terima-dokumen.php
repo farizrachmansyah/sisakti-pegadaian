@@ -120,18 +120,23 @@ if(isset($_POST['submit'])){
           <span id="primary-warning"><i class="fas fa-exclamation-triangle"></i> &MediumSpace; SOA atau UMP harus terisi salah satu</span>
           <form action="" method="POST">
             <div id="kode-utama" class="flex">
-              <div class="primary soa flex flex-ai-c">
-                <input id="soa" type="text" placeholder="SOA" autocomplete="off" autofocus />
+              <div class="soa flex flex-ai-c">
+                <input id="soa" class="soa-ump" type="text" placeholder="SOA" autocomplete="off" autofocus />
                 <div class="soa-format">
                   <p>/SOA-00108/2021</p>
                 </div>
               </div>
-              <div class="primary ump flex flex-ai-c">
+              <select name="ump" id="ump" class="input soa-ump ump">
+                <option value="" selected disabled>UMP</option>
+                <option value="" id="">001/UMP-00108/2021</option>
+                <option value="" id="">002/UMP-00108/2021</option>
+              </select>
+              <!-- <div class="primary ump flex flex-ai-c">
                 <input id="ump" type="text" placeholder="UMP" autocomplete="off" />
                 <div class="ump-format">
                   <p>/UMP-00108/2021</p>
                 </div>
-              </div>
+              </div> -->
             </div>
             <input id="sopp" type="text" placeholder="SOPP" name="sopp" required />
             <select class="input" name="departemen" id="departemen">

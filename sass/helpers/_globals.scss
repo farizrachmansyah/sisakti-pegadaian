@@ -149,6 +149,16 @@ button,
         }
       }
 
+      tbody tr {
+        &.hover-effect {
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.075);
+          }
+        }
+      }
+
       .docid {
         display: none;
       }

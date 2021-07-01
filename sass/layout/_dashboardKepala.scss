@@ -17,19 +17,5 @@
         }
       }
     }
-
-    &-table {
-      table {
-        tbody tr {
-          &.hover-effect {
-            cursor: pointer;
-
-            &:hover {
-              background-color: rgba(0, 0, 0, 0.075);
-            }
-          }
-        }
-      }
-    }
   }
 }
