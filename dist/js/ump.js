@@ -100,7 +100,7 @@ class UmpUI {
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             // lakukan aksi konfirmasi
-            console.log('row/btn clicked');
+            window.location.href = `./konfirmasi-ump.html?ump=${encodeURIComponent(umpValue)}`;
           });
         }
       });
@@ -123,7 +123,7 @@ class UmpUI {
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             // lakukan aksi konfirmasi
-            console.log('row/btn clicked');
+            window.location.href = `./konfirmasi-ump.html?ump=${encodeURIComponent(umpValue)}`;
           });
         }
       });

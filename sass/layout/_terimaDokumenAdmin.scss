@@ -232,6 +232,47 @@
         text-transform: uppercase;
         font-weight: weight(medium);
       }
+
+      // konfirmasi ump kabag kadep
+      .option-btn {
+        @include breakpoint-up(smDesktop) {
+          justify-content: unset;
+        }
+        button {
+          &:nth-child(1) {
+            flex: 0.5;
+            margin-right: 2rem;
+            color: $primary-color;
+            background-color: #fff;
+            border: 1px solid $primary-color;
+
+            @include breakpoint-up(smDesktop) {
+              flex: 0.1;
+              max-width: 120px;
+            }
+          }
+          &:nth-child(2) {
+            flex: 1.5;
+            margin-right: 0.25rem;
+            background-color: $red-color;
+
+            @include breakpoint-up(smDesktop) {
+              flex: 0.25;
+              max-width: 250px;
+              margin-left: auto;
+              margin-right: 1rem;
+            }
+          }
+          &:nth-child(3) {
+            flex: 1.5;
+
+            @include breakpoint-up(smDesktop) {
+              flex: 0.25;
+              max-width: 250px;
+            }
+          }
+        }
+      }
     }
   }
 }
