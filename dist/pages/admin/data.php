@@ -59,7 +59,7 @@ function loadDepartemen() {
     $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $departmens;
 }
-function loadDepartemen() {
+function loadPemegangMataAnggaran() {
     global $db;
     $sql="SELECT * FROM tbl_mstcode WHERE mst_category='DEPT'";
     $stmt = $db->prepare($sql);
