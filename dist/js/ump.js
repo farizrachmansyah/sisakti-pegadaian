@@ -77,7 +77,7 @@ class UmpUI {
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             // lakukan aksi konfirmasi
-            window.location.href = `./konfirmasi-ump.html?ump=${encodeURIComponent(umpValue)}`;
+            window.location.href = `./konfirmasi-ump.php?ump=${encodeURIComponent(umpValue)}`;
           });
         }
       });
@@ -100,7 +100,7 @@ class UmpUI {
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             // lakukan aksi konfirmasi
-            window.location.href = `./konfirmasi-ump.html?ump=${encodeURIComponent(umpValue)}`;
+            window.location.href = `./konfirmasi-ump.php?ump=${encodeURIComponent(umpValue)}`;
           });
         }
       });
@@ -123,7 +123,7 @@ class UmpUI {
           // CLICKABLE ROW = TRUE
           row.addEventListener('click', () => {
             // lakukan aksi konfirmasi
-            window.location.href = `./konfirmasi-ump.html?ump=${encodeURIComponent(umpValue)}`;
+            window.location.href = `./konfirmasi-ump.php?ump=${encodeURIComponent(umpValue)}`;
           });
         }
       });

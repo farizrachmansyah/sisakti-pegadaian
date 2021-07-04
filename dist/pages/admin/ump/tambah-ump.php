@@ -107,15 +107,12 @@ if(isset($_POST['submit'])){
             </div>
             <select class="input" name="kode-bagian" id="">
               <option selected disabled>Bagian</option>
-              <option value="1">bs-analisa</option>
-              <option value="2">bs-distribusi</option>
-              <option value="3">bs-pemasaran</option>
-              <option value="4">bs-kemitraan</option>
-              <option value="5">sdm-pengembangan</option>
-              <option value="6">sdm-operasional</option>
-              <option value="7">sdm-budayakerja</option>
-              <option value="8">logistik-pengadaan</option>
-              <option value="9">logistik-bangunan</option>
+              <?php
+                $bagians = loadBagian();
+                foreach($bagians as $bagian){
+                  echo "<option id='".$bagian['mst_id']."' value='".$bagian['mst_id']."'>".$bagian['mst_code']." - ".$bagian['mst_text']."</option>";
+                }
+              ?>
             </select>
             <div class="fc input">
               <span>Fotocopy:</span>

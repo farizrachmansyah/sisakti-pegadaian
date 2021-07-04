@@ -51,13 +51,13 @@ if(isset($_POST['deptId'])){
     echo json_encode($users);
 }
 
-function loadDepartemen() {
+function loadBagian() {
     global $db;
-    $sql="SELECT * FROM tbl_mstcode WHERE mst_category='DEPT'";
+    $sql="SELECT * FROM tbl_mstcode WHERE mst_category='BAG'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $departmens;
+    $bagians = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $bagians;
 }
 function loadSoa($psoa) {
     global $db;
@@ -77,7 +77,8 @@ function loadListDashboardUmp(){
        ump_bagian_id,
        ump_due_date,
        is_fc,
-       ump_lastupdate_at as ump_created_at,
+       ump_lastupdate_at as ump_updated_at,
+       (select soa_id from tbl_soa where soa_no = ump_no) as doc_id,
        (select usr_jabatan from tbl_user where usr_id = ump_lastupdate_by) as ump_lokasi,
        ump_lastupdate_status as ump_status FROM tbl_ump order by ump_id desc";
     $stmt = $db->prepare($sql);
@@ -95,36 +96,37 @@ function loadActivity() {
     return $aktivitas;
 }
 
-function loadRegisterSoa($psoa) {
+function loadRegisterUmp($pump) {
     global $db;
-    $sql="SELECT soa_id,soa_no,soa_nominal,soa_departemen_id,(select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, (DATE_FORMAT(soa_created_at,'%y')) as soa_year FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    $sql="SELECT ump_id,ump_no,ump_nominal,ump_bagian_id,(select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code, (DATE_FORMAT(ump_created_at,'%Y')) as ump_year FROM tbl_ump WHERE ump_no ='".$pump."'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $soa;
+    $ump = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ump;
 }
 
-function loadPengembalianSoa($psoa) {
+function loadPengembalianUmp($pump) {
     global $db;
     $sql="SELECT 
-    soa_id,
-    soa_no,
-    soa_nominal,
-    soa_departemen_id,
-    (select mst_code from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_code, 
-    (DATE_FORMAT(soa_created_at,'%y')) as soa_year, 
-    (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
-    (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_name 
-    FROM tbl_soa WHERE soa_no ='".$psoa."'";
+    ump_id,
+    ump_no,
+    ump_nominal,
+    ump_bagian_id,
+    ump_keterangan_reject,
+    (select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code, 
+    (DATE_FORMAT(ump_created_at,'%y')) as ump_year, 
+    (select usr_jabatan from tbl_user where usr_id = ump_lastupdate_by) as ump_lokasi,
+    (select mst_text from tbl_mstcode where mst_id = ump_bagian_id) as ump_departemen_name 
+    FROM tbl_ump WHERE ump_no ='".$pump."'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $soa;
+    $ump = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ump;
 }
 
-function getCurrentRegisterNo() {
+function getCurrentUmpRegisterNo() {
     global $db;
-    $sql="SELECT soa_register_no FROM tbl_soa where soa_register_no is not null or soa_register_no !='' ";
+    $sql="SELECT ump_register_no FROM tbl_ump where ump_register_no is not null or ump_register_no !='' ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $registerNo = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -2,21 +2,9 @@
 session_start();
 require_once 'data-ump.php';
 
-if(isset($_GET['soa'])){
-    $soa_no = $_GET['soa'];
-    $soa = loadPengembalianSoa($soa_no);
-    
-    $currRegNo = 0;
-    $register_no_list = getCurrentRegisterNo();
-    foreach($register_no_list as $key=>$data){
-      $first4String = substr($data['soa_register_no'], 0, 4);
-      $currNum = intval($first4String);
-      if($currNum>$currRegNo){
-        $currRegNo = $currNum;
-      }
-    }
-    $regNo = str_pad($currRegNo + 1,4,'0',STR_PAD_LEFT)."/".$soa['soa_departemen_code']."/".$soa["soa_year"];
-    
+if(isset($_GET['ump'])){
+    $ump_no = $_GET['ump'];
+    $ump = loadPengembalianUmp($ump_no);
 }
 
 if(isset($_POST['reject'])){
@@ -32,12 +20,12 @@ if(isset($_POST['reject'])){
     
 
     // menyiapkan query
-    $sql = "UPDATE tbl_soa SET soa_lastupdate_status = :last_status where soa_no = :soa_no";
+    $sql = "UPDATE tbl_ump SET ump_lastupdate_status = :last_status where ump_no = :ump_no";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
     $params = array(
-        ":soa_no" => $soa['soa_no'],
+        ":ump_no" => $ump['ump_no'],
         ":last_status" => $lastStatus
         
     );
@@ -47,7 +35,7 @@ if(isset($_POST['reject'])){
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
-    if($saved) header("Location: dashboard.php");
+    if($saved) header("Location: dashboard-ump.php");
 }
 ?>
 <!DOCTYPE html>
@@ -97,11 +85,12 @@ if(isset($_POST['reject'])){
       <div class="main__content dokumen-action__content">
         <section class="main__content-form dokumen-action__content-form">
           <form class="flex" action="" method="POST">
-            <input class="soa" type="text" name="soa-reject" disabled value = "<?php echo $soa['soa_no'] ?>"/>
+            <input class="ump" type="text" name="ump-reject" disabled value = "<?php echo $ump['ump_no'] ?>"/>
+            <input class="keterangan" type="text" name="ump-keterangan" disabled value = "<?php echo $ump['ump_keterangan_reject'] ?>"/>
             <select class="input" name="dept-reject" id="">
-              <option selected disabled value = "<?php echo $soa['soa_departemen_name'] ?>"><?php echo $soa['soa_departemen_name'] ?></option>
+              <option selected disabled value = "<?php echo $ump['ump_departemen_name'] ?>"><?php echo $ump['ump_departemen_name'] ?></option>
             </select>
-            <input class="penerima" type="text" name="penerima-reject" placeholder="Penerima" value = "<?php echo $soa['soa_lokasi'] ?>"/>
+            <input class="penerima" type="text" name="penerima-reject" placeholder="Penerima" value = "<?php echo $ump['ump_lokasi'] ?>"/>
             <button class="btn reject" type="submit" name="reject">Return</button>
           </form>
         </section>

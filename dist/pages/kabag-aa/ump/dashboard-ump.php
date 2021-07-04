@@ -38,7 +38,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UMP &MediumSpace;-&MediumSpace; Staf Administrasi</title>
+    <title>UMP &MediumSpace;-&MediumSpace; KABAG Administrasi & Keuangan</title>
 
     <!-- Bootstrap -->
     <link
@@ -63,22 +63,13 @@
     />
   </head>
   <body>
-    <!-- Pop Up Registered -->
-    <div id="popup-registered" class="popup flex flex-ai-c">
-      <p>Dokumen transaksi sudah dibayarkan</p>
-      <form method="GET">
-        <input id="popup-registered-data" type="hidden" name="ump" />
-        <button type="submit">Selesai</button>
-      </form>
-    </div>
-
     <main class="main admin">
       <!-- Header -->
       <div class="header-container">
         <div class="header-container-user flex flex-ai-c flex-jc-sb">
           <div class="btn-group">
             <a class="name btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Staf Admin - UMP
+              KABAG AA - UMP
             </a>
             <div class="dropdown-menu">
               <a class="name-page dropdown-item" href="../dashboard.php">Halaman Utama</a>
@@ -118,7 +109,7 @@
                   <th scope="col">Tanggal</th>
                   <th scope="col">Lokasi</th>
                   <th scope="col" id="statusfield-table">Status</th>
-                  <th scope="col" id="button-table-action"></th>
+                  <th scope="col"></th>
                   <th scope="col" class="docid">docID</th>
                 </tr>
               </thead>
@@ -157,17 +148,12 @@
             </table>
           </div>
         </section>
-
-        <!-- Button Submit -->
-        <section class="admin__content-footer">
-          <a href="./tambah-ump.php" type="submit" class="btn btn-terima"><i class="fas fa-plus"></i> &MediumSpace; tambah UMP</a>
-        </section>
       </div>
     </main>
 
     <script src="../../../js/main.js"></script>
-    <script src="../../../js/admin.js"></script>
     <script src="../../../js/ump.js"></script>
+    <!-- <script src="../../../js/admin.js"></script> -->
     <!-- Bootstrap Dropdown requirements -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

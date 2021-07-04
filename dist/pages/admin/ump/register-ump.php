@@ -2,24 +2,29 @@
 session_start();
 require_once 'data-ump.php';
 
-if(isset($_GET['soa'])){
+if(isset($_GET['ump'])){
     function rupiah($angka){
       $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
       return $hasil_rupiah;  
     }
-    $soa_no = $_GET['soa'];
-    $soa = loadRegisterSoa($soa_no);
-    $jumlah_permintaan = rupiah($soa['soa_nominal']);
+    $ump_no = $_GET['ump'];
+    $ump = loadRegisterUmp($ump_no);
+    $jumlah_permintaan = rupiah($ump['ump_nominal']);
     $currRegNo = 0;
-    $register_no_list = getCurrentRegisterNo();
+    $register_no_list = getCurrentUmpRegisterNo();
     foreach($register_no_list as $key=>$data){
-      $first4String = substr($data['soa_register_no'], 0, 4);
+      $first4String = substr($data['ump_register_no'], 0, 4);
       $currNum = intval($first4String);
       if($currNum>$currRegNo){
         $currRegNo = $currNum;
       }
     }
-    $regNo = str_pad($currRegNo + 1,4,'0',STR_PAD_LEFT)."/".$soa['soa_departemen_code']."/".$soa["soa_year"];
+    $userTimeZone = new DateTimeZone('Asia/Jakarta');
+    $nowDate = date("Y-m-d");
+    $nowDateConverted = new DateTime($nowDate);
+    $nowDateConverted->setTimeZone($userTimeZone);
+    $nowMonth = $nowDateConverted->format('m');
+    $regNo = str_pad($currRegNo + 1,3,'0',STR_PAD_LEFT)."/UMP/".$nowMonth."/".$ump["ump_year"];
     
 }
 
@@ -36,12 +41,12 @@ if(isset($_POST['register'])){
     
 
     // menyiapkan query
-    $sql = "UPDATE tbl_soa SET soa_lastupdate_by = :usr_id, soa_lastupdate_status = :last_status, soa_register_no = :register_no where soa_no = :soa_no";
+    $sql = "UPDATE tbl_ump SET ump_lastupdate_by = :usr_id, ump_lastupdate_status = :last_status, ump_register_no = :register_no where ump_no = :ump_no";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
     $params = array(
-        ":soa_no" => $soa_no,
+        ":ump_no" => $ump_no,
         ":usr_id" => $userId,
         ":register_no" => $regNo,
         ":last_status" => $lastStatus
@@ -53,7 +58,7 @@ if(isset($_POST['register'])){
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
-    if($saved) header("Location: dashboard.php");
+    if($saved) header("Location: dashboard-ump.php");
 }
 ?>
 <!DOCTYPE html>
@@ -103,7 +108,7 @@ if(isset($_POST['register'])){
       <div class="main__content dokumen-action__content">
         <section class="main__content-form dokumen-action__content-form">
           <form class="flex" action="" method="POST">
-            <input class="soa" type="text" name="soa-regis" value=<?php echo $soa['soa_no'];?> disabled />
+            <input class="ump" type="text" name="ump-regis" value=<?php echo $ump['ump_no'];?> disabled />
             <input class="noregis" type="text" name="no-regis" value=<?php echo $regNo;?> disabled />
             <input class="permintaan" type="text" name="nominal-regis" value='<?php echo $jumlah_permintaan;?>' disabled />
             <button class="btn" type="submit" name="register">Register</button>

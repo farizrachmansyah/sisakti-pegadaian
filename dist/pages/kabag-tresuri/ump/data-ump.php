@@ -59,50 +59,32 @@ function loadDepartemen() {
     $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $departmens;
 }
-function loadDepartemen() {
+function loadUmp($pump) {
     global $db;
-    $sql="SELECT * FROM tbl_mstcode WHERE mst_category='DEPT'";
+    $sql="SELECT ump_no, ump_perihal, ump_nominal, ump_keterangan_reject, is_fc, ump_due_date,(select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code,(select mst_text from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_text FROM tbl_ump WHERE ump_no ='".$pump."'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $departmens = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $departmens;
+    $ump = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ump;
 }
 
-function loadUmp() {
+function loadListDashboardUmp(){
     global $db;
-    //$sql="SELECT ump_id,ump_no FROM tbl_ump";
-    $sql="SELECT ump_id,ump_no FROM tbl_ump LEFT JOIN tbl_soa on soa_no = ump_no WHERE soa_no IS NULL";
+    $sql="SELECT ump_no,
+       ump_register_no,
+       ump_nominal,
+       ump_perihal,
+       ump_bagian_id,
+       ump_due_date,
+       is_fc,
+       ump_lastupdate_at as ump_updated_at,
+       (select soa_id from tbl_soa where soa_no = ump_no) as doc_id,
+       (select usr_jabatan from tbl_user where usr_id = ump_lastupdate_by) as ump_lokasi,
+       ump_lastupdate_status as ump_status FROM tbl_ump order by ump_id desc";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $umps = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $umps;
-}
-
-function loadSoa($psoa) {
-    global $db;
-    $sql="SELECT * FROM tbl_soa WHERE soa_no ='".$psoa."'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $soa = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $soa;
-}
-
-function loadListDashboard(){
-    global $db;
-    $sql="SELECT  soa_no,
-     soa_sopp,
-      (select mst_text from tbl_mstcode where mst_id = soa_departemen_id) as soa_departemen_name,
-       (select usr_jabatan from tbl_user where usr_id = soa_pa_id) as  soa_pa_name,
-       soa_nominal,
-       soa_perihal,
-       (select ma_code from tbl_mata_anggaran where ma_id = (select akt_ma_id from tbl_aktivitas where akt_id = soa_akt_id)) as soa_ma,
-       soa_lastupdate_at as soa_created_at,
-       (select usr_jabatan from tbl_user where usr_id = soa_lastupdate_by) as soa_lokasi,
-       soa_lastupdate_status as soa_status FROM tbl_soa order by soa_id desc";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $soas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $soas;
 }
 
 function loadActivity() {
