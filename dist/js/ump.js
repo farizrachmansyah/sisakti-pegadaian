@@ -157,7 +157,7 @@ class UmpUI {
         fcFalseOption = option;
     });
 
-    if (url.includes('tambah-ump')) {
+    if (url.includes('tambah-ump') || url.includes('konfirmasi-ump')) {
       if (fcFalseOption.checked) {
         dateInputField.setAttribute('disabled', 'disabled');
       }
@@ -169,12 +169,6 @@ class UmpUI {
           dateInputField.setAttribute('disabled', 'disabled');
         }
       });
-    } else if (url.includes('konfirmasi-ump')) {
-      if (fcFalseOption.checked) {
-        dateInputField.setAttribute('disabled', 'disabled');
-      } else {
-        dateInputField.removeAttribute('disabled');
-      }
     }
   }
 }
