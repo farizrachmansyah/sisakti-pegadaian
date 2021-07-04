@@ -77,6 +77,8 @@ function loadListDashboardUmp(){
        ump_bagian_id,
        ump_due_date,
        is_fc,
+       (select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code,
+       (select mst_text from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_text,
        ump_lastupdate_at as ump_updated_at,
        (select soa_id from tbl_soa where soa_no = ump_no) as doc_id,
        (select usr_jabatan from tbl_user where usr_id = ump_lastupdate_by) as ump_lokasi,

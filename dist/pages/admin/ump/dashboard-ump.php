@@ -146,7 +146,7 @@
                   echo "<td>".$data['ump_register_no']."</td>";
                   echo "<td>".$data['ump_perihal']."</td>";
                   echo "<td>".$jumlah_permintaan."</td>";
-                  echo "<td>".$data['ump_bagian_id']."</td>";
+                  echo "<td>".$data['ump_bagian_text']."</td>";
                   echo "<td class='fc-data'>".$data['is_fc']."</td>";
                   echo "<td class='jtempo-data'>".$due_date."</td>";
                   echo "<td>".$updated_date."</td>";
