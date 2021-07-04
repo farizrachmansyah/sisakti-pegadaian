@@ -158,4 +158,36 @@ if(isset($_POST["export_db"]))  {
        fclose($output); 
     
     }
+
+ if(isset($_POST["export_db_ump"]))  { 
+       global $db;
+       $sql="SELECT  (DATE_FORMAT(ump_lastupdate_at,'%Y-%m-%d')) as ump_date,
+       ump_no,
+       ump_register_no,
+       (select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code,
+       (select mst_text from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_text,
+         ump_nominal,
+         ump_perihal,
+         is_fc,
+         ump_due_date FROM tbl_ump where ump_lastupdate_status='Done' order by ump_id desc";
+       $stmt = $db->prepare($sql);
+       $stmt->execute();
+       $umps = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      //  print_r($soas);
+      //  die();
+       header('Content-Type: text/csv; charset=utf-8'); 
+       $fileName = "Report_UMP_All_Done_".$nowDay;
+       header("Content-Disposition: attachment; filename=".$fileName.".csv"); 
+    
+       $output = fopen("php://output", "w"); 
+    
+       fputcsv($output, array('Tanggal','Nomor', 'Nomor Register', 'Kode Bagian', 'Bagian', 'Nominal', 'Perihal', 'FC', 'Jatuh Tempo')); 
+    
+       
+       foreach($umps as $key=>$data){ 
+              fputcsv($output, $data); 
+       }
+       fclose($output); 
+    
+    }   
 ?> 

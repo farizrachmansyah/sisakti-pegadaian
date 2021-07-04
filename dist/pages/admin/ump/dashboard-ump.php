@@ -101,8 +101,8 @@
 
       <div class="main__content admin__content">
         <section class="main__content-buttons admin__content-button">
-          <form action="../report/export.php" method="POST">
-            <button type="submit" name="export_db">Download</button>
+          <form action="../../report/export.php" method="POST">
+            <button type="submit" name="export_db_ump">Download</button>
           </form>
         </section>
 
