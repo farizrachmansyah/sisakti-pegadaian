@@ -3,8 +3,13 @@ session_start();
 require_once 'data-ump.php';
 
 if(isset($_GET['ump'])){
+  function rupiah($angka){
+    $hasil_rupiah = number_format($angka,2,',','.');
+    return $hasil_rupiah;  
+  }
     $ump_no = $_GET['ump'];
     $ump = loadUmp($ump_no);
+    $nominal = rupiah($ump['ump_nominal']);
 }
 
 if(isset($_POST['reject'])){
@@ -141,7 +146,7 @@ if(isset($_POST['cancel'])){
             <input type="text" name="perihal" placeholder="Perihal" disabled value='<?php echo $ump['ump_perihal']; ?>' />
             <div class="nominal flex flex-ai-c">
               <span>Rp. </span>
-              <input type="number" placeholder="Nominal" disabled value='<?php echo $ump['ump_nominal']; ?>'/>
+              <input type="text" placeholder="Nominal" disabled value='<?php echo $nominal; ?>'/>
             </div>
             <input type="text" name="kode-bagian" id="" placeholder="Kode Bagian" disabled value='<?php echo $ump['ump_bagian_code']." - ".$ump['ump_bagian_text']; ?>'/>
             <div class="fc input">
