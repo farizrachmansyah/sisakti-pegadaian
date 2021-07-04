@@ -50,10 +50,26 @@ class UmpUI {
       if (data.textContent === 'Y') {
         data.style.fontWeight = '700';
         data.innerHTML = '&#10003;';
+        data.dataset.isfc = 'y'
       } else {
         data.innerHTML = '&mdash;';
+        data.dataset.isfc = 'n'
       }
     });
+  }
+
+  btnActionAccess(url) {
+    if (url.includes('admin') && url.includes('dashboard-ump')) {
+      this.tableRow.forEach(row => {
+        let fcData = row.children[6];
+        let jtempoData = row.children[7];
+        let btnAction = row.children[11];
+
+        if (fcData.dataset.isfc === 'y' && jtempoData.innerText !== '') {
+          btnAction.innerHTML = '';
+        }
+      })
+    }
   }
 
   btnActionKepala(url) {
@@ -129,6 +145,38 @@ class UmpUI {
       });
     }
   }
+
+  makeDateDisabled(url) {
+    const fcInputField = document.querySelector('.fc.input');
+    const fcOptions = document.querySelectorAll('.fc-radio input');
+    const dateInputField = fcInputField.nextElementSibling;
+    let fcFalseOption;
+
+    fcOptions.forEach(option => {
+      if (option.id === 'fc-gada')
+        fcFalseOption = option;
+    });
+
+    if (url.includes('tambah-ump')) {
+      if (fcFalseOption.checked) {
+        dateInputField.setAttribute('disabled', 'disabled');
+      }
+
+      fcInputField.addEventListener('change', (e) => {
+        if (e.target.value === 'Y') {
+          dateInputField.removeAttribute('disabled');
+        } else {
+          dateInputField.setAttribute('disabled', 'disabled');
+        }
+      });
+    } else if (url.includes('konfirmasi-ump')) {
+      if (fcFalseOption.checked) {
+        dateInputField.setAttribute('disabled', 'disabled');
+      } else {
+        dateInputField.removeAttribute('disabled');
+      }
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -154,8 +202,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // jatuh tempo warning
+  // validasi data
   ui.jatuhTempoWarning();
   ui.fcIcon();
+
+  // tombol action dashboard ump admin
+  ui.btnActionAccess(URL_STRING);
+
+  // tombol action di dashboard ump kabag kadep
   ui.btnActionKepala(URL_STRING);
+
+  //tambah ump - kalo fc gaada, maka input date disabled
+  ui.makeDateDisabled(URL_STRING);
 });

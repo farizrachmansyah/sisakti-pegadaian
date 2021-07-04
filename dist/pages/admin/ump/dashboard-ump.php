@@ -100,6 +100,12 @@
       </div>
 
       <div class="main__content admin__content">
+        <section class="main__content-buttons admin__content-button">
+          <form action="../report/export.php" method="POST">
+            <button type="submit" name="export_db">Download</button>
+          </form>
+        </section>
+
         <!-- Table -->
         <section class="main__content-table admin__content-table">
           <!-- Bootstrap Table -->

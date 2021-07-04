@@ -160,6 +160,7 @@ if(isset($_POST['submit'])){
       </div>
     </main>
 
-    <script src="../../js/admin.js"></script>
+    <script src="../../../js/admin.js"></script>
+    <script src="../../../js/ump.js"></script>
   </body>
 </html>
