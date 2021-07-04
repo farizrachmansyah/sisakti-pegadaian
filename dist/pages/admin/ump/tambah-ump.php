@@ -13,8 +13,8 @@ if(isset($_POST['submit'])){
     $ump_nominal = filter_input(INPUT_POST, 'nominal', FILTER_SANITIZE_STRING);
     $ump_due_date = filter_input(INPUT_POST, 'jatuh-tempo', FILTER_SANITIZE_STRING);
 
-    // menyiapkan query
-    $sql = "INSERT INTO tbl_ump (ump_bagian_id, ump_no, ump_perihal, ump_nominal, is_fc,ump_due_date, ump_lastupdate_by, ump_lastupdate_status) 
+    if($ump_fc == 'Y'){
+     $sql = "INSERT INTO tbl_ump (ump_bagian_id, ump_no, ump_perihal, ump_nominal, is_fc,ump_due_date, ump_lastupdate_by, ump_lastupdate_status) 
             VALUES (:ump_bagian, :ump_no, :ump_perihal, :ump_nominal, :is_fc, :ump_due_date, :usr_id, 'Accepted')";
     $stmt = $db->prepare($sql);
     // bind parameter ke query
@@ -34,6 +34,32 @@ if(isset($_POST['submit'])){
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
     if($saved) header("Location: dashboard-ump.php");
+
+    }else{
+      $sql = "INSERT INTO tbl_ump (ump_bagian_id, ump_no, ump_perihal, ump_nominal, is_fc, ump_lastupdate_by, ump_lastupdate_status) 
+            VALUES (:ump_bagian, :ump_no, :ump_perihal, :ump_nominal, :is_fc, :usr_id, 'Accepted')";
+    $stmt = $db->prepare($sql);
+    // bind parameter ke query
+    $params = array(
+        ":ump_bagian" => $ump_bagian,
+        ":ump_no" => strval($ump_no)."/UMP-00108/2021",
+        ":ump_perihal" => $ump_perihal,
+        ":ump_nominal" => $ump_nominal,
+        ":is_fc" => $ump_fc,
+        ":usr_id" => $userId
+    );
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+    
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman login
+    if($saved) header("Location: dashboard-ump.php");
+    
+    }
+
+    // menyiapkan query
+    
 }
 ?>
 <!DOCTYPE html>
