@@ -7,39 +7,6 @@ if(isset($_GET['ump'])){
     $ump = loadUmp($ump_no);
 }
 
-if(isset($_POST['reject'])){
-    
-    if(!isset($_SESSION["user"])||$userId=''){
-      header("Location: ../../../login.php");
-    }
-    $user = $_SESSION["user"];
-    $userId = $user["usr_id"];
-    // filter data yang diinputkan
-    $keterangan = filter_input(INPUT_POST, 'keterangan', FILTER_SANITIZE_STRING);
-    
-    $lastStatus = "Rejected";
-    
-    // menyiapkan query
-    $sql = "UPDATE tbl_ump SET ump_keterangan_reject= :ket_reject, ump_lastupdate_by = :usr_id, ump_lastupdate_status = :last_status where ump_no = :ump_no";
-    $stmt = $db->prepare($sql);
-
-    // bind parameter ke query
-    $params = array(
-        ":ump_no" => $ump_no,
-        ":ket_reject" => $keterangan,
-        ":usr_id" => $userId,
-        ":last_status" => $lastStatus
-        
-    );
-
-    // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-
-    // jika query simpan berhasil, maka user sudah terdaftar
-    // maka alihkan ke halaman login
-    if($saved) header("Location: dashboard-ump.php");
-}
-
 if(isset($_POST['confirm'])){
     
   if(!isset($_SESSION["user"])||$userId=''){
@@ -48,18 +15,21 @@ if(isset($_POST['confirm'])){
   $user = $_SESSION["user"];
   $userId = $user["usr_id"];
   // filter data yang diinputkan
-  
+  $ump_fc = filter_input(INPUT_POST, 'fc', FILTER_SANITIZE_STRING);
+  $ump_due_date = filter_input(INPUT_POST, 'jatuh-tempo', FILTER_SANITIZE_STRING);
+
   $lastStatus = "Accepted";
   
   // menyiapkan query
-  $sql = "UPDATE tbl_ump SET ump_keterangan_reject= null,ump_lastupdate_by = :usr_id, ump_lastupdate_status = :last_status where ump_no = :ump_no";
+  $sql = "UPDATE tbl_ump SET ump_due_date= :ump_due_date, is_fc = :is_fc, ump_lastupdate_by = :usr_id where ump_no = :ump_no";
   $stmt = $db->prepare($sql);
 
   // bind parameter ke query
   $params = array(
       ":ump_no" => $ump_no,
       ":usr_id" => $userId,
-      ":last_status" => $lastStatus
+      ":ump_due_date" => $ump_due_date,
+      ":is_fc" => $ump_fc
       
   );
 
@@ -148,23 +118,20 @@ if(isset($_POST['cancel'])){
               <span>Fotocopy:</span>
               <label class="fc-radio">
                 Ada
-                <input type="radio" name="fc" id="fc-ada" disabled value ='Y' <?php if($ump['is_fc']=="Y") echo 'checked';?>/>
+                <input type="radio" name="fc" id="fc-ada" value ='Y' <?php if($ump['is_fc']=="Y") echo 'checked disabled';?>/>
                 <span class="checkmark"></span>
               </label>
               <label class="fc-radio">
                 Tidak Ada
-                <input type="radio" name="fc" id="fc-gada" disabled value ='N' <?php if($ump['is_fc']=="N") echo 'checked'; ?>/>
+                <input type="radio" name="fc" id="fc-gada" value ='N' <?php if($ump['is_fc']=="N") echo 'checked'; if($ump['is_fc']=="Y") echo 'disabled'; ?>/>
                 <span class="checkmark"></span>
               </label>
             </div>
-            <input type="text" placeholder="Jatuh Tempo" disabled value='<?php echo $ump['ump_due_date']; ?>'/>
-            <input type="text" placeholder="Keterangan Rejected" name="keterangan" value='<?php echo $ump['ump_keterangan_reject']; ?>'/>
-
+            <input type="date" placeholder="Jatuh Tempo" name="jatuh-tempo" value='<?php echo $ump['ump_due_date']; ?>'/>
             <!-- buttonnya ubah -->
             <div class="option-btn flex flex-jc-sb">
               <button type="submit" name="cancel">cancel</button>
-              <button type="submit" name="reject">reject</button>
-              <button type="submit" name="confirm">confirm</button>
+              <button type="submit" name="confirm">save</button>
             </div>
           </form>
         </section>

@@ -119,11 +119,15 @@
                 foreach($umps as $key=>$data){
                   date_default_timezone_set('UTC');
                   $userTimeZone = new DateTimeZone('Asia/Jakarta');
-                  $ump_due_date = new DateTime($data['ump_due_date']);
+                  if(isset($data['ump_due_date'])&&$data['ump_due_date']!=''){
+                    $ump_due_date = new DateTime($data['ump_due_date']);
+                    $ump_due_date->setTimeZone($userTimeZone);
+                    $due_date = $ump_due_date->format('d-m-Y');
+                  }else{
+                    $due_date='';
+                  }
                   $ump_updated_date = new DateTime($data['ump_updated_at']);
-                  $ump_due_date->setTimeZone($userTimeZone);
                   $ump_updated_date->setTimeZone($userTimeZone);
-                  $due_date = $ump_due_date->format('d-m-Y');
                   $updated_date = $ump_updated_date->format('d-m-Y');
                   $jumlah_permintaan = rupiah($data['ump_nominal']);
 
