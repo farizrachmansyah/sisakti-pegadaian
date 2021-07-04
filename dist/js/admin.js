@@ -28,6 +28,9 @@ class AdminUI {
       } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
+      }else if (url.includes('dashboard-ump')&&statusInfo.toLowerCase() == 'done') {
+        editBtn.style.color = '#212529';
+        editBtn.innerHTML = '<i class="fas fa-user-edit"></i>';
       } else {
         editBtn.style.visible = 'hidden';
       }
@@ -134,6 +137,8 @@ class EventListener {
             } else {
               popupRegistered.classList.add('show');
             }
+          } else if (status == 'done') {
+            window.location.href = `./konfirmasi-ump.php?ump=${ump}`;
           }
         });
       } else {

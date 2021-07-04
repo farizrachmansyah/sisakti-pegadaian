@@ -7,13 +7,21 @@ if(isset($_POST['submit'])){
     $userId = $user["usr_id"];
     // filter data yang diinputkan
     $soa_akt = filter_input(INPUT_POST, 'aktivitas', FILTER_SANITIZE_STRING);
-    $soa_no = filter_input(INPUT_POST, 'soa', FILTER_SANITIZE_STRING);
+    $soa_input = filter_input(INPUT_POST, 'soa', FILTER_SANITIZE_STRING);
+    $ump_input = filter_input(INPUT_POST, 'ump', FILTER_SANITIZE_STRING);
     $soa_sopp = filter_input(INPUT_POST, 'sopp', FILTER_SANITIZE_STRING);
     $soa_perihal = filter_input(INPUT_POST, 'perihal', FILTER_SANITIZE_STRING);
     $soa_nominal = filter_input(INPUT_POST, 'nominal', FILTER_SANITIZE_STRING);
     $soa_departemen_id = filter_input(INPUT_POST, 'departemen', FILTER_SANITIZE_STRING);
     $soa_pa_id = filter_input(INPUT_POST, 'pemegang-anggaran', FILTER_SANITIZE_STRING);
 
+    if(isset($ump_input)||$ump_input!=""){
+      $soa_no = $ump_input;
+    }else{
+      $soa_no = strval($soa_no)."/SOA-00108/2021";
+    }
+
+    
     // menyiapkan query
     $sql = "INSERT INTO tbl_soa (soa_akt_id, soa_no, soa_sopp, soa_perihal, soa_nominal, soa_departemen_id,soa_pa_id, soa_lastupdate_by, soa_lastupdate_status) 
             VALUES (:soa_akt, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id, :usr_id, 'Accepted')";
@@ -22,7 +30,7 @@ if(isset($_POST['submit'])){
     // bind parameter ke query
     $params = array(
         ":soa_akt" => $soa_akt,
-        ":soa_no" => strval($soa_no)."/SOA-00108/2021",
+        ":soa_no" => $soa_no,
         ":soa_sopp" => $soa_sopp,
         ":soa_perihal" => $soa_perihal,
         ":soa_nominal" => $soa_nominal,

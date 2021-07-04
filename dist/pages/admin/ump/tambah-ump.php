@@ -12,12 +12,11 @@ if(isset($_POST['submit'])){
     $ump_perihal = filter_input(INPUT_POST, 'perihal', FILTER_SANITIZE_STRING);
     $ump_nominal = filter_input(INPUT_POST, 'nominal', FILTER_SANITIZE_STRING);
     $ump_due_date = filter_input(INPUT_POST, 'jatuh-tempo', FILTER_SANITIZE_STRING);
-    
+
     // menyiapkan query
     $sql = "INSERT INTO tbl_ump (ump_bagian_id, ump_no, ump_perihal, ump_nominal, is_fc,ump_due_date, ump_lastupdate_by, ump_lastupdate_status) 
             VALUES (:ump_bagian, :ump_no, :ump_perihal, :ump_nominal, :is_fc, :ump_due_date, :usr_id, 'Accepted')";
     $stmt = $db->prepare($sql);
-
     // bind parameter ke query
     $params = array(
         ":ump_bagian" => $ump_bagian,
@@ -123,11 +122,11 @@ if(isset($_POST['submit'])){
               </label>
               <label class="fc-radio">
                 Tidak Ada
-                <input type="radio" name="fc" id="fc-gada" value="N"/>
+                <input type="radio" name="fc" id="fc-gada" value="N" checked/>
                 <span class="checkmark"></span>
               </label>
             </div>
-            <input type="date" placeholder="Jatuh Tempo" name="jatuh-tempo" required />
+            <input type="date" placeholder="Jatuh Tempo" name="jatuh-tempo"/>
 
             <button type="submit" name="submit">submit</button>
           </form>

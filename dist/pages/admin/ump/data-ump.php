@@ -68,6 +68,15 @@ function loadSoa($psoa) {
     return $soa;
 }
 
+function loadUmp($pump) {
+    global $db;
+    $sql="SELECT ump_no, ump_perihal, ump_nominal, ump_keterangan_reject, is_fc, ump_due_date,(select mst_code from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_code,(select mst_text from tbl_mstcode where mst_id = ump_bagian_id) as ump_bagian_text FROM tbl_ump WHERE ump_no ='".$pump."'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $ump = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ump;
+}
+
 function loadListDashboardUmp(){
     global $db;
     $sql="SELECT ump_no,
