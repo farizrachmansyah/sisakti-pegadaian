@@ -78,6 +78,8 @@ if(isset($_POST['submit'])){
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
+
+    <!-- jQuery -->
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -99,6 +101,10 @@ if(isset($_POST['submit'])){
       })
     </script>
 
+    <!-- select2 library -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
   </head>
   <body>
     <main class="main terima">
@@ -141,7 +147,7 @@ if(isset($_POST['submit'])){
                 foreach($umps as $ump){
                   echo "<option id='".$ump['ump_id']."' value='".$ump['ump_no']."'>".$ump['ump_no']."</option>";
                 }
-              ?>
+                ?>
               </select>
             </div>
             <input id="sopp" type="text" placeholder="SOPP" name="sopp" required />

@@ -28,7 +28,7 @@ class AdminUI {
       } else if (statusInfo.toLowerCase() == 'rejected') {
         editBtn.style.color = '#e74c3c';
         editBtn.innerHTML = '<i class="fas fa-undo-alt"></i>';
-      }else if (url.includes('dashboard-ump')&&statusInfo.toLowerCase() == 'done') {
+      } else if (url.includes('dashboard-ump') && statusInfo.toLowerCase() == 'done') {
         editBtn.style.color = '#212529';
         editBtn.innerHTML = '<i class="fas fa-user-edit"></i>';
       } else {
@@ -194,6 +194,23 @@ class EventListener {
     //   });
     // });
   }
+
+  dropdownSearchable() {
+    $('#ump').select2();
+    $('#aktivitas').select2();
+
+    // RESET THOSE FIELD STYLING
+    const theField = document.querySelectorAll('.select2.select2-container.select2-container--default');
+
+    theField.forEach(field => {
+      if (field.previousElementSibling.id === 'ump') {
+        field.classList.add('input', 'soa-ump', 'ump');
+      } else {
+        field.classList.add('input');
+      }
+    });
+
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -208,5 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
     events.setBtnAction(URL_STRING);
   } else if (URL_STRING.includes('terima-dokumen')) {
     events.soaUmpValidation();
+    events.dropdownSearchable();
   }
 });

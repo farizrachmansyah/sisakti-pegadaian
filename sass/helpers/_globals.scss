@@ -376,3 +376,22 @@ button,
     }
   }
 }
+
+// RESET SELECT 2 STYLE
+.select2-container--default .select2-selection--single {
+  background: #f4f8ff !important;
+  border: inherit !important;
+  border-radius: inherit !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: $secondary-color !important;
+  line-height: inherit !important;
+  text-align: left !important;
+  padding: unset !important;
+}
+.select2-container .select2-selection--single {
+  height: inherit !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100% !important;
+}
