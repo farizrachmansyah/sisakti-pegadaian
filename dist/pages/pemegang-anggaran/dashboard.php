@@ -105,7 +105,7 @@
 
 
                   echo "<tr>";
-                  echo "<td>No</td>";
+                  echo "<td>".($key+1)."</td>";
                   echo "<td class='soadata-table'>".$data['soa_no']."</td>";
                   echo "<td class='soadata-table'>".$data['soa_sopp']."</td>";
                   echo "<td>".$data['soa_departemen_name']."</td>";
