@@ -195,7 +195,7 @@ if(isset($_POST['submit'])){
               <?php
                 $aktivitas = loadActivity();
                 foreach($aktivitas as $data){
-                  echo "<option id='".$data['akt_id']."' value='".$data['akt_id']."'>".$data['akt_name']." - ".$data['akt_ma_code']."</option>";
+                  echo "<option id='".$data['akt_id']."' value='".$data['akt_id']."'>".$data['akt_ma_code']." - ".$data['akt_name']."</option>";
                 }
 
               ?>
