@@ -2,6 +2,13 @@
 if(!empty($_SESSION)){ }else{ session_start(); }
 require_once 'data-ump.php';
 
+$userTimeZone = new DateTimeZone('Asia/Jakarta');
+$nowDate = date("Y-m-d");
+$nowDateConverted = new DateTime($nowDate);
+$nowDateConverted->setTimeZone($userTimeZone);
+$nowYear = $nowDateConverted->format('Y');
+$ump_suffix = "/UMP-00108/".$nowYear;
+
 if(isset($_POST['submit'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
@@ -13,6 +20,8 @@ if(isset($_POST['submit'])){
     $ump_nominal = filter_input(INPUT_POST, 'nominal', FILTER_SANITIZE_STRING);
     $ump_due_date = filter_input(INPUT_POST, 'jatuh-tempo', FILTER_SANITIZE_STRING);
 
+    $nominal_cleared = str_replace(',', '', $ump_nominal);
+
     if($ump_fc == 'Y'){
      $sql = "INSERT INTO tbl_ump (ump_bagian_id, ump_no, ump_perihal, ump_nominal, is_fc,ump_due_date, ump_lastupdate_by, ump_lastupdate_status) 
             VALUES (:ump_bagian, :ump_no, :ump_perihal, :ump_nominal, :is_fc, :ump_due_date, :usr_id, 'Accepted')";
@@ -20,9 +29,9 @@ if(isset($_POST['submit'])){
     // bind parameter ke query
     $params = array(
         ":ump_bagian" => $ump_bagian,
-        ":ump_no" => strval($ump_no)."/UMP-00108/2021",
+        ":ump_no" => strval($ump_no).$ump_suffix,
         ":ump_perihal" => $ump_perihal,
-        ":ump_nominal" => $ump_nominal,
+        ":ump_nominal" => $nominal_cleared,
         ":is_fc" => $ump_fc,
         ":ump_due_date" => $ump_due_date,
         ":usr_id" => $userId
@@ -44,7 +53,7 @@ if(isset($_POST['submit'])){
         ":ump_bagian" => $ump_bagian,
         ":ump_no" => strval($ump_no)."/UMP-00108/2021",
         ":ump_perihal" => $ump_perihal,
-        ":ump_nominal" => $ump_nominal,
+        ":ump_nominal" => $nominal_cleared,
         ":is_fc" => $ump_fc,
         ":usr_id" => $userId
     );
@@ -89,8 +98,11 @@ if(isset($_POST['submit'])){
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
+
+    <!-- jQuery -->
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../../js/easy-number-separator.js"></script>
   </head>
   <body>
     <!-- CSS NYA NUMPANG DI FILE TERIMIA DOKUMEN ADMIN -->
@@ -122,13 +134,13 @@ if(isset($_POST['submit'])){
             <div class="ump flex flex-ai-c">
               <input id="ump" type="text" placeholder="UMP" name="ump-no" required />
               <div class="ump-format">
-                <p>/UMP-00108/2021</p>
+                <p><?php echo $ump_suffix;?></p>
               </div>
             </div>
             <input type="text" name="perihal" placeholder="Perihal" name="perihal" required />
             <div class="nominal flex flex-ai-c">
               <span>Rp. </span>
-              <input type="number" placeholder="Nominal" name="nominal" required />
+              <input type="text" placeholder="Nominal" name="nominal" class="number-separator" required />
             </div>
             <select class="input" name="kode-bagian" id="">
               <option selected disabled>Bagian</option>

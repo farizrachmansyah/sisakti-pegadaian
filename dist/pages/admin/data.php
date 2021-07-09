@@ -71,7 +71,7 @@ function loadPemegangMataAnggaran() {
 function loadUmp() {
     global $db;
     //$sql="SELECT ump_id,ump_no FROM tbl_ump";
-    $sql="SELECT ump_id,ump_no FROM tbl_ump LEFT JOIN tbl_soa on soa_no = ump_no WHERE soa_no IS NULL";
+    $sql="SELECT ump_id,ump_no FROM tbl_ump LEFT JOIN tbl_soa on soa_no = ump_no WHERE soa_no IS NULL AND ump_lastupdate_status = 'Done' ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $umps = $stmt->fetchAll(PDO::FETCH_ASSOC);

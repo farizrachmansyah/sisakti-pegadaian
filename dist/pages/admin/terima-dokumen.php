@@ -2,6 +2,13 @@
 if(!empty($_SESSION)){ }else{ session_start(); }
 require_once 'data.php';
 
+$userTimeZone = new DateTimeZone('Asia/Jakarta');
+$nowDate = date("Y-m-d");
+$nowDateConverted = new DateTime($nowDate);
+$nowDateConverted->setTimeZone($userTimeZone);
+$nowYear = $nowDateConverted->format('Y');
+$soa_suffix = "/SOA-00108/".$nowYear;
+
 if(isset($_POST['submit'])){
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
@@ -15,10 +22,11 @@ if(isset($_POST['submit'])){
     $soa_departemen_id = filter_input(INPUT_POST, 'departemen', FILTER_SANITIZE_STRING);
     $soa_pa_id = filter_input(INPUT_POST, 'pemegang-anggaran', FILTER_SANITIZE_STRING);
 
-    if(isset($ump_input)||$ump_input!=""){
+    
+    if(isset($ump_input)&&$ump_input!="ump"){
       $soa_no = $ump_input;
     }else{
-      $soa_no = strval($soa_no)."/SOA-00108/2021";
+      $soa_no = strval($soa_input).$soa_suffix;
     }
 
     
@@ -27,13 +35,18 @@ if(isset($_POST['submit'])){
             VALUES (:soa_akt, :soa_no, :soa_sopp, :soa_perihal,:soa_nominal, :soa_departemen_id, :soa_pa_id, :usr_id, 'Accepted')";
     $stmt = $db->prepare($sql);
 
+    $nominal_cleared = str_replace(',', '', $soa_nominal);
+    // print_r($_POST);
+    // print_r($soa_no);
+    // print_r($nominal_cleared);
+    // die();
     // bind parameter ke query
     $params = array(
         ":soa_akt" => $soa_akt,
         ":soa_no" => $soa_no,
         ":soa_sopp" => $soa_sopp,
         ":soa_perihal" => $soa_perihal,
-        ":soa_nominal" => $soa_nominal,
+        ":soa_nominal" => $nominal_cleared,
         ":soa_departemen_id" => $soa_departemen_id,
         ":soa_pa_id" => $soa_pa_id,
         ":usr_id" => $userId
@@ -81,6 +94,7 @@ if(isset($_POST['submit'])){
 
     <!-- jQuery -->
     <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/easy-number-separator.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         $("#departemen").change(function(){
@@ -135,13 +149,13 @@ if(isset($_POST['submit'])){
           <form action="" method="POST">
             <div id="kode-utama" class="flex">
               <div class="soa flex flex-ai-c">
-                <input id="soa" class="soa-ump" type="text" placeholder="SOA" autocomplete="off" autofocus />
+                <input id="soa" class="soa-ump" type="text" placeholder="SOA" autocomplete="off" autofocus name="soa"/>
                 <div class="soa-format">
-                  <p>/SOA-00108/2021</p>
+                  <p><?php echo $soa_suffix?></p>
                 </div>
               </div>
               <select name="ump" id="ump" class="input soa-ump ump">
-                <option value="" selected>UMP</option>
+                <option value="ump" selected>UMP</option>
                 <?php
                 $umps = loadUmp();
                 foreach($umps as $ump){
@@ -204,7 +218,7 @@ if(isset($_POST['submit'])){
             <!-- <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required/> -->
             <div class="permintaan flex flex-ai-c">
               <span>Rp. </span>
-              <input type="number" placeholder="Jumlah Permintaan" name="nominal" required />
+              <input type="text" placeholder="Jumlah Permintaan" name="nominal" class="number-separator" required />
             </div>
             
             <input type="text" placeholder="Perihal" name="perihal" required />

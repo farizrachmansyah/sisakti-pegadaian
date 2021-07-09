@@ -9,13 +9,13 @@
    
   }
   $ump_no = '';
-  if(isset($_GET['ump'])){
+  if(isset($_POST['ump'])){
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../../login.php");
     }
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
-    $ump_no = $_GET['ump'];
+    $ump_no = $_POST['ump'];
     $lastStatus = "Done";
 
     $sql = "UPDATE tbl_ump SET ump_lastupdate_status = :last_status where ump_no = :ump_no";
@@ -66,7 +66,7 @@
     <!-- Pop Up Registered -->
     <div id="popup-registered" class="popup flex flex-ai-c">
       <p>Dokumen transaksi sudah dibayarkan</p>
-      <form method="GET">
+      <form method="POST">
         <input id="popup-registered-data" type="hidden" name="ump" />
         <button type="submit">Selesai</button>
       </form>

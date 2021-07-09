@@ -9,13 +9,13 @@
    
   }
   $soa_no = '';
-  if(isset($_GET['soa'])){
+  if(isset($_POST['soa'])){
     if(!isset($_SESSION["user"])||$userId=''){
       header("Location: ../../../login.php");
     }
     $user = $_SESSION["user"];
     $userId = $user["usr_id"];
-    $soa_no = $_GET['soa'];
+    $soa_no = $_POST['soa'];
     $lastStatus = "Done";
 
     $sql = "UPDATE tbl_soa SET soa_lastupdate_status = :last_status where soa_no = :soa_no";

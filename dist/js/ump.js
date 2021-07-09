@@ -65,9 +65,9 @@ class UmpUI {
         let jtempoData = row.children[7];
         let btnAction = row.children[11];
 
-        if (fcData.dataset.isfc === 'y' && jtempoData.innerText !== '') {
-          btnAction.innerHTML = '';
-        }
+        // if (fcData.dataset.isfc === 'y' && jtempoData.innerText !== '') {
+        //   btnAction.innerHTML = '';
+        // }
       })
     }
   }

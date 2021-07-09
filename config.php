@@ -1,8 +1,8 @@
 <?php
-$db_host = "us-cdbr-east-04.cleardb.com:3306";
-$db_user = "bc824471867531";
-$db_pass = "ce77d49b";
-$db_name = "heroku_7198d5e8fe4265e";
+$db_host = "localhost";
+$db_user = "sisaktip_developer";
+$db_pass = "Sisakti@2021";
+$db_name = "sisaktip_sisakti";
 // $db_host = "localhost:3306";
 // $db_user = "root";
 // $db_pass = "";
