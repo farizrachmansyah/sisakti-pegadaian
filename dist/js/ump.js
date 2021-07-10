@@ -64,10 +64,11 @@ class UmpUI {
         let fcData = row.children[6];
         let jtempoData = row.children[7];
         let btnAction = row.children[11];
+        let status = row.children[10].innerText;
 
-        // if (fcData.dataset.isfc === 'y' && jtempoData.innerText !== '') {
-        //   btnAction.innerHTML = '';
-        // }
+        if (fcData.dataset.isfc === 'y' && jtempoData.innerText !== '' && status.toLowerCase() === 'done') {
+          btnAction.innerHTML = '';
+        }
       })
     }
   }
