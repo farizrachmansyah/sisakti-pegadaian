@@ -225,6 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
     events.setBtnAction(URL_STRING);
   } else if (URL_STRING.includes('terima-dokumen')) {
     events.soaUmpValidation();
-    // events.dropdownSearchable();
+    events.dropdownSearchable();
   }
 });
