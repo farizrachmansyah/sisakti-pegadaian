@@ -155,7 +155,7 @@ if(isset($_POST['submit'])){
                 </div>
               </div>
               <select name="ump" id="ump" class="input soa-ump ump">
-                <option value="ump" selected>UMP</option>
+                <option value="ump" selected="" disabled="">UMP</option>
                 <?php
                 $umps = loadUmp();
                 foreach($umps as $ump){
@@ -213,7 +213,6 @@ if(isset($_POST['submit'])){
                 }
 
               ?>
-             
             </select>
             <!-- <input type="number" placeholder="Mata Anggaran" name="mata-anggaran" required/> -->
             <div class="permintaan flex flex-ai-c">
